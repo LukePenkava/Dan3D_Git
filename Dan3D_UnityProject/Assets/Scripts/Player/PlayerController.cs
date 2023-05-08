@@ -3,27 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//Frying pan model, show it when attacking
-//Add enemy
-//Hitting enemy makes him run away (red box, turns green when hit)
-//Setup some combat scenario, how does it work?
-//They should not be attacking, but more messing with Dan, running around, scaring Chompy. When chompy is scared he runs away
-//Scare meter for Chompy? It's more like you are protecting Chompy, Zim talks about how Chomp realy does not like this. Chompy can sense
-//their dark eneryg as he is more magical creature as well, so it affects him a bit more.
+// TO DO
 
 //Area camera movement
 
-//Chomp logic, character, can run away
-//Zim running around collecting things. when he runs to something like a flower, you can press a button to collect as well, even faster
+//Inventory UI, Items
 
-//AI for characters to move between areas and in the area.
-
-//Dan health? reduced only from survival elements or enemies also?
-
+//Area logic (what area it is, load surrounding areas)
+//Map (ui, display position)
 //Areas loading additively. Setup Home area, left, right area, forward and backward area.
 //Setup area map, first index sets y direction ( 0 default where home is, 1, going forward, -1 gobing backwards)
 //So 0,1 is first area on the right of home. 0,-4, is fourth area on the left of home. 2,3, is two lanes forward from hom and 3 to the right
 //Have UI map, display position
+
+//Setup home, enter home, 3d temp art, logic. Probabaly have some map for home, do room upgrades there? how to build new rooms and upgrades
+
+//AI for characters to move between areas and in the area.
+
+// LATER
+//Add animated enemy
+//Enemies should not be attacking, but more messing with Dan, running around, scaring Chompy. When chompy is scared he runs away
+//Implement Chompy
+//Chomp logic, character, can run away
+//Zim running around collecting things. when he runs to something like a flower, you can press a button to collect as well, even faster
+
+// NOTES
+//Scare meter for Chompy? It's more like you are protecting Chompy, Zim talks about how Chomp realy does not like this. Chompy can sense
+//their dark energy as he is more magical creature as well, so it affects him a bit more.
+//Dan health? reduced only from survival elements or enemies also?
+//Enemies should be obnoxious, running arond Dan, biting him etc or do something else? what enemies do? they don't attack
+
 
 namespace Player 
 {    
@@ -56,6 +65,11 @@ namespace Player
         float verticalVelocity;
         float maxVelocity = 53.0f;
 
+        //Attack
+        public GameObject weapon;
+        public GameObject weaponCollider;
+
+
 
         ///////////////////////////
 
@@ -77,6 +91,8 @@ namespace Player
             animID_Attack = Animator.StringToHash("Attack");
 
             anim.SetBool(animID_MoveEnabled, true);
+
+            weapon.SetActive(false);
         }
 
         void OnEnable() {
@@ -138,7 +154,7 @@ namespace Player
         }  
 
         void OnAttackPerformed(InputAction.CallbackContext context) {
-            if(context.ReadValue<float>() == 1f) {
+            if(context.ReadValue<float>() == 1f) {                
                 Attack();
             } 
         }
@@ -221,12 +237,23 @@ namespace Player
             PlayerDirector.PlayerState = PlayerDirector.PlayerStates.Attacking;
             anim.SetBool(animID_MoveEnabled, false);
             anim.SetTrigger(animID_Attack);
+            StartCoroutine(ActivateCollider());
+            weapon.SetActive(true);
+        }
+
+        IEnumerator ActivateCollider() {
+            weaponCollider.SetActive(false);
+            yield return new WaitForSeconds(0.36f);
+            weaponCollider.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            weaponCollider.SetActive(false);
         }
 
         //Called when attack animation finishes
         void AttackFinished() {
             PlayerDirector.PlayerState = PlayerDirector.PlayerStates.Idle;
             anim.SetBool(animID_MoveEnabled, true);
+            weapon.SetActive(false);
         }
     }
 }
