@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
     supportShadowMask: 0
-    supportSSR: 0
+    supportSSR: 1
     supportSSRTransparent: 0
     supportSSAO: 1
     supportSSGI: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     probeVolumeBlendingMemoryBudget: 128
     supportProbeVolumeStreaming: 0
     probeVolumeSHBands: 1
-    supportRayTracing: 0
+    supportRayTracing: 1
     supportedRayTracingMode: 3
     lightLoopSettings:
       cookieAtlasSize: 512
@@ -87,7 +87,7 @@ MonoBehaviour:
       maxCubeReflectionOnScreen: 32
       maxPlanarReflectionOnScreen: 16
       maxDecalsOnScreen: 512
-      maxLightsPerClusterCell: 16
+      maxLightsPerClusterCell: 24
       maxLocalVolumetricFogSize: 32
       maxLocalVolumetricFogOnScreen: 64
     hdShadowInitParams:
@@ -293,6 +293,8 @@ MonoBehaviour:
   diffusionProfileSettings: {fileID: 0}
   virtualTexturingSettings:
     streamingCpuCacheSizeInMegaBytes: 256
+    streamingMipPreloadTexturesPerFrame: 0
+    streamingPreloadMipCount: 1
     streamingGpuCacheSettings:
     - format: 0
       sizeInMegaBytes: 128

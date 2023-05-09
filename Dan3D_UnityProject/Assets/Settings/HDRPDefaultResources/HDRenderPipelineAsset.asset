@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
     supportShadowMask: 1
-    supportSSR: 0
-    supportSSRTransparent: 0
+    supportSSR: 1
+    supportSSRTransparent: 1
     supportSSAO: 1
     supportSSGI: 0
     supportSubsurfaceScattering: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
     supportProbeVolumeStreaming: 0
     probeVolumeSHBands: 1
     supportRayTracing: 0
-    supportedRayTracingMode: 3
+    supportedRayTracingMode: 2
     lightLoopSettings:
       cookieAtlasSize: 2048
       cookieFormat: 74
@@ -144,11 +144,11 @@ MonoBehaviour:
       fsrOverrideSharpness: 0
       fsrSharpness: 0.92
       maxPercentage: 100
-      minPercentage: 100
+      minPercentage: 50
       dynResType: 1
       upsampleFilter: 1
-      forceResolution: 0
-      forcedPercentage: 100
+      forceResolution: 1
+      forcedPercentage: 20
       lowResTransparencyMinimumThreshold: 0
       rayTracingHalfResThreshold: 50
     lowresTransparentSettings:
@@ -293,6 +293,8 @@ MonoBehaviour:
   diffusionProfileSettings: {fileID: 0}
   virtualTexturingSettings:
     streamingCpuCacheSizeInMegaBytes: 256
+    streamingMipPreloadTexturesPerFrame: 0
+    streamingPreloadMipCount: 1
     streamingGpuCacheSettings:
     - format: 0
       sizeInMegaBytes: 128

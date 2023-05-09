@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // TO DO
-
-//Area camera movement
-
 //Inventory UI, Items
 
 //Area logic (what area it is, load surrounding areas)
