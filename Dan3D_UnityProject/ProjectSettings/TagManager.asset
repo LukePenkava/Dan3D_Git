@@ -10,6 +10,8 @@ TagManager:
   - UIElement
   - Canvas
   - Managers
+  - Interaction
+  - Character
   layers:
   - Default
   - TransparentFX

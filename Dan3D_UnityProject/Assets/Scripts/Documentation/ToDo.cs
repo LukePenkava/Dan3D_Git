@@ -1,9 +1,7 @@
 /*
 
--Interactions systems, code
--Find item, pick it up, save it player items, display it inventory.
 -Write Doc on systems, go through everything, comment it, document it
-
+-Clean up
 
 -Resource object, timer, collecting, refreshing resource over time. Reaction from tree. Pop up, show how much wood is available, when player hits more, tree gets annoyed, takes longer to refresh. ( Wood, hit tree with frying pan ) Have you ever wondered how do you use frying pan to get wood and stone? Well, it's obvious, it's magical frying pan. Simple.
 -Tree just press button for each wood available, wood resource pops, tree shakes

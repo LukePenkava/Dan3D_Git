@@ -7,6 +7,7 @@ public class InitializeManager : MonoBehaviour
     GameDirector gameDirector;
     CameraManager cameraManager;
     UIManager uiManager;
+    InteractionManager interactionManager;
 
     //InteractionManager interactionManager;    
     //UIManager uiManager;
@@ -25,6 +26,7 @@ public class InitializeManager : MonoBehaviour
         gameDirector = GetComponent<GameDirector>();
         cameraManager = GetComponent<CameraManager>();
         uiManager = GetComponent<UIManager>();
+        interactionManager = GetComponent<InteractionManager>(); 
 
         // interactionManager = GetComponent<InteractionManager>();
         // tradeManager = GetComponent<TradeManager>();
@@ -44,6 +46,7 @@ public class InitializeManager : MonoBehaviour
         gameDirector.Init();        
         cameraManager.Init();
         uiManager.Init();
+        interactionManager.Init();
 
         // resourceManager.Init(); 
         // questManager.Init();       

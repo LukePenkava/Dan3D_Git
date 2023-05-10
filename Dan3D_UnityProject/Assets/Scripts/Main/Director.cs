@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Director
 {
     //Values
+    public static float distanceToInteract = 2.0f;
     public static float displayItemTime = 2.5f;
 
     //Used for Inventory to know if UI is navigated with keys or mouse
