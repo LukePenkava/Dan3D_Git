@@ -7,6 +7,9 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - GameManager
+  - UIElement
+  - Canvas
+  - Managers
   layers:
   - Default
   - TransparentFX

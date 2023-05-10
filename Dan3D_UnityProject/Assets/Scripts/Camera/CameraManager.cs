@@ -131,8 +131,7 @@ public class CameraManager : MonoBehaviour
             areaTop = targetBounds.position.y + size.y/2f;
 
             velocity = Vector2.zero;
-            center = new Vector2((areaLeft + areaRight) / 2, ( areaTop + areaBottom) / 2); 
-            print("Center Start " + center.y);
+            center = new Vector2((areaLeft + areaRight) / 2, ( areaTop + areaBottom) / 2);            
        
             testPos = Vector3.zero;          
         }

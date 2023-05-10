@@ -1,0 +1,138 @@
+﻿<Quests>
+    <Quest>
+        <name>LostSundial</name>
+        <title>Lost Sundial</title>
+        <description>Our family Jade Sundial, heirloom passed for generations and invaluable gemcrafting tool and we lost it. Or rather got it stolen. Not sure what makes us more incompetent. In any case, we got to get it back. Zim said some strange black creature took it.</description>
+        <!-- Tasks in a quest, it can be cook meal, find something etc. Quest can have one or more tasks -->
+        <Tasks>
+            <!-- Each task is displayed in quest ui, to complete quest, all tasks has to be completed -->
+            <Task>
+                <!-- TaskName is very important as it includes keywords to identify what action finishes this task like "DialogueClosed" -->
+                <TaskIndex>1</TaskIndex>
+                <TaskName>Find_Sundial</TaskName>
+                <Description>Find lost sundial</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue> <!-- this is value TaskValue needs to have to be marked as completed, it can be anything -->
+                <TaskValues>
+                    <TaskValue Value="false">Sundial</TaskValue> <!-- This is how task is completed, it can be cooking something, talking to someone etc. This is what gets set after player did the action, once all TaskValues are completed, Task is copmleted -->
+                </TaskValues>
+            </Task>
+        </Tasks>       
+    </Quest>  
+    <Quest>
+        <name>BasilVeggies</name>
+        <title>Basil's lost veggies</title>
+        <description>Find lost vegetables, Basil's vegie friends got lost in the forest, find them using Manure Allure.</description>
+        <!-- Tasks in a quest, it can be cook meal, find something etc. Quest can have one or more tasks -->
+        <Tasks>
+            <Task>
+                <TaskIndex>1</TaskIndex>
+                <TaskName>Find_Veggies_DialogueClosed</TaskName>
+                <Description>Find all lost veggies</Description>
+                <NarratorProgress>Found veggies</NarratorProgress>
+                <NarratorCompleted>Found all vegetables, return to Basil.</NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Carrot_1</TaskValue>
+                    <TaskValue Value="false">Beat_1</TaskValue>
+                    <TaskValue Value="false">Potato_1</TaskValue>
+                    <TaskValue Value="false">Leak_1</TaskValue>
+                </TaskValues>
+            </Task>
+            <Task>
+                <TaskIndex>2</TaskIndex>
+                <TaskName>Return_Basil_DialogueClosed</TaskName>
+                <Description>Talk to Basil</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Basil_2</TaskValue>
+                </TaskValues>
+            </Task>
+        </Tasks>       
+    </Quest> 
+    <Quest>
+        <name>HungryFox</name>
+        <title>Hungry Fox</title>
+        <description>Prepare some food for hungry fox. Cook any food in your cauldron.</description>
+        <!-- Tasks in a quest, it can be cook meal, find something etc. Quest can have one or more tasks -->
+        <Tasks>
+            <Task>
+                <TaskIndex>1</TaskIndex>
+                <TaskName>Craft_Food</TaskName>
+                <Description>Cook any food in your home</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Tags_Food</TaskValue>
+                </TaskValues>
+            </Task>
+            <Task>
+                <TaskIndex>2</TaskIndex>
+                <TaskName>Give_Fox</TaskName>
+                <Description>Give food to Fox</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Tags_Food</TaskValue>
+                </TaskValues>
+            </Task>
+        </Tasks>       
+    </Quest>   
+    <Quest>
+        <name>ElderberryRitual</name>
+        <title>Elderberry Ritual</title>
+        <description>Talk to Basil and gather ingredients for Eldberry ritual. You can trade Elderberries from ChickenLeg and find Gloombrella at night.</description>
+        <!-- Tasks in a quest, it can be cook meal, find something etc. Quest can have one or more tasks -->
+        <Tasks>
+            <Task>
+                <TaskIndex>1</TaskIndex>
+                <TaskName>Basil_DialogueClosed</TaskName>
+                <Description>Talk to Basil to get a recipe for ElderCharm</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Basil_3</TaskValue>
+                </TaskValues>
+            </Task>
+            <Task>
+                <TaskIndex>2</TaskIndex>
+                <TaskName>Craft_ElderCharm</TaskName>
+                <Description>Gather ingredients and perpare ElderCharm</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Name_ElderCharm</TaskValue>
+                </TaskValues>
+            </Task>
+            <Task>
+                <TaskIndex>3</TaskIndex>
+                <TaskName>Give_Fox</TaskName>
+                <Description>Give ElderCharm to fox</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Name_ElderCharm</TaskValue>
+                </TaskValues>
+            </Task>
+            <!--<Task>
+                <TaskIndex>3</TaskIndex>
+                <TaskName>Shrine_ElderCharm</TaskName>
+                <Description>Offer ElderCharm at the shrine.</Description>
+                <NarratorProgress></NarratorProgress>
+                <NarratorCompleted></NarratorCompleted>
+                <CompletedValue>True</CompletedValue>
+                <TaskValues>
+                    <TaskValue Value="false">Shrine_ElderCharm</TaskValue>
+                </TaskValues>
+            </Task>-->
+        </Tasks>       
+    </Quest>  
+</Quests>

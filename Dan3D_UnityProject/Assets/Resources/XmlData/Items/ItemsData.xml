@@ -1,0 +1,83 @@
+﻿<items>
+<!-- RESOURCES -->
+    <item>
+        <name>Wood</name>
+        <title>Wood</title>
+        <ItemTags>
+            <Tag>Resource</Tag>
+        </ItemTags>
+        <UseFunctions></UseFunctions>
+        <description>Used as a crafting resource.</description>
+        <amount>1</amount>
+    </item>    
+    <item>
+        <name>Stone</name>
+        <title>Stone</title>
+        <ItemTags>
+            <Tag>Resource</Tag>
+        </ItemTags>
+        <UseFunctions></UseFunctions>
+        <description>Used as a crafting resource.</description>
+        <amount>1</amount>
+    </item>   
+  
+
+
+<!-- FOOD -->      
+    <item>
+        <name>Noodles</name>
+        <title>Noodles</title>
+        <ItemTags>
+            <Tag>Food</Tag>
+        </ItemTags>     
+        <UseFunctions></UseFunctions>
+        <description>Not many nutrients, but tasty comfort food.</description>
+        <amount>1</amount>
+    </item>    
+
+<!-- POTIONS -->  
+
+    <!--<item>        
+        <name>CurseResist</name>       
+        <title>Curse Resist</title>
+        <ItemTags>
+            <Tag>Potion</Tag>
+        </ItemTags>
+        <UseFunctions>
+            <Function Value = "Curse">ChangeStatus</Function>
+            <Function Value = "0.1">Value</Function>
+        </UseFunctions>
+        <description>Use this potion before venturing out at night. While not fully preventing onset of curse, you will resist it for longer.</description>
+        <amount>1</amount>
+    </item> -->   
+
+<!-- ITEMS -->
+
+    <!-- <item>         
+        <name>ManureAllure</name>       
+        <title>Pouch of Manure Allure</title>
+        <ItemTags>
+            <Tag>Item</Tag>
+            <Tag>Unique</Tag>
+        </ItemTags>
+        <UseFunctions></UseFunctions>
+        <description>Pouch of Basil's best selection of manure, used to allure lost vegetables. Has a rather distinctive smell.</description>
+        <amount>1</amount>
+    </item> -->   
+
+<!-- RECIPES -->
+
+    <!-- <item>         
+        <name>RecipeElderCharm</name>       
+        <title>Recipe for ElderCharm</title>
+        <ItemTags>
+            <Tag>Recipe</Tag>
+        </ItemTags>
+        <UseFunctions>
+            <Function Value = "ElderCharm">UnlockRecipe</Function>
+        </UseFunctions>
+        <description>Read a recipe to learn how to prepare ElderCharm.</description>
+        <amount>1</amount>
+    </item>     -->   
+    
+</items>

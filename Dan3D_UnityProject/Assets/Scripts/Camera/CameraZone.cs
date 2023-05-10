@@ -6,6 +6,6 @@ public class CameraZone : MonoBehaviour
 {
     void Awake()
     {
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<CameraManager>().SetZone(this.transform);   
+        GameObject.FindGameObjectWithTag("Managers").GetComponent<CameraManager>().SetZone(this.transform);   
     }    
 }

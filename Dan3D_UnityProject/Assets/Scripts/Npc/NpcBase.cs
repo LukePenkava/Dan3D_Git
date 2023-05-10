@@ -37,8 +37,6 @@ public class NpcBase : MonoBehaviour
 
     protected void Init()
     {      
-        print("Start");
-
         controller = GetComponent<CharacterController>();
         //anim = visual.GetComponent<Animator>();
 

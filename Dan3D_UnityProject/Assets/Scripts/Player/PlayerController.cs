@@ -3,41 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// TO DO
-//Inventory UI, Items
-
-//Area logic (what area it is, load surrounding areas)
-//Map (ui, display position)
-//Areas loading additively. Setup Home area, left, right area, forward and backward area.
-//Setup area map, first index sets y direction ( 0 default where home is, 1, going forward, -1 gobing backwards)
-//So 0,1 is first area on the right of home. 0,-4, is fourth area on the left of home. 2,3, is two lanes forward from hom and 3 to the right
-//Have UI map, display position
-
-//Setup home, enter home, 3d temp art, logic. Probabaly have some map for home, do room upgrades there? how to build new rooms and upgrades
-
-//AI for characters to move between areas and in the area.
-
-// LATER
-//Add animated enemy
-//Enemies should not be attacking, but more messing with Dan, running around, scaring Chompy. When chompy is scared he runs away
-//Implement Chompy
-//Chomp logic, character, can run away
-//Zim running around collecting things. when he runs to something like a flower, you can press a button to collect as well, even faster
-
-// NOTES
-//Scare meter for Chompy? It's more like you are protecting Chompy, Zim talks about how Chomp realy does not like this. Chompy can sense
-//their dark energy as he is more magical creature as well, so it affects him a bit more.
-//Dan health? reduced only from survival elements or enemies also?
-//Enemies should be obnoxious, running arond Dan, biting him etc or do something else? what enemies do? they don't attack
-
 
 namespace Player 
 {    
     public class PlayerController : MonoBehaviour
     {
         CharacterController controller;
+        UIManager uiManager;
+
         Animator anim;
-        CustomInput input = null;
+        CustomInput input = null;        
 
         public GameObject visual;    
 
@@ -80,6 +55,8 @@ namespace Player
             controller = GetComponent<CharacterController>();
             anim = visual.GetComponent<Animator>();
 
+            uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();            
+
             //Animation IDs
             animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
             animID_MoveEnabled = Animator.StringToHash("MoveEnabled");
@@ -99,6 +76,8 @@ namespace Player
             input.Player.Sprint.performed += OnSprintPerformed;
             input.Player.Interact.performed += OnInteractPerformed;
             input.Player.Attack.performed += OnAttackPerformed;
+            input.Player.Inventory.performed += OnInventoryPerformed;
+            input.Player.UINavigation.performed += OnUINavigationPerformed;
         }    
 
         void OnDisable() {
@@ -108,6 +87,8 @@ namespace Player
             input.Player.Interact.performed -= OnSprintPerformed;
             input.Player.Interact.performed -= OnInteractPerformed;
             input.Player.Attack.performed -= OnAttackPerformed;
+            input.Player.Inventory.performed -= OnInventoryPerformed;
+            input.Player.UINavigation.performed -= OnUINavigationPerformed;
         }
 
         // Update is called once per frame
@@ -133,11 +114,23 @@ namespace Player
         //Hand Input Events
         void OnMovementPerformed(InputAction.CallbackContext context) {        
             inputDevice = context.control.device.displayName;      
-            moveVector = context.ReadValue<Vector2>();
+            
+            if(GameDirector.gameState == GameDirector.GameState.World) {
+                moveVector = context.ReadValue<Vector2>();
+            }
         }
 
         void OnMovementCancelled(InputAction.CallbackContext context) {
             moveVector = Vector2.zero;
+        }
+
+         void OnUINavigationPerformed(InputAction.CallbackContext context) {        
+            inputDevice = context.control.device.displayName;      
+            
+            if(GameDirector.gameState == GameDirector.GameState.UI) {
+                Vector2 uiInput = context.ReadValue<Vector2>();
+                uiManager.NavigateUI(uiInput);
+            }
         }
 
         void OnSprintPerformed(InputAction.CallbackContext context) {            
@@ -145,14 +138,25 @@ namespace Player
         }    
 
         void OnInteractPerformed(InputAction.CallbackContext context) {
+            
             if(context.ReadValue<float>() == 1f) {
-                TriggerInteraction();
-            }       
+                if(GameDirector.gameState == GameDirector.GameState.World) {
+                    TriggerInteraction();
+                } else if(GameDirector.gameState == GameDirector.GameState.UI) {
+                    uiManager.ActivateSelectedElement(); 
+                }
+            }                  
         }  
 
         void OnAttackPerformed(InputAction.CallbackContext context) {
             if(context.ReadValue<float>() == 1f) {                
                 Attack();
+            } 
+        }
+
+        void OnInventoryPerformed(InputAction.CallbackContext context) {
+            if(context.ReadValue<float>() == 1f) {                
+                uiManager.PlayerInventoryInput();
             } 
         }
 
