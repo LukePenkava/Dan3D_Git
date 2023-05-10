@@ -447,7 +447,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Controller Dpad"",
                     ""id"": ""049eb2a3-833d-49cf-a664-673c41c48039"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
