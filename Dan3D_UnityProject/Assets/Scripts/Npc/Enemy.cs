@@ -34,7 +34,7 @@ public class Enemy : NpcBase
                 //Get new nav position
                 intervalTimer = Random.Range(4f, 6f);
 
-                isAttacking = Random.Range(0, 100) > 50 ? true : false;
+                isAttacking = Random.Range(0, 100) > 90 ? true : false;
 
                 if(isAttacking) {
                     SetAttacking();

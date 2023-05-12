@@ -182,7 +182,7 @@ public class UIManager : MonoBehaviour
     
 
     public void DisplayItems(List<Items.ItemName> items){
-        //Take all items, which player received and show them as UI 
+        //Take all items, which player received and show them as UI        
 
         //To display items and thery amounts correctly, create dictionary with itemname and its amount ( ie 2x LavenderSprout, 1x MeadowTail)
         Dictionary<Items.ItemName, int> itemsDict = new Dictionary<Items.ItemName, int>();
@@ -200,7 +200,7 @@ public class UIManager : MonoBehaviour
         infoItems.Clear();
         
         int index = 0;
-        foreach(KeyValuePair<Items.ItemName, int> item in itemsDict) {
+        foreach(KeyValuePair<Items.ItemName, int> item in itemsDict) {           
 
             float totalWidth = (itemsDict.Count * itemInfoWidth) + ( (itemsDict.Count -1) * itemInfoGap);
             float posXStart = (totalWidth / -2f) + itemInfoWidth/2f;

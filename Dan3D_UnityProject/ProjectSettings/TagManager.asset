@@ -12,6 +12,7 @@ TagManager:
   - Managers
   - Interaction
   - Character
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - Enemy
   - Weapon
-  - 
+  - Resource
   - 
   - 
   - 

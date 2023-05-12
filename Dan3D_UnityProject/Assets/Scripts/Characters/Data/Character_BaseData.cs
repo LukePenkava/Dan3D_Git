@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Holds data like what characther this is, list of theirs items etc
 public class Character_BaseData : MonoBehaviour
 {
     public Characters.Names Name;
@@ -45,17 +46,17 @@ public class Character_BaseData : MonoBehaviour
         else {
 
             //Character has items and can trade
-            if(canTrade) {
-                //Requires CharacterItems Script
-                CharacterItems itemsScript = GetComponent<CharacterItems>();
+            // if(canTrade) {
+            //     //Requires CharacterItems Script
+            //     CharacterItems itemsScript = GetComponent<CharacterItems>();
 
-                if(itemsScript != null) {
-                    itemsScript.Init();
-                } 
-                else {
-                    Debug.Log("Missing CharacterItems Script !!!");
-                }
-            }
+            //     if(itemsScript != null) {
+            //         itemsScript.Init();
+            //     } 
+            //     else {
+            //         Debug.Log("Missing CharacterItems Script !!!");
+            //     }
+            // }
         }
 
         // GetComponent<SpriteAnimator>().Init();
@@ -74,7 +75,7 @@ public class Character_BaseData : MonoBehaviour
     //Called by CharacterItems, if character does not have that script, there is not point in loading items anyway
     public void LoadItems() {        
         itemsList = SaveManager.LoadItems(Name);
-        print("itemsList " + itemsList.Count);
+        //print("itemsList " + itemsList.Count);
     }
 
     public void SetTradeValues(Dictionary<Items.ItemName, int> values) {
@@ -99,7 +100,6 @@ public class Character_BaseData : MonoBehaviour
                     InventoryItem invItem = new InventoryItem(i, itemNames[x]);                        
                     itemsList.Add(invItem);
                     occupiedSlots.Add(i);
-                    //SaveManager.SaveItems(Name, items);
                     break;
                 }
             }

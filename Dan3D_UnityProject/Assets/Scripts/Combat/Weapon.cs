@@ -7,6 +7,8 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Enemy>().GotHit();
+        if(other.gameObject.tag == "Enemy") {
+            other.gameObject.GetComponent<Enemy>().GotHit();       
+        }
     }
 }

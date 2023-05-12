@@ -129,7 +129,7 @@ public class Interaction : MonoBehaviour
     public virtual void ActivateOverride() {    
         //Implement function in child class    
 
-         if (InteractionTriggered != null) {            
+        if (InteractionTriggered != null) {            
             InteractionTriggered(interactionType);
         }
     }   

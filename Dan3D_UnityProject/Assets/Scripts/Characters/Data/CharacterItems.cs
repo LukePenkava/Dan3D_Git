@@ -10,7 +10,7 @@ using System.Globalization;
 
 
 //Each Character can have items on him and Dangoru can trade with him
-//This script does not server as access point of character items or data, but to setup items for a character. Ie character can have some items from before
+//This script does not serve as access point of character items or data, but to setup items for a character. Ie character can have some items from before
 //but each npc has its own of pool items it can randomly have. It has to be loaded, selected and saved somehere, its done here. BaseData then use the saved 
 //items, which were selected and saved here
 public class CharacterItems : MonoBehaviour

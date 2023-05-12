@@ -7,6 +7,7 @@ public class Player_Input : MonoBehaviour
 {
     UIManager uiManager;
     PlayerManager playerManager;
+    MinigameManager mgManager;
 
     CustomInput input = null; 
 
@@ -19,6 +20,7 @@ public class Player_Input : MonoBehaviour
 
     void Start() {
         uiManager = GetComponent<UIManager>();
+        mgManager = GetComponent<MinigameManager>();
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 
@@ -51,11 +53,13 @@ public class Player_Input : MonoBehaviour
         
         if(GameDirector.gameState == GameDirector.GameState.World) {
             playerManager.MoveVector = context.ReadValue<Vector2>();
+        } else {
+            playerManager.MoveVector = Vector2.zero;
         }
     }
 
-    void OnMovementCancelled(InputAction.CallbackContext context) {
-        playerManager.MoveVector = Vector2.zero;
+    void OnMovementCancelled(InputAction.CallbackContext context) {        
+        playerManager.MoveVector = Vector2.zero;        
     }
 
     void OnUINavigationPerformed(InputAction.CallbackContext context) {        
@@ -83,9 +87,17 @@ public class Player_Input : MonoBehaviour
     }  
 
     void OnAttackPerformed(InputAction.CallbackContext context) {
-        if(context.ReadValue<float>() == 1f) {                
-            playerManager.Attack();
-        } 
+        if(GameDirector.gameState == GameDirector.GameState.World) {
+            if(context.ReadValue<float>() == 1f) {                
+                playerManager.Attack();
+            } 
+        }
+
+        if(GameDirector.gameState == GameDirector.GameState.MG) {
+            if(context.ReadValue<float>() == 1f) {                
+                mgManager.StopIndicator();
+            } 
+        }
     }
 
     void OnInventoryPerformed(InputAction.CallbackContext context) {
