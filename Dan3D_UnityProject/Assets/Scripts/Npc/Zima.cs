@@ -108,8 +108,7 @@ public class Zima : NpcBase
             }
         }
 
-        if(distanceToNav < 0.3f) {
-            print("1");
+        if(distanceToNav < 0.3f) {            
             moveVector = Vector3.zero;
             //Arrived at navpos that is digsite
             if(isDigsite) {
@@ -130,8 +129,7 @@ public class Zima : NpcBase
                 digInteraction.SetActive(false);
                 interactionManager.FindInteractions();
             }
-        } else {    
-            print("2");          
+        } else {             
 
             if(chasingPlayer) {
                 //if chasing player always run

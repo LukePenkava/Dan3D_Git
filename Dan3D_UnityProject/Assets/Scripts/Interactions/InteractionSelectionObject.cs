@@ -54,19 +54,19 @@ public class InteractionSelectionObject : MonoBehaviour
         interactionText.text = activeInteraction.Data.name.ToUpper();
         interactionText.color = isActive ? colorTextActive : colorTextDisabled;
 
-        ButtonVisual buttonVisual = new ButtonVisual();
-        if(isActive) {            
-            ButtonColors buttonColor = keyboardButtons[selectionIndex]; //(Director.inputDevice == Director.InputDevice.Keyboard) ? keyboardButtons[selectionIndex] : joystickButtons[selectionIndex];
-            buttonVisual = uiManager.Buttons[buttonColor];
-        } else {
-            buttonVisual = uiManager.Buttons[ButtonColors.Grey];
-        }
+        // ButtonVisual buttonVisual = new ButtonVisual();
+        // if(isActive) {            
+        //     ButtonColors buttonColor = keyboardButtons[selectionIndex]; //(Director.inputDevice == Director.InputDevice.Keyboard) ? keyboardButtons[selectionIndex] : joystickButtons[selectionIndex];
+        //     buttonVisual = uiManager.Buttons[buttonColor];
+        // } else {
+        //     buttonVisual = uiManager.Buttons[ButtonColors.Grey];
+        // }
 
-        buttonImage.sprite = buttonVisual.buttonSprite;
-        buttonImage.color = buttonVisual.buttonColor;        
+        // buttonImage.sprite = buttonVisual.buttonSprite;
+        // buttonImage.color = buttonVisual.buttonColor;        
 
         buttonText.text = keyboardInputs[selectionIndex]; //(Director.inputDevice == Director.InputDevice.Keyboard) ? keyboardInputs[selectionIndex] : joystickInputs[selectionIndex];
-        buttonText.color = buttonVisual.buttonTextColor;
+        //buttonText.color = buttonVisual.buttonTextColor;
 
        LayoutRebuilder.ForceRebuildLayoutImmediate(interactionText.gameObject.GetComponent<RectTransform>());
     }
