@@ -12,23 +12,13 @@ public class NpcBase : MonoBehaviour
     }
     public static NpcStates NpcState = NpcStates.Idle;
 
-    CharacterController controller;
-    //Animator anim;
-
-    public GameObject visual; 
+    CharacterController controller;   
 
     protected Vector3 moveVector = Vector3.zero;
     float targetRotation = 0.0f;
     protected bool sprint = false;
-    public float moveSpeed = 1.0f;
-    public float sprintSpeed = 2.0f;
-
-    //Animations
-    AnimatorStateInfo animStateInfo;
-    int animID_MoveSpeed;
-    int animID_MoveEnabled;
-    int animID_Sprint;    
-    int animID_Attack;
+    public float walkSpeed_Movement = 1.0f;
+    public float runSpeed_Movement = 2.0f;
 
     //Gravity and Velocity
     float gravity = -15.0f;
@@ -37,15 +27,8 @@ public class NpcBase : MonoBehaviour
 
     protected void Init()
     {      
-        controller = GetComponent<CharacterController>();
-        //anim = visual.GetComponent<Animator>();
-
-        //Animation IDs
-        animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
-        animID_MoveEnabled = Animator.StringToHash("MoveEnabled");
-        animID_Sprint = Animator.StringToHash("Sprint");
-        animID_Attack = Animator.StringToHash("Attack");
-
+        controller = GetComponent<CharacterController>();    
+        //animID_Attack = Animator.StringToHash("Attack");
         //anim.SetBool(animID_MoveEnabled, true);
     }
 
@@ -56,14 +39,14 @@ public class NpcBase : MonoBehaviour
         Move();
     }
 
-     void AnimationsInfo() {
+    //void AnimationsInfo() {
 
         // if(animStateInfo.IsName("Attack")) {
         //     if(animStateInfo.normalizedTime >= 1) {
         //         AttackFinished();
         //     }
         // }
-    }  
+    //}  
 
     //Move and Rotate character
     void Move() {
@@ -75,7 +58,7 @@ public class NpcBase : MonoBehaviour
         if(NpcState == NpcStates.Idle || NpcState == NpcStates.Walking) {            
 
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            targetSpeed = sprint ? sprintSpeed : moveSpeed;        
+            targetSpeed = sprint ? runSpeed_Movement : walkSpeed_Movement;        
             
             if (moveVector == Vector3.zero) {
                 targetSpeed = 0.0f;
@@ -99,12 +82,8 @@ public class NpcBase : MonoBehaviour
             if (verticalVelocity < maxVelocity) {
                 verticalVelocity += gravity * Time.deltaTime;
             }
-
-            //anim.SetFloat(animID_MoveSpeed, targetSpeed);
-            //anim.SetBool(animID_Sprint, sprint);
         } 
 
-        //print(targetDirection + " " + targetSpeed);
         controller.Move(targetDirection.normalized * (targetSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);            
     }
 }

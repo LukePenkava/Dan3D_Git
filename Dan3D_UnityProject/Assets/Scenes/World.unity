@@ -584,7 +584,7 @@ Transform:
   - {fileID: 5404794548067580104}
   - {fileID: 1159072539}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &34208083
 MonoBehaviour:
@@ -913,6 +913,73 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 58255639}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &59268932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59268933}
+  - component: {fileID: 59268935}
+  - component: {fileID: 59268934}
+  m_Layer: 0
+  m_Name: DigInteraction
+  m_TagString: Interaction
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &59268933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59268932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 242235030}
+  m_Father: {fileID: 8227761486204461467}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &59268934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59268932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd09c785ac14f246a038a8cce1274a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 3
+  dayPhase: 2
+  playerStateToEnable: 0
+  thisStateToEnable: 0
+  customDisplayText: DIG
+  interactionText: 
+  zimSript: {fileID: 8747452647292484386}
+--- !u!114 &59268935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59268932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aae073439ca225459f6f5d0b59803cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorSelection: {fileID: 242235030}
+  remoteInteraction: 1
 --- !u!1001 &60636279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3429,6 +3496,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 238364129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &242235029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242235030}
+  m_Layer: 0
+  m_Name: InteractionAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &242235030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242235029}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59268933}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244882628
 GameObject:
   m_ObjectHideFlags: 0
@@ -4716,7 +4814,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &356552859
 PrefabInstance:
@@ -6658,9 +6756,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 485260663}
+  - component: {fileID: 485260664}
   m_Layer: 0
   m_Name: Area
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6680,9 +6779,23 @@ Transform:
   - {fileID: 432432461}
   - {fileID: 524889798}
   - {fileID: 170400854}
+  - {fileID: 1054188142}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485260664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485260662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239bf8907ea6df345b74db7d7a2984e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  digsitesAmount: 2
 --- !u!1001 &498390598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9749,15 +9862,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748748891}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: 1.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 663067606}
   - {fileID: 829707085}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1054188142}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &748748894
 MonoBehaviour:
@@ -11456,8 +11569,8 @@ Transform:
   - {fileID: 623832475}
   - {fileID: 1667036278}
   - {fileID: 451725981}
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 1054188142}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -80.198, z: 0}
 --- !u!1001 &842392792
 PrefabInstance:
@@ -12535,8 +12648,8 @@ Transform:
   - {fileID: 900200904}
   - {fileID: 863080842}
   - {fileID: 1066696751}
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 1054188142}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 2.563, z: 0}
 --- !u!1001 &941628817
 PrefabInstance:
@@ -13799,6 +13912,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1053373674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1054188141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054188142}
+  m_Layer: 0
+  m_Name: Resources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1054188142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054188141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 748748893}
+  - {fileID: 1356929733}
+  - {fileID: 1976681471}
+  - {fileID: 841182650}
+  - {fileID: 940049383}
+  m_Father: {fileID: 485260663}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1054260415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15780,6 +15929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorSelection: {fileID: 1872671713}
+  remoteInteraction: 0
 --- !u!65 &1154296801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15865,7 +16015,7 @@ Transform:
   m_Children:
   - {fileID: 1872671713}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1157413779
 PrefabInstance:
@@ -17628,7 +17778,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1300665588
 PrefabInstance:
@@ -18527,7 +18677,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356929732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: -1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18535,8 +18685,8 @@ Transform:
   - {fileID: 7897672261728455313}
   - {fileID: 6266571257968903435}
   - {fileID: 1463308025}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1054188142}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1356929734
 MonoBehaviour:
@@ -18976,7 +19126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1389941587
 PrefabInstance:
@@ -21192,7 +21342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1509634254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21205,9 +21355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cad6b31a607b84ba30383720f8bf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed_Movement: 1
+  runSpeed_Movement: 2
   visual: {fileID: 523294698}
-  moveSpeed: 1
-  sprintSpeed: 2
 --- !u!143 &1509634255
 CharacterController:
   m_ObjectHideFlags: 0
@@ -21248,7 +21398,7 @@ Transform:
   m_Children:
   - {fileID: 523294701}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -41.07, z: 0}
 --- !u!1 &1514728489
 GameObject:
@@ -24278,7 +24428,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 82.34, y: 0, z: 0}
 --- !u!1001 &1720064663
 PrefabInstance:
@@ -24975,7 +25125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1762032416
 PrefabInstance:
@@ -26187,7 +26337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 2, y: 0, z: 0}
 --- !u!114 &1823688468
 MonoBehaviour:
@@ -28387,7 +28537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1959198661
 Transform:
   m_ObjectHideFlags: 0
@@ -28402,7 +28552,7 @@ Transform:
   m_Children:
   - {fileID: 1075893701}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 140.388, z: 0}
 --- !u!143 &1959198662
 CharacterController:
@@ -28442,9 +28592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cad6b31a607b84ba30383720f8bf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed_Movement: 1
+  runSpeed_Movement: 2
   visual: {fileID: 1075893700}
-  moveSpeed: 1
-  sprintSpeed: 2
 --- !u!1001 &1972309204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28576,15 +28726,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976681469}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.02, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 547859435}
   - {fileID: 1024551035}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1054188142}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1985764563
 PrefabInstance:
@@ -28914,7 +29064,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2015401157
 GameObject:
@@ -30018,7 +30168,7 @@ Transform:
   m_Children:
   - {fileID: 157207114}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2104273779
 PrefabInstance:
@@ -30302,6 +30452,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2138008812}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2144468599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2144468601}
+  - component: {fileID: 2144468600}
+  m_Layer: 0
+  m_Name: DebugManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2144468600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144468599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf392e3cfefec8d4fa681a8bd413e668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugOn: 1
+--- !u!4 &2144468601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144468599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1997283270270086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6876452554041839337}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &15167825180619136
 GameObject:
   m_ObjectHideFlags: 0
@@ -30320,6 +30531,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &16180101883102391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851382674839678639}
+  m_LocalRotation: {x: 0.034903727, y: 0.831024, z: 0.05755108, w: 0.5521493}
+  m_LocalPosition: {x: 0.012808112, y: 0.06979441, z: 0.023790812}
+  m_LocalScale: {x: 0.9999998, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &59554843476997926
 GameObject:
   m_ObjectHideFlags: 0
@@ -30380,6 +30606,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2719960194984204673}
   m_Mesh: {fileID: -1633821710574564935, guid: 41752991b9375c24e8efc9e5ce15ac32, type: 3}
+--- !u!1 &171715822689182693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4936235914531433776}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &184354772622935462
 Transform:
   m_ObjectHideFlags: 0
@@ -30437,6 +30679,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &283091266222380872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082078477363129299}
+  m_LocalRotation: {x: 0.41001612, y: 0.33568588, z: -0.018342093, w: 0.84785926}
+  m_LocalPosition: {x: -0.033417206, y: 0.0074629686, z: 0.029637687}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3333460320539470707}
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &292864061711423176
 Transform:
   m_ObjectHideFlags: 0
@@ -30511,6 +30769,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3920117544186654706}
   m_Mesh: {fileID: 4300046, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!4 &418852189017335966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245913408504342644}
+  m_LocalRotation: {x: -0.41001615, y: -0.33568576, z: -0.018343955, w: 0.84785926}
+  m_LocalPosition: {x: -0.033417206, y: 0.0074631213, z: -0.029637653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6077149634058722014}
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &432074498913389743
 GameObject:
   m_ObjectHideFlags: 0
@@ -30545,6 +30819,94 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!137 &485783193331997197
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943769690922505026}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1161e76a3576d354a849675d53ffe01f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 7107526420478442675, guid: ea255611920b649418c8f310764c548e, type: 3}
+  m_Bones:
+  - {fileID: 1797387623326896550}
+  - {fileID: 1134733615180370600}
+  - {fileID: 6657370048177255207}
+  - {fileID: 5105176076075276216}
+  - {fileID: 418852189017335966}
+  - {fileID: 2746254547796250554}
+  - {fileID: 4936235914531433776}
+  - {fileID: 6478110681121850229}
+  - {fileID: 16180101883102391}
+  - {fileID: 283091266222380872}
+  - {fileID: 7073368472532842126}
+  - {fileID: 4522779146760382229}
+  - {fileID: 4104738677360181204}
+  - {fileID: 3333460320539470707}
+  - {fileID: 2174427233200849830}
+  - {fileID: 3628574777128896720}
+  - {fileID: 4229037905394641636}
+  - {fileID: 3661563722175994044}
+  - {fileID: 5292588835936200173}
+  - {fileID: 8005738085523392585}
+  - {fileID: 2793919713251141233}
+  - {fileID: 4226827635014984613}
+  - {fileID: 4300603330676864857}
+  - {fileID: 6876452554041839337}
+  - {fileID: 5796013093481754234}
+  - {fileID: 2590763050352851977}
+  - {fileID: 1486579197899739744}
+  - {fileID: 7566434452180568450}
+  - {fileID: 2428963523559791362}
+  - {fileID: 2011379779965856387}
+  - {fileID: 6077149634058722014}
+  - {fileID: 2719540007054712104}
+  - {fileID: 1223917846376860531}
+  - {fileID: 2153220506492475241}
+  - {fileID: 1993078994234728001}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4226827635014984613}
+  m_AABB:
+    m_Center: {x: -0.0020056963, y: 0.03938113, z: 0.000023495406}
+    m_Extent: {x: 0.13233286, y: 0.21708174, z: 0.09251265}
+  m_DirtyAABB: 0
 --- !u!1 &488295216154816980
 GameObject:
   m_ObjectHideFlags: 0
@@ -30914,6 +31276,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000035911798, y: -0.08972539, z: 0.15610592}
     m_Extent: {x: 0.3147229, y: 0.21273603, z: 0.17556511}
   m_DirtyAABB: 0
+--- !u!1 &681080448270268479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2428963523559791362}
+  m_Layer: 0
+  m_Name: Cat Shorthair Tail03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &705636961994216053
 GameObject:
   m_ObjectHideFlags: 0
@@ -30954,6 +31332,22 @@ Transform:
   m_Children:
   - {fileID: 3264593151641553900}
   m_Father: {fileID: 4675722229680781451}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &773714303960942191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212354122407698508}
+  m_LocalRotation: {x: -0.50000036, y: 0.49999964, z: 0.49999964, w: 0.50000036}
+  m_LocalPosition: {x: -0.000000001246448, y: 0.31302747, z: -0.11503966}
+  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4226827635014984613}
+  m_Father: {fileID: 8227761486204461467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &778819366232516378
@@ -31030,6 +31424,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &831104844496552634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943769690922505026}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0.0005582024, z: 0.003206006}
+  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8227761486204461467}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &831955977737041540
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31190,6 +31599,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5364868666280711791}
   m_Mesh: {fileID: 4300030, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!1 &1082078477363129299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283091266222380872}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Ear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1083320243040551137
 GameObject:
   m_ObjectHideFlags: 0
@@ -31245,6 +31670,21 @@ RectTransform:
   m_AnchoredPosition: {x: -210.8, y: -46.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1134733615180370600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247136102394666936}
+  m_LocalRotation: {x: 0.000000020928338, y: -0.000000006298632, z: 0.9575728, w: -0.28819156}
+  m_LocalPosition: {x: -0.022529934, y: 0.028995046, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1993078994234728001}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1145702714705436123
 GameObject:
   m_ObjectHideFlags: 0
@@ -31277,6 +31717,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &1223917846376860531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000623406073942564}
+  m_LocalRotation: {x: 0.0000000010850605, y: 0.0000000061525545, z: 0.2850736, w: 0.95850563}
+  m_LocalPosition: {x: -0.03746827, y: 0.0000000047683715, z: -0.0000000011920929}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1797387623326896550}
+  m_Father: {fileID: 8005738085523392585}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236987735315782646
 GameObject:
   m_ObjectHideFlags: 0
@@ -31337,6 +31793,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1247136102394666936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134733615180370600}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1248145381185046938
 GameObject:
   m_ObjectHideFlags: 0
@@ -31371,6 +31843,22 @@ Transform:
   m_Father: {fileID: 6873369904638274303}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1295252034256316173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7566434452180568450}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!33 &1318452059648343006
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -40156,7 +40644,7 @@ RectTransform:
   - {fileID: 1457577589740261449}
   - {fileID: 644471823}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -55849,6 +56337,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1485367161898536489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4226827635014984613}
+  m_Layer: 0
+  m_Name: Cat Shorthair Pelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486579197899739744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403676515193847936}
+  m_LocalRotation: {x: 0, y: -2.4202862e-14, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03861368, y: -0.000030746458, z: -8.527422e-11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2428963523559791362}
+  m_Father: {fileID: 2590763050352851977}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1504731700067124700
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -55945,6 +56465,21 @@ Transform:
   m_Father: {fileID: 2239361403471816991}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1797387623326896550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5373907736766102744}
+  m_LocalRotation: {x: 0.0029278535, y: -0.048736826, z: 0.65305066, w: 0.75573874}
+  m_LocalPosition: {x: -0.052443463, y: -0.0000000047683715, z: 0}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1223917846376860531}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1804076842948006900
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -55995,6 +56530,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1843041981775112057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8005738085523392585}
+  m_Layer: 0
+  m_Name: Cat Shorthair R UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &1916662471903096577
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56045,6 +56596,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4412953261670490462}
   m_Mesh: {fileID: -1633821710574564935, guid: 91b49f1984ef8eb49b2e4c1910cfb2b0, type: 3}
+--- !u!1 &1943769690922505026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831104844496552634}
+  - component: {fileID: 485783193331997197}
+  m_Layer: 0
+  m_Name: Cat Shorthair Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &1955342058570022380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4004244313334170397, guid: 743ecfdba3f6b6642be2c798caf891e1,
@@ -56113,6 +56681,74 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &1993078994234728001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8965521770176521419}
+  m_LocalRotation: {x: -0.06816184, y: 0.0086437, z: -0.03758434, w: 0.99692863}
+  m_LocalPosition: {x: -0.030047862, y: -0.0000000047683715, z: 0.0000000023841857}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1134733615180370600}
+  m_Father: {fileID: 2153220506492475241}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1995205650707436670
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747452647292484385}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: f23b01073a997fe449d59112703079d5, type: 3}
+  m_Controller: {fileID: 9100000, guid: 94d230be7da63b142b40b3e95ba700f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2008206784014738892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2746254547796250554}
+  m_Layer: 0
+  m_Name: Cat Shorthair Jaw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011379779965856387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7536453089792135872}
+  m_LocalRotation: {x: 0, y: -2.4202862e-14, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0386137, y: -0.000030746458, z: -8.527422e-11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2428963523559791362}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076214439646923934
 GameObject:
   m_ObjectHideFlags: 0
@@ -56193,6 +56829,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &2153220506492475241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864228777361804703}
+  m_LocalRotation: {x: -0.000000005201074, y: -0.0000000135862095, z: 0.4885691, w: 0.8725252}
+  m_LocalPosition: {x: -0.06649707, y: -0.0000000047683715, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1993078994234728001}
+  m_Father: {fileID: 5796013093481754234}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2160874224831007855
 Transform:
   m_ObjectHideFlags: 0
@@ -56207,6 +56859,24 @@ Transform:
   m_Children:
   - {fileID: 2239361403471816991}
   m_Father: {fileID: 5587630357380198575}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2174427233200849830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181029411885391794}
+  m_LocalRotation: {x: -8.9463207e-14, y: -0.000000007018338, z: 0.0025304244, w: 0.99999684}
+  m_LocalPosition: {x: -0.03621521, y: -0.000028829574, z: -7.9944586e-11}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3628574777128896720}
+  - {fileID: 7073368472532842126}
+  - {fileID: 2719540007054712104}
+  m_Father: {fileID: 3661563722175994044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2186531338261291023
@@ -56389,6 +57059,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8241644616196917673}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2428963523559791362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681080448270268479}
+  m_LocalRotation: {x: 0, y: -2.4202862e-14, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03861367, y: -0.000030746458, z: -8.527422e-11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2011379779965856387}
+  m_Father: {fileID: 1486579197899739744}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2440925098172912228
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -56493,6 +57179,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &2590763050352851977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774242761993359634}
+  m_LocalRotation: {x: -0.0000009813966, y: 3.904784e-10, z: 0.7068252, w: 0.7073882}
+  m_LocalPosition: {x: -0.009881639, y: -0.023933472, z: 0.000000080751484}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1486579197899739744}
+  m_Father: {fileID: 4226827635014984613}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2607751019164379433
 Transform:
   m_ObjectHideFlags: 0
@@ -56594,6 +57296,22 @@ Transform:
   m_Father: {fileID: 3489323811268130275}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2719540007054712104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929225534044121911}
+  m_LocalRotation: {x: 0.5490714, y: -0.41676158, z: 0.62496865, w: -0.36639407}
+  m_LocalPosition: {x: -0.026280897, y: -0.0035333443, z: -0.0073127192}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8005738085523392585}
+  m_Father: {fileID: 2174427233200849830}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2719960194984204673
 GameObject:
   m_ObjectHideFlags: 0
@@ -56628,6 +57346,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &2746254547796250554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008206784014738892}
+  m_LocalRotation: {x: -0.00000071836024, y: -0.0000027317699, z: 0.9722969, w: -0.23374927}
+  m_LocalPosition: {x: -0.0060540386, y: 0.034605425, z: 0.000000052029534}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2748677723117218567
 GameObject:
   m_ObjectHideFlags: 0
@@ -56675,6 +57408,38 @@ Transform:
   m_Father: {fileID: 6145245659794133424}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2793919713251141233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8194952536208202901}
+  m_LocalRotation: {x: -0.000001962487, y: 0.0000009806147, z: -0.7061997, w: 0.7080127}
+  m_LocalPosition: {x: -0.00077792164, y: 0.006972971, z: -0.000000018455502}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3661563722175994044}
+  m_Father: {fileID: 4226827635014984613}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2806426909457584364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6657370048177255207}
+  m_Layer: 0
+  m_Name: Cat Shorthair Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &2818225276422254958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56850,6 +57615,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6716677643307382337}
   m_Mesh: {fileID: 4300190, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!1 &3172925191781319177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4300603330676864857}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &3195985048182784930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56934,6 +57715,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3245913408504342644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418852189017335966}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Ear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &3264593151641553900
 Transform:
   m_ObjectHideFlags: 0
@@ -57080,6 +57877,22 @@ Transform:
   m_Children:
   - {fileID: 2607751019164379433}
   m_Father: {fileID: 8193411191903039283}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &3333460320539470707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330568986681937924}
+  m_LocalRotation: {x: -0.000000014901161, y: 0.000000014901161, z: -0.000000014901161,
+    w: 1}
+  m_LocalPosition: {x: -0.026780508, y: -0.000021324156, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 283091266222380872}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3345979308687257993
@@ -57258,6 +58071,22 @@ GameObject:
   - component: {fileID: 3264593151641553900}
   m_Layer: 0
   m_Name: foot_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3487137931778048360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4229037905394641636}
+  m_Layer: 0
+  m_Name: Cat Shorthair L UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57494,6 +58323,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7255561870749439917}
   m_Mesh: {fileID: 4300020, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!4 &3628574777128896720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258120776793710868}
+  m_LocalRotation: {x: -0.5490724, y: 0.41675982, z: 0.62496984, w: -0.36639252}
+  m_LocalPosition: {x: -0.026280897, y: -0.0035333824, z: 0.0073126988}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4229037905394641636}
+  m_Father: {fileID: 2174427233200849830}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3643328313067206202
 Transform:
   m_ObjectHideFlags: 0
@@ -57551,6 +58396,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &3661563722175994044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829673868511441316}
+  m_LocalRotation: {x: -1.3700179e-24, y: 1.1768364e-14, z: 1.1641532e-10, w: 1}
+  m_LocalPosition: {x: -0.036215354, y: -0.000028839111, z: -7.999915e-11}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2174427233200849830}
+  m_Father: {fileID: 2793919713251141233}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3668123871584834374
 Transform:
   m_ObjectHideFlags: 0
@@ -57677,6 +58538,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &3851382674839678639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16180101883102391}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Whiskers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!33 &3854037399313239538
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -57714,6 +58591,22 @@ GameObject:
   - component: {fileID: 3576297958216069979}
   m_Layer: 0
   m_Name: ring_03_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3929225534044121911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2719540007054712104}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57803,6 +58696,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875840897971014165}
   m_Mesh: {fileID: 4300178, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!4 &4104738677360181204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178872659969849094}
+  m_LocalRotation: {x: 0.079529114, y: 0.08654833, z: -0.6711992, w: 0.73189896}
+  m_LocalPosition: {x: -0.010759983, y: 0.044029806, z: 0.021151423}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4127296552463610374
 Transform:
   m_ObjectHideFlags: 0
@@ -57851,6 +58759,41 @@ Transform:
   m_Father: {fileID: 3264593151641553900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4226827635014984613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485367161898536489}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.4999993, w: 0.5000007}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4300603330676864857}
+  - {fileID: 5796013093481754234}
+  - {fileID: 2793919713251141233}
+  - {fileID: 2590763050352851977}
+  m_Father: {fileID: 773714303960942191}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4229037905394641636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487137931778048360}
+  m_LocalRotation: {x: -0.64545417, y: -0.27833775, z: 0.03409783, w: 0.71046066}
+  m_LocalPosition: {x: -0.0398258, y: 0.0000000047683715, z: 0.000000009536743}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5292588835936200173}
+  m_Father: {fileID: 3628574777128896720}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4233608281327750229
 Transform:
   m_ObjectHideFlags: 0
@@ -57882,6 +58825,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4465086898018532137}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4300603330676864857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3172925191781319177}
+  m_LocalRotation: {x: 0.0042265863, y: 0.997628, z: 0.044758312, w: 0.05212773}
+  m_LocalPosition: {x: 0.000000028610229, y: 0.000000028610229, z: 0.017402388}
+  m_LocalScale: {x: 1, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6876452554041839337}
+  m_Father: {fileID: 4226827635014984613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4301562335292265815
@@ -57996,6 +58955,22 @@ Transform:
   m_Father: {fileID: 5404794548067580104}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4403676515193847936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486579197899739744}
+  m_Layer: 0
+  m_Name: Cat Shorthair Tail02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &4409028394625465373
 GameObject:
   m_ObjectHideFlags: 0
@@ -58045,6 +59020,21 @@ Transform:
   - {fileID: 4296983622139280508}
   m_Father: {fileID: 7360833477249250097}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4522779146760382229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268587406095584199}
+  m_LocalRotation: {x: -0.079529114, y: -0.0865446, z: -0.6711997, w: 0.73189896}
+  m_LocalPosition: {x: -0.010759983, y: 0.04402992, z: -0.02115118}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4540639060476092911
 GameObject:
@@ -58217,6 +59207,22 @@ Transform:
   m_Father: {fileID: 5404794548067580104}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4774242761993359634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2590763050352851977}
+  m_Layer: 0
+  m_Name: Cat Shorthair Tail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &4839287202537729986
 GameObject:
   m_ObjectHideFlags: 0
@@ -58235,6 +59241,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &4864228777361804703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2153220506492475241}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &4865303554046114868
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58295,6 +59317,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &4910121852032494247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7073368472532842126}
+  m_Layer: 0
+  m_Name: Cat Shorthair Neck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!33 &4923758467652285675
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58303,6 +59341,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5915125619274885114}
   m_Mesh: {fileID: 4300008, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!4 &4936235914531433776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171715822689182693}
+  m_LocalRotation: {x: -0.0029278558, y: 0.04873683, z: 0.65305066, w: 0.75573874}
+  m_LocalPosition: {x: -0.05244347, y: 0, z: 0.0000000011920929}
+  m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5292588835936200173}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5009259543427975422
 Transform:
   m_ObjectHideFlags: 0
@@ -58441,6 +59494,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &5105176076075276216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327463456806795743}
+  m_LocalRotation: {x: -0.03490366, y: -0.8310242, z: 0.05754641, w: 0.5521493}
+  m_LocalPosition: {x: 0.012808112, y: 0.069794536, z: -0.02379043}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657370048177255207}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5165106812056189495
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58563,6 +59631,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &5292588835936200173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176250820106508704}
+  m_LocalRotation: {x: -0.0000000019238733, y: -0.0000000025154685, z: 0.2850736,
+    w: 0.95850563}
+  m_LocalPosition: {x: -0.03746827, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4936235914531433776}
+  m_Father: {fileID: 4229037905394641636}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5330568986681937924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3333460320539470707}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Ear02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &5330980752130039799
 GameObject:
   m_ObjectHideFlags: 0
@@ -58574,6 +59675,22 @@ GameObject:
   - component: {fileID: 1126510473657134935}
   m_Layer: 0
   m_Name: 'Mixture (Missing Prefab with guid: 3accea73dc64f654289ce0b43618457a)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &5332021171624107162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6077149634058722014}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Ear02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58597,6 +59714,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &5373907736766102744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1797387623326896550}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &5391696662168864191
 Transform:
   m_ObjectHideFlags: 0
@@ -58821,6 +59954,22 @@ Transform:
   m_Father: {fileID: 6145245659794133424}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5732403081622338478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5796013093481754234}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &5740458337367950965
 GameObject:
   m_ObjectHideFlags: 0
@@ -58851,6 +60000,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6241182808266999610}
   m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &5796013093481754234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732403081622338478}
+  m_LocalRotation: {x: 0.0042265924, y: 0.99762785, z: -0.044759713, w: -0.052129194}
+  m_LocalPosition: {x: -0.000000028610229, y: -0.000000019073486, z: -0.017402392}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2153220506492475241}
+  m_Father: {fileID: 4226827635014984613}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5799045493844064239
 MeshFilter:
@@ -59089,6 +60254,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &6077149634058722014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332021171624107162}
+  m_LocalRotation: {x: 0.000000014901161, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02678052, y: -0.000021328926, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 418852189017335966}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6092566523236291704
 Transform:
   m_ObjectHideFlags: 0
@@ -59255,6 +60435,22 @@ Transform:
   m_Father: {fileID: 5391696662168864191}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6212354122407698508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773714303960942191}
+  m_Layer: 0
+  m_Name: Cat Shorthair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!224 &6241182808254841986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59547,6 +60743,21 @@ Transform:
   m_Father: {fileID: 5391696662168864191}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6478110681121850229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066782854518194242}
+  m_LocalRotation: {x: -0.000000020928391, y: 0.000000006298633, z: 0.9575728, w: -0.28819153}
+  m_LocalPosition: {x: -0.022529937, y: 0.028995046, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7566434452180568450}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6496717679923330051
 GameObject:
   m_ObjectHideFlags: 0
@@ -59834,6 +61045,28 @@ Transform:
   m_Father: {fileID: 6145245659794133424}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 254.252}
+--- !u!4 &6657370048177255207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806426909457584364}
+  m_LocalRotation: {x: -7.102545e-13, y: -0.0000012392215, z: 0.44679236, w: 0.8946377}
+  m_LocalPosition: {x: -0.059098348, y: 0.0000000047683715, z: 3.6379787e-14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2746254547796250554}
+  - {fileID: 283091266222380872}
+  - {fileID: 4104738677360181204}
+  - {fileID: 16180101883102391}
+  - {fileID: 418852189017335966}
+  - {fileID: 4522779146760382229}
+  - {fileID: 5105176076075276216}
+  m_Father: {fileID: 7073368472532842126}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6660142031772228281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60057,6 +61290,22 @@ Transform:
   m_Father: {fileID: 2239361403471816991}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6829673868511441316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3661563722175994044}
+  m_Layer: 0
+  m_Name: Cat Shorthair Spine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &6848430400282254984
 GameObject:
   m_ObjectHideFlags: 0
@@ -60088,6 +61337,22 @@ Transform:
   - {fileID: 1252987809452258471}
   m_Father: {fileID: 5009259543427975422}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6876452554041839337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997283270270086}
+  m_LocalRotation: {x: 0.0000000033810126, y: 0.00000001683662, z: 0.48856908, w: 0.8725252}
+  m_LocalPosition: {x: -0.06649707, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7566434452180568450}
+  m_Father: {fileID: 4300603330676864857}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6878501995112406093
 GameObject:
@@ -60302,6 +61567,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7393222985754221723}
   m_Mesh: {fileID: 4300016, guid: dc603c42b6599174e901596a1f756de4, type: 3}
+--- !u!4 &7073368472532842126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910121852032494247}
+  m_LocalRotation: {x: 4.6396565e-14, y: -0.0000007560416, z: 0.27258492, w: 0.96213174}
+  m_LocalPosition: {x: -0.036190663, y: -0.000040073395, z: -1.1112206e-10}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6657370048177255207}
+  m_Father: {fileID: 2174427233200849830}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7142380767717305924
 Transform:
   m_ObjectHideFlags: 0
@@ -60347,6 +61628,22 @@ GameObject:
   - component: {fileID: 8597478296844396996}
   m_Layer: 0
   m_Name: backpackShield01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &7176250820106508704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5292588835936200173}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61037,6 +62334,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000000059604645, y: -0.086180955, z: 1.0258467}
     m_Extent: {x: 1.1067264, y: 0.18956909, z: 0.17326808}
   m_DirtyAABB: 0
+--- !u!1 &7536453089792135872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011379779965856387}
+  m_Layer: 0
+  m_Name: Cat Shorthair Tail04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &7542300737869900217
 Transform:
   m_ObjectHideFlags: 0
@@ -61050,6 +62363,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3007579092183992946}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &7566434452180568450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295252034256316173}
+  m_LocalRotation: {x: 0.06816177, y: -0.008643752, z: -0.037584376, w: 0.99692863}
+  m_LocalPosition: {x: -0.030047867, y: -0.000000009536743, z: -0.0000000023841857}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6478110681121850229}
+  m_Father: {fileID: 6876452554041839337}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7570191230213545903
@@ -61417,6 +62746,38 @@ Transform:
   m_Father: {fileID: 6145245659794133424}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8000623406073942564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1223917846376860531}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8005738085523392585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843041981775112057}
+  m_LocalRotation: {x: 0.64545417, y: 0.27833775, z: 0.03409783, w: 0.71046066}
+  m_LocalPosition: {x: -0.039825812, y: 0, z: -0.000000009536743}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1223917846376860531}
+  m_Father: {fileID: 2719540007054712104}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8061512958713149322
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61456,6 +62817,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &8178872659969849094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4104738677360181204}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &8193411191903039283
 Transform:
   m_ObjectHideFlags: 0
@@ -61472,6 +62849,40 @@ Transform:
   m_Father: {fileID: 5009259543427975422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8194952536208202901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2793919713251141233}
+  m_Layer: 0
+  m_Name: Cat Shorthair Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8227761486204461467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747452647292484385}
+  m_LocalRotation: {x: 0, y: -0.82840264, z: 0, w: 0.56013316}
+  m_LocalPosition: {x: -1.64, y: 0.1, z: -1.92}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 773714303960942191}
+  - {fileID: 831104844496552634}
+  - {fileID: 59268933}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: -111.87, z: 0}
 --- !u!1001 &8241644616196917673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61545,6 +62956,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86f22c9948a81d843a1e3ec9cac9adbe, type: 3}
+--- !u!1 &8258120776793710868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3628574777128896720}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &8268587406095584199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4522779146760382229}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &8306737949101282513
 Transform:
   m_ObjectHideFlags: 0
@@ -61576,6 +63019,22 @@ Transform:
   m_Father: {fileID: 5391696662168864191}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8327463456806795743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5105176076075276216}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Whiskers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &8360034395829793027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2024846658087846261, guid: 3950ed18cd9756747a400301d9bf5a43,
@@ -61885,6 +63344,66 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &8747452647292484385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8227761486204461467}
+  - component: {fileID: 8747452647292484387}
+  - component: {fileID: 1995205650707436670}
+  - component: {fileID: 8747452647292484386}
+  m_Layer: 0
+  m_Name: Zima
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8747452647292484386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747452647292484385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc0930d6a3f4d24c87c128c71eff0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed_Movement: 1
+  runSpeed_Movement: 3
+  digInteraction: {fileID: 59268932}
+--- !u!143 &8747452647292484387
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747452647292484385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.1
+  m_SkinWidth: 0.001
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.495, z: 0}
 --- !u!1 &8747504970057609576
 GameObject:
   m_ObjectHideFlags: 0
@@ -62038,6 +63557,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &8965521770176521419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1993078994234728001}
+  m_Layer: 0
+  m_Name: Cat Shorthair R Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &8975389155255526025
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62179,6 +63714,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &9066782854518194242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6478110681121850229}
+  m_Layer: 0
+  m_Name: Cat Shorthair L Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &9169751307804357094
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62263,6 +63814,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &9181029411885391794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2174427233200849830}
+  m_Layer: 0
+  m_Name: Cat Shorthair Spine2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &9187947240117284348
 MeshRenderer:
   m_ObjectHideFlags: 0

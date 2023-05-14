@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : NpcBase
 {  
+    public GameObject visual;
+    
     float intervalTimer = 0f;
     Vector3 navPosition = Vector3.zero;
     bool isAttacking = false;

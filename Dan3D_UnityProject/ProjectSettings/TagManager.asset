@@ -13,6 +13,7 @@ TagManager:
   - Interaction
   - Character
   - Weapon
+  - Area
   layers:
   - Default
   - TransparentFX

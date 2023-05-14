@@ -6,6 +6,8 @@ using UnityEngine;
 //This makes it automatic to handle more interactions, but is required on all objects with interaction even if they have one interaction only
 public class InteractionSelection : MonoBehaviour
 { 
+    InteractionManager interactionManager;
+
     bool isEnabled = true;
     public bool IsEnabled {
         get { return isEnabled; }
@@ -22,11 +24,12 @@ public class InteractionSelection : MonoBehaviour
     }
 
     public Transform anchorSelection;
+    public bool remoteInteraction = false; //For example Zim digging, this makes distance for activation much further. using distanceToInteractRemote in InteracdtionManager
+    
 
     void Awake()
     {     
-        //interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();
-
+        interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();
         SetActiveInteractions(false);
 
         //For characters to update interactions based on their state or anything else what has state
@@ -34,7 +37,7 @@ public class InteractionSelection : MonoBehaviour
             hasStateScript = true;
             stateScript = GetComponent<State>();
             lastState = stateScript.ActiveState;
-        }
+        }        
     }
 
     void Update() {

@@ -1,8 +1,9 @@
 /*
 
--Zim running around
 -UI assets
--remove demo
+-build up the area more
+-remove DWT demo
+-Astar
 
 //Area logic (what area it is, load surrounding areas)
 //Map (ui, display position)

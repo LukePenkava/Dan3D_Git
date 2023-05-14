@@ -178,8 +178,7 @@ public class PlayerManager : MonoBehaviour
         }        
 
         //Copy of Interaction Object, dont modify, use only to read, refer back to InteractionManager to modify the Interaction in any way
-        activeInteraction = interactionManager.GetActiveInteraction(inputSelection);
-        print(activeInteraction.interactionText);
+        activeInteraction = interactionManager.GetActiveInteraction(inputSelection);       
 
         if(activeInteraction && activeInteraction.InteractionState == InteractionStates.Active) {
       
@@ -212,7 +211,13 @@ public class PlayerManager : MonoBehaviour
                 StartCoroutine(TimedInteraction(activeInteraction.Data.time));
             }
 
-            //! NOT BEING USED
+            if(activeInteraction.Data.interactionPlayerState == InteractionManager.InteractionPlayerStates.Free) {
+                if(activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Single) {
+                    interactionManager.ActivateInteraction(activeInteraction.Data.selectionMenuStaysOn);
+                    isInteracting = false;
+                }
+            }
+
             //Immediately Trigger Interaction, player can activate next interaction, like next line of dialogue immediately with next button press
             // if(activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Single || activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Consumable) {
             //     interactionManager.ActivateInteraction(activeInteraction.Data.selectionMenuStaysOn);

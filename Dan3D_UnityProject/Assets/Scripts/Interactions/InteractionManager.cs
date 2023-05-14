@@ -42,10 +42,10 @@ public class InteractionManager : MonoBehaviour
 
     public enum InteractionLife {
         NotSet,
-        Consumable, //Is Activated and then Destroyed, like gathering plant
-        Single,     //Is one time activatio, which can be activated again, like one line dialogues
+        Consumable,         //Is Activated and then Destroyed, like gathering plant
+        Single,             //Is one time activatio, which can be activated again, like one line dialogues
         ActiveForTime,      //Interaction is alive for period of time
-        Active      //Is in Active state until turned off. Like Trading   
+        Active              //Is in Active state until turned off. Like Trading   
     };
 
     //Defines player ability to move
@@ -94,6 +94,7 @@ public class InteractionManager : MonoBehaviour
 
         //Find Closest Interactions to the Player 
         float shortestDistance = Mathf.Infinity;
+        float distanceCheck = 0f;
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         int closestInteractionIndex = 0;
 
@@ -110,7 +111,11 @@ public class InteractionManager : MonoBehaviour
 
         //print("Closest Interaction " + closestInteractionIndex);
 
-        if(shortestDistance < Director.distanceToInteract) {     
+        if(sceneInteractions.Count > 0) {
+            distanceCheck = sceneInteractions[closestInteractionIndex].remoteInteraction ? Director.distanceToInteractRemote : Director.distanceToInteract;
+        }
+
+        if(shortestDistance < distanceCheck) {     
 
             if(activeInteraction != sceneInteractions[closestInteractionIndex]) {
                 //print("activeInteraction "+ activeInteraction + " " + sceneInteractions[closestInteractionIndex].IsEnabled);
@@ -327,15 +332,15 @@ public class InteractionManager : MonoBehaviour
         // dataGiveItem.selectionMenuStaysOn = false;
         // interactionsData.Add(InteractionTypes.GiveItem, dataGiveItem); 
 
-        // InteractionData dataActivate = new InteractionData();
-        // dataActivate.animationState = State.States.Idle;
-        // dataActivate.interactionType = InteractionTypes.Activate;
-        // dataActivate.interactionPlayerState = InteractionPlayerStates.Free;
-        // dataActivate.interactionLife = InteractionLife.Single;
-        // dataActivate.time = 0.5f;
-        // dataActivate.name = "ENTER";
-        // dataActivate.selectionMenuStaysOn = false;
-        // interactionsData.Add(InteractionTypes.Activate, dataActivate);
+        InteractionData dataActivate = new InteractionData();
+        dataActivate.animationState = State.States.Idle;
+        dataActivate.interactionType = InteractionTypes.Activate;
+        dataActivate.interactionPlayerState = InteractionPlayerStates.Free;
+        dataActivate.interactionLife = InteractionLife.Single;
+        dataActivate.time = 0.5f;
+        dataActivate.name = "ENTER";
+        dataActivate.selectionMenuStaysOn = false;
+        interactionsData.Add(InteractionTypes.Activate, dataActivate);
 
         // InteractionData dataMG = new InteractionData();
         // dataMG.animationState = State.States.Idle;
