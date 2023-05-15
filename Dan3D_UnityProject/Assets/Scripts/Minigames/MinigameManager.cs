@@ -63,6 +63,7 @@ public class MinigameManager : MonoBehaviour
 
                 mgDelegate(true);
                 mgOn = false;
+                minigameParent.SetActive(false);
             }
         }
     }

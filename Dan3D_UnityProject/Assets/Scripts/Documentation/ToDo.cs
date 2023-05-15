@@ -1,9 +1,11 @@
 /*
 
--UI assets
--build up the area more
--remove DWT demo
+-Gameplay shot with Zim, Sun animated
+-Twitter, Reddit, Tiktok, Insta
+
 -Astar
+-Create scene with house
+
 
 //Area logic (what area it is, load surrounding areas)
 //Map (ui, display position)
