@@ -12,9 +12,9 @@ public class NpcBase : MonoBehaviour
     }
     public static NpcStates NpcState = NpcStates.Idle;
 
-    CharacterController controller;   
+    CharacterController controller;      
 
-    protected Vector3 moveVector = Vector3.zero;
+    protected Vector3 moveVector = Vector3.zero; //Used by child class to navigate npc
     float targetRotation = 0.0f;
     protected bool sprint = false;
     public float walkSpeed_Movement = 1.0f;
@@ -27,9 +27,7 @@ public class NpcBase : MonoBehaviour
 
     protected void Init()
     {      
-        controller = GetComponent<CharacterController>();    
-        //animID_Attack = Animator.StringToHash("Attack");
-        //anim.SetBool(animID_MoveEnabled, true);
+        controller = GetComponent<CharacterController>();           
     }
 
     protected void BaseUpdate()

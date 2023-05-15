@@ -4,12 +4,16 @@ using UnityEngine;
 
 //Handles actual pahtfinding, selecting target and everything around pathfinding
 public class ActorBase : MonoBehaviour {
+
+	public delegate void ArrivedDelegate();
+	public event ArrivedDelegate Arrived;
 	
 	AstarPathfinding astar;
 	Grid grid;
 
-	public GameObject targetObject;
-	public bool useRandomTarget = false;
+	GameObject targetObject;
+	Vector3 targetObjectOffset;
+	bool useStaticTarget = false;
 	public bool debugVisuals;
 
 	List<Vector3> pathPositions = new List<Vector3>();
@@ -17,7 +21,7 @@ public class ActorBase : MonoBehaviour {
 	bool arrived = false;
 	bool neverArrive = true;
 	bool navToTarget = false;	//Navigate directly to target, not through path, ie when close to the target
-	protected Vector3 randomTarget;
+	protected Vector3 staticTarget;
 	Vector3 lastNavPosition = Vector3.zero;
 	bool hasPath = false;	
 
@@ -25,63 +29,80 @@ public class ActorBase : MonoBehaviour {
 	public float switchNodeDist = 0.5f;		//Distance between Actore and Node, if smaller switch to next  node
 	public float arrivedDistance = 0.01f;		//Check against target ( last node ), if smaller distance stop moving.
 
+	protected Vector3 navPos;
 
 
 	public void Init()
 	{
 		astar = GameObject.FindGameObjectWithTag("Astar").GetComponent<AstarPathfinding>();
-		//SelectRandomTarget();
+		grid = astar.grid;
+		
+		// if(useRandomTarget) {
+		// 	SelectRandomTarget();
+		// }
+
 		InvokeRepeating("GetPath", 1f, recalculatePathInterval);
 	}
 
 	public void PathUdate() 
 	{
 		//if(Director.paused){ return; }
+		//if(hasPath == false) { return; }
 
+		//There are poth position and actor did not reach end yet
 		if(pathPositions.Count > 0 && pathIndex < (pathPositions.Count)) //|| navToTarget
 		{ 			
-			Vector3 navPosition = Vector3.zero;	
+			//Vector3 navPosition = Vector3.zero;	
+			navPos = Vector3.zero;
 			Vector3 linecastPosition = Vector3.zero;
 
 			//Navigate either to target or nodes in path
 			//last node in the pathPosition, ie target is in the node sector, switch to Target itself
 			if(pathIndex == (pathPositions.Count-1) || pathPositions.Count == 0)
 			{				
-				navPosition = (useRandomTarget) ? (randomTarget) : targetObject.transform.position;				
+				navPos = (useStaticTarget) ? (staticTarget) : (targetObject.transform.position + targetObjectOffset);				
 				navToTarget = true;
 			}				
 			else
 			{ 
 				//Move towards node in the path
-				navPosition = pathPositions[pathIndex];
+				navPos = pathPositions[pathIndex];
 				navToTarget = false; 
 			}
 
 			if(!arrived)
 			{				
-				Vector3 nextNavPosition = navPosition;
+				Vector3 nextNavPosition = navPos;
 				int newIndex = pathIndex+1;
 				if(newIndex < pathPositions.Count) {
 					nextNavPosition = pathPositions[newIndex] /*+ parent.position*/;
 				}					
 			
-				Movement(navPosition, nextNavPosition);			
+				//Movement(navPos, nextNavPosition);			
 
-				SelectNode(navPosition);
+				SelectNode(navPos);
 				CheckForTarget();
 			}
             else
             {
 				//Arrived
-				//SelectRandomTarget();
+				// navPos = Vector3.zero;
+				// hasPath = false;
+				
+				// if(Arrived != null) {
+				// 	Arrived();
+				// }
             }
 
 		} else {
 
-			if(pathPositions.Count == 0 && navToTarget == false) {
-				//SelectRandomTarget();
-				GetPath();
-			}
+			// //There is no path and not navigating to target, get new path
+			// if(pathPositions.Count == 0 && navToTarget == false) {
+			// 	if(useRandomTarget) {
+			// 		SelectRandomTarget();
+			// 	}				
+			// 	GetPath();
+			// }
 		}
 	}
 
@@ -91,102 +112,67 @@ public class ActorBase : MonoBehaviour {
 	void GetPath()
 	{
 		//Get Path is local, using nodes as they were created, ignroing shifting of the world. Ie actor is still at 0,0 as far as nodes are concerned, eventho his actual world position is thousands of units shifted. Nodes are local
-		Vector3 targetPos = (useRandomTarget) ? (randomTarget) : targetObject.transform.localPosition;	
+		Vector3 targetPos = (useStaticTarget) ? (staticTarget) : (targetObject.transform.position + targetObjectOffset);	
 
 		pathPositions = astar.FindPath(this.transform.localPosition, targetPos); 		
 		pathIndex = 0;		
 		hasPath = true;
 	}
 
-	void SelectRandomTarget()
-	{
-		// /*//Get Position from Grid Nodes
-		// int randomIndex = Random.Range(0, grid.allNodes.Count);
-		// Vector3 testTarget = grid.allNodes[randomIndex].worldPosition;
+	public void SelectRandomTarget()
+	{		      
+		print("Select Random Target");
 
-		// randomTarget = testTarget;
-		// hasPath = false;
-		// arrived = false;
+		useStaticTarget = true;
 
-		// GetPath();
-		// return;*/
+		//targetPos can be any position inside the Grid
+		int randomIndex = Random.Range(0, grid.allNodes.Count);
+		Vector3 targetPos = grid.allNodes[randomIndex].worldPosition;        	
+		bool validPos = false;
+		int attempts = 0;
 
-		// //Using local position, becase local position is same as when nodes were craeted. Actual position is shifted with the world shifting. Target needs to be selected based on local positions
-		// Vector3 myPos = transform.localPosition; //transform.position;
-		// Vector3 myDir = transform.forward.normalized;
-		// float dotToPass = 0.25f;
+		//Vector3 myPos = transform.localPosition;
 
-		// //Get Position from Grid Nodes
-		// //int randomIndex = Random.Range(0, grid.allNodes.Count);
-		// //Vector3 testTarget = grid.allNodes[randomIndex].worldPosition;
-
-        // //Get Random position in the zone, check if the node in the zone is walkable, if not, get new one
-        // Vector3 targetPos = Vector3.zero;	
-		// bool validPos = false;
-		// int attempts = 0;
-
-		// while (!validPos)
-		// {
-		// 	bool walkable = false;
-		// 	bool correctDirection = false;
-
-		// 	targetPos = zoneManager.GetZonePos(1);
-		// 	targetPos = zoneManager.masterParent.InverseTransformPoint(targetPos);
-		// 	Node tempNode = grid.GetNodeFromWorldPoint(targetPos);
-		// 	if (tempNode != null)
-		// 	{
-		// 		walkable = tempNode.walkable;
-		// 	}
-        //     else
-        //     {
-		// 		print("Node is Null");
-        //     }
-
-		// 	attempts++;
-
-        //     if(walkable)
-        //     {
-        //         //Right in front of the actor would be 1, behind is -1, 0 on the side
-		// 		Vector3 testDir = targetPos - myPos;
-		// 		if(Vector3.Dot(myDir, testDir.normalized) < dotToPass)
-        //         {
-		// 			//If it fails, reduce the criteria angle and test it again, until the angle is anything                    
-		// 			dotToPass = dotToPass - 0.05f;
-		// 		}
-        //         else
-        //         {
-        //             //passed
-		// 			correctDirection = true;
-        //         }
-		// 	}
-
-        //     if(walkable && correctDirection)
-        //     {
-		// 		validPos = true;
-        //     }
-		// }
-
-		// if (attempts > 50)
-		// {
-		// 	print("Target Attempts " + attempts);
-		// }
-
-		// /*Vector3 testDir = targetPos - myPos;
-
-	    // //Get new target which is most inline with current direction of the actor. If it fails, reduce the criteria angle and test it again, until the angle is anything
-		// while(Vector3.Dot(myDir, testDir.normalized) < dotToPass) {		
+		while (!validPos)
+		{
+			bool walkable = false;
 			
-		// 	targetPos = zoneManager.GetZonePos(1); 
-		// 	testDir = targetPos - myPos;
-		// 	dotToPass = dotToPass - 0.01f;
-		// }*/
+			Node tempNode = grid.GetNodeFromWorldPoint(targetPos);
+			if (tempNode != null)
+			{
+				walkable = tempNode.walkable;
+			}
+            else
+            {
+				print("Node is Null");
+            }
 
-		// randomTarget = targetPos;
-		// hasPath = false;
-		// arrived = false;
+			attempts++;          
 
-		// GetPath();
-		// //linecastHitBox.transform.position = testTarget;
+            if(walkable) 
+            {
+				validPos = true;
+            }
+		}
+
+		if (attempts > 50)
+		{
+			print("Target Attempts " + attempts);
+		}	
+
+		staticTarget = targetPos;
+		hasPath = false;
+		arrived = false;
+
+		GetPath();
+	}
+
+	public void PathToTarget(GameObject target, Vector3 offset) {
+		targetObject = target;
+		targetObjectOffset = offset;
+		useStaticTarget = false;
+
+		GetPath();
 	}
 
 
@@ -207,7 +193,7 @@ public class ActorBase : MonoBehaviour {
 
 	void CheckForTarget()
 	{
-		Vector3 targetPos = (useRandomTarget) ? (randomTarget /*+ parent.position*/) : targetObject.transform.position;
+		Vector3 targetPos = (useStaticTarget) ? (staticTarget) : (targetObject.transform.position + targetObjectOffset);
 		Vector3 myPos = new Vector3(transform.position.x, 0, transform.position.z);
 		targetPos = new Vector3(targetPos.x, 0, targetPos.z);
 		float distanceToTarget = Vector3.Distance(myPos, targetPos);
@@ -217,16 +203,29 @@ public class ActorBase : MonoBehaviour {
 			//print(distanceToTarget + " " + arrivedDistance);
 		}
 
+		DebugManager.Instance.Debug_ValueWithPosition("#ZimDistance3", "DistanceToTarget", distanceToTarget, new Vector2(0f, 120f), this.transform.position);
+		print("myPos " + myPos + " targetPos " + targetPos);
+
 		if(distanceToTarget < arrivedDistance)
 		{		
-			if(useRandomTarget)
-			{	
-				arrived = true;
-				SelectRandomTarget();	
-			} 
-			else {
-				//Using moving target, dont flag arrived as true
+			arrived = true;
+
+			if(Arrived != null) {
+				Arrived();
 			}
+
+			// if(useStaticTarget)
+			// {	
+			// 	arrived = true;
+			// 	//SelectRandomTarget();	
+
+			// 	if(Arrived != null) {
+			// 		Arrived();
+			// 	}
+			// } 
+			// else {
+			// 	//Using moving target, dont flag arrived as true
+			// }
 		}
 	}
 
@@ -237,7 +236,18 @@ public class ActorBase : MonoBehaviour {
 		{
 			Gizmos.color = Color.red;
 
-			Vector3 targetPos = (useRandomTarget) ? randomTarget : targetObject.transform.position;
+			if(useStaticTarget) {
+				if(staticTarget == null) {
+					return;
+				}
+			}
+			else {
+				if(targetObject == null) {
+					return;
+				}
+			}
+
+			Vector3 targetPos = (useStaticTarget) ? staticTarget : (targetObject.transform.position + targetObjectOffset);
 			Gizmos.DrawSphere(targetPos, 0.3f);
 
 			if(pathPositions.Count > 0)
