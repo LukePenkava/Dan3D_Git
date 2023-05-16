@@ -15,6 +15,6 @@ public class Interaction_Zim_Dig : Interaction
     public override void ActivateOverride() {
         base.ActivateOverride(); 
 
-        //zimSript.Dig();      
+        zimSript.Dig();      
     }    
 }

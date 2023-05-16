@@ -1,10 +1,34 @@
 /*
 
+-Create scene with house, put there bunch of critters, fox, etc. all hanging around in the house
+-A lot of food resources outside in the forest ( carrots, beats, gingerbread etc )
+
+-Wake up in the house
+-Get popup to prepare food for your family
+-Go out, collect bunch of resources ( collect carrots, gingerbread etc.), collect specific resources to complete it ( always at the top )
+-Fight enemies with frying pan ( popup saying that enemies don't do anything for now, but your chest will run away and you lose items you collected )
+-Once collected, go back to house, kitchen, simple, just press button
+-Have lunch with them ( dialoge or popup with temp dialogues )
+-Go to Tavern shopping window where you can trade, recipes, items, blueprints for new rooms, decorations etc.
+
+
+What things need to be implemented
+-House Exterior, House Interior, Kitchen ( Bedroom, Crafting Room )
+-Sleep interation ( bed )
+-Demo popups with texts
+-Food resources ( carrots etc )
+-Enemies models, steal item logic ( hard limit on how much they can steal )
+-Recipes in Inventory
+-Update Inventory UI
+-Kitchen cooking, one button
+-Family table, all sitting around, eating
+-Tavern trading visuals ( no logic )
+
+
+
 -Gameplay shot with Zim, Sun animated
 -Twitter, Reddit, Tiktok, Insta
 
--Astar
--Create scene with house
 
 
 //Area logic (what area it is, load surrounding areas)
@@ -23,6 +47,7 @@
 
 
 // LATER
+-Unity Pathfinding
 -Add animated enemy
 -Enemies should not be attacking, but more messing with Dan, running around, scaring Chompy. When chompy is scared he runs away
 -Implement Chompy
