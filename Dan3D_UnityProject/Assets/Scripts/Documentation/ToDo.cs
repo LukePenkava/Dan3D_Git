@@ -3,6 +3,12 @@
 //Current
 -Interior Area
 -Add music
+-Bedroom
+-Sleeping logic, wake up
+-Go wake up Zim ( sleeping in bedroom )
+-Go gather resources for crafting ( 3x stone, 3x wood, resource for food )
+-Get back to make food in cauldron
+-display controls on some corner ( sprint, frying pan, interact, inventory )
 
 -Build two more areas and interior
 -Create area system to load different areas and player position based on previous area

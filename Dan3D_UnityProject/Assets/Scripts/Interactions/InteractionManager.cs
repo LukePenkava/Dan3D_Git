@@ -95,13 +95,13 @@ public class InteractionManager : MonoBehaviour
         //Find Closest Interactions to the Player 
         float shortestDistance = Mathf.Infinity;
         float distanceCheck = 0f;
-        Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
+        Vector3 playerPos = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
         int closestInteractionIndex = 0;
 
         for(int i = 0; i < sceneInteractions.Count; i++) {
             if(sceneInteractions[i] == null) { continue; }            
-            Vector2 interactionPos = new Vector2(sceneInteractions[i].anchorSelection.position.x, sceneInteractions[i].anchorSelection.position.y);
-            float distance = Vector2.Distance(playerPos, interactionPos);
+            Vector3 interactionPos = new Vector3(sceneInteractions[i].anchorSelection.position.x, 0f, sceneInteractions[i].anchorSelection.position.z);
+            float distance = Vector3.Distance(playerPos, interactionPos);
 
             if(distance < shortestDistance){
                 shortestDistance = distance;
@@ -113,6 +113,10 @@ public class InteractionManager : MonoBehaviour
 
         if(sceneInteractions.Count > 0) {
             distanceCheck = sceneInteractions[closestInteractionIndex].remoteInteraction ? Director.distanceToInteractRemote : Director.distanceToInteract;
+
+            if(sceneInteractions[closestInteractionIndex].customDistanceForInteraction != 0f) {
+                distanceCheck = sceneInteractions[closestInteractionIndex].customDistanceForInteraction;
+            }
         }
 
         if(shortestDistance < distanceCheck) {     

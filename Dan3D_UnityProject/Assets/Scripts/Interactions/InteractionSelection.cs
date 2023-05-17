@@ -25,7 +25,7 @@ public class InteractionSelection : MonoBehaviour
 
     public Transform anchorSelection;
     public bool remoteInteraction = false; //For example Zim digging, this makes distance for activation much further. using distanceToInteractRemote in InteracdtionManager
-    
+    public float customDistanceForInteraction = 0f;
 
     void Awake()
     {     

@@ -28,13 +28,20 @@ public class CameraManager : MonoBehaviour
         RefocusPlayer        
     }
 
-    // void OnEnable() {
-    //     AreaManager.AreaCreatedEvent += AreaCreated;
-    // }
+    void OnEnable() {
+        Area.AreaLoaded += AreaLoaded;
+    }
 
-    // void OnDisable() {
-    //     AreaManager.AreaCreatedEvent -= AreaCreated;
-    // }
+    void OnDisable() {
+        Area.AreaLoaded -= AreaLoaded;
+    }
+
+    void AreaLoaded(Area areaScript) {        
+        zDistance = areaScript.camera_DistanceZ;
+        verticalOffset = areaScript.camera_VerticalOffset;
+        mainCamera.transform.localEulerAngles = new Vector3(areaScript.camera_AngleX, mainCamera.transform.localEulerAngles.y, mainCamera.transform.localEulerAngles.z);
+        Init();
+    }
     
 
     public void Init() {

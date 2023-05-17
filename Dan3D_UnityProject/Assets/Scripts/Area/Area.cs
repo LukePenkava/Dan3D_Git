@@ -15,6 +15,11 @@ public class Area : MonoBehaviour
 
     //Create timer for digsites and save their state, like 24 hours ingame time to refresh availability
 
+    //Camera Settings
+    public float camera_AngleX = 2f;
+    public float camera_DistanceZ = 6.2f;
+    public float camera_VerticalOffset = 0.6f;
+
     void Start() {
 
         if(AreaLoaded != null) {           
