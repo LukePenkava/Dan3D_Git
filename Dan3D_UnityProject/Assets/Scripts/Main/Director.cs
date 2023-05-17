@@ -15,5 +15,12 @@ public static class Director
         Buttons
     };   
 
+    public enum InputDevices {
+        Keyboard,
+        Controller
+    };
+
     public static UI_InputType inputType = UI_InputType.Buttons; 
+
+    public static InputDevices inputDevice = InputDevices.Keyboard;
 }

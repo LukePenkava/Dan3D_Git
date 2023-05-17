@@ -1,9 +1,8 @@
 /*
 
 //Current
--Show Resource Popup
 -Interior Area
--Controller Buttons
+-Add music
 
 -Build two more areas and interior
 -Create area system to load different areas and player position based on previous area

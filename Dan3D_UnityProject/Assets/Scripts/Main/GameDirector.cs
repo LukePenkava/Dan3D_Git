@@ -60,8 +60,7 @@ public class GameDirector : MonoBehaviour
 
         //Find Spawn Pos that corresponds to previous area
         Vector3 pos = areaScript.spawnPositins[0].gameObject.transform.position; //Use first spawnPos as default one, if no match was found
-        foreach(AreaSpawnPos spawnPos in areaScript.spawnPositins) {
-            print("areaManager.PrevArea " + areaManager.PrevArea.ToString());
+        foreach(AreaSpawnPos spawnPos in areaScript.spawnPositins) {            
             if(spawnPos.prevArea == areaManager.PrevArea) {
                 pos = spawnPos.gameObject.transform.position;
             }

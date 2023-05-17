@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1823688466}
   playerCameraBounds: {fileID: 1159072539}
-  focusAreaSize: {x: 4, y: 4}
+  focusAreaSize: {x: 4, y: 2.5}
   zDistance: 6.2
   smoothing: 0.1
   verticalOffset: 0.6

@@ -10,8 +10,7 @@ public class Player_Input : MonoBehaviour
     MinigameManager mgManager;
 
     CustomInput input = null; 
-
-    string inputDevice = "";
+   
     Vector2 moveVector = Vector2.zero;
 
     void Awake() {
@@ -48,8 +47,8 @@ public class Player_Input : MonoBehaviour
 
     #region InputEvents
 
-    void OnMovementPerformed(InputAction.CallbackContext context) {        
-        inputDevice = context.control.device.displayName;      
+    void OnMovementPerformed(InputAction.CallbackContext context) {                
+        SetInputDevice(context.control.device.displayName);     
         
         if(GameDirector.gameState == GameDirector.GameState.World) {
             playerManager.MoveVector = context.ReadValue<Vector2>();
@@ -58,12 +57,13 @@ public class Player_Input : MonoBehaviour
         }
     }
 
-    void OnMovementCancelled(InputAction.CallbackContext context) {        
+    void OnMovementCancelled(InputAction.CallbackContext context) { 
+        SetInputDevice(context.control.device.displayName);       
         playerManager.MoveVector = Vector2.zero;        
     }
 
     void OnUINavigationPerformed(InputAction.CallbackContext context) {        
-        inputDevice = context.control.device.displayName;      
+        SetInputDevice(context.control.device.displayName);      
         
         if(GameDirector.gameState == GameDirector.GameState.UI) {
             Vector2 uiInput = context.ReadValue<Vector2>();
@@ -71,11 +71,13 @@ public class Player_Input : MonoBehaviour
         }
     }
 
-    void OnSprintPerformed(InputAction.CallbackContext context) {            
+    void OnSprintPerformed(InputAction.CallbackContext context) {  
+        SetInputDevice(context.control.device.displayName);           
         playerManager.Sprint = context.ReadValue<float>() == 1f ? true : false;       
     }    
 
     void OnInteractPerformed(InputAction.CallbackContext context) {
+        SetInputDevice(context.control.device.displayName); 
         
         if(context.ReadValue<float>() == 1f) {
             if(GameDirector.gameState == GameDirector.GameState.World) {
@@ -87,6 +89,8 @@ public class Player_Input : MonoBehaviour
     }  
 
     void OnAttackPerformed(InputAction.CallbackContext context) {
+        SetInputDevice(context.control.device.displayName); 
+
         if(GameDirector.gameState == GameDirector.GameState.World) {
             if(context.ReadValue<float>() == 1f) {                
                 playerManager.Attack();
@@ -101,10 +105,16 @@ public class Player_Input : MonoBehaviour
     }
 
     void OnInventoryPerformed(InputAction.CallbackContext context) {
+        SetInputDevice(context.control.device.displayName);
+
         if(context.ReadValue<float>() == 1f) {                
             uiManager.PlayerInventoryInput();
         } 
     }    
+
+    void SetInputDevice(string device) {
+        Director.inputDevice = device == "Keyboard" ? Director.InputDevices.Keyboard : Director.InputDevices.Controller; 
+    }
 
     #endregion
 }

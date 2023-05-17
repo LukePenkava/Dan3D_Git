@@ -19,7 +19,7 @@ public class InteractionSelectionObject : MonoBehaviour
     Color colorTextDisabled = new Color(111F/255f, 89F/255f, 76F/255f, 0.4f);
 
     string[] keyboardInputs = new string[]{"E", "R", "T"};
-    string[] joystickInputs = new string[]{"X", "Y", "B"};
+    string[] joystickInputs = new string[]{"A", "X", "B"};
 
     ButtonColors[] keyboardButtons = new ButtonColors[]{ButtonColors.Green, ButtonColors.Purple, ButtonColors.Red};
     ButtonColors[] joystickButtons = new ButtonColors[]{ButtonColors.Green, ButtonColors.Purple, ButtonColors.Red};
@@ -65,7 +65,7 @@ public class InteractionSelectionObject : MonoBehaviour
         // buttonImage.sprite = buttonVisual.buttonSprite;
         // buttonImage.color = buttonVisual.buttonColor;        
 
-        buttonText.text = keyboardInputs[selectionIndex]; //(Director.inputDevice == Director.InputDevice.Keyboard) ? keyboardInputs[selectionIndex] : joystickInputs[selectionIndex];
+        buttonText.text = Director.inputDevice == Director.InputDevices.Keyboard ? keyboardInputs[selectionIndex] : joystickInputs[selectionIndex]; //(Director.inputDevice == Director.InputDevice.Keyboard) ? keyboardInputs[selectionIndex] : joystickInputs[selectionIndex];
         //buttonText.color = buttonVisual.buttonTextColor;
 
        LayoutRebuilder.ForceRebuildLayoutImmediate(interactionText.gameObject.GetComponent<RectTransform>());

@@ -17,7 +17,6 @@ public class AreaManager : MonoBehaviour
 
         prevArea = currentArea;
         currentArea = areaToLoad;
-        print("currentArea " + currentArea.ToString());
         SceneManager.LoadScene(currentArea.ToString(), LoadSceneMode.Additive);
     }
 }
