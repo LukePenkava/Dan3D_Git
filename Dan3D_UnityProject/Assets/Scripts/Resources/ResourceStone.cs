@@ -30,20 +30,22 @@ public class ResourceStone : Resource
     //Minigame, he should put his arm up with animation, stop, minigame starts, so that player can tell based on animation when it will happen, then if success, on hit sparkles and better sound. If faile normal sound, no sparkles
     //If this happens on having arm up, there is no collider to check hit, so there has to be precheck with other collider where the hit will land on press attack to see where frying pan will land.
 
-    public void MinigameResult(bool result) {
+    public void MinigameResult(bool result, bool expired) {
 
         if(amount <= 0) { return; }
         amount--;
 
-        List<Items.ItemName> itemList = new List<Items.ItemName>();
-        itemList.Add(Items.ItemName.Stone); 
-        //Give second stone, if success
-        if(result) {     
-            itemList.Add(Items.ItemName.Stone);    
-        }
+        if(expired == false) {
+            List<Items.ItemName> itemList = new List<Items.ItemName>();
+            itemList.Add(Items.ItemName.Stone); 
+            //Give second stone, if success
+            if(result) {     
+                itemList.Add(Items.ItemName.Stone);    
+            }
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");              
-        player.GetComponent<Character_BaseData>().AddItems(itemList, true);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");              
+            player.GetComponent<Character_BaseData>().AddItems(itemList, true);
+        }
         
         bigRock.SetActive(false);
         smallRocks.SetActive(true);

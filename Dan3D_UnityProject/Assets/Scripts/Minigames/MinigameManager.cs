@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MinigameManager : MonoBehaviour
 {
-    public delegate void MinigameDelegate(bool result);
+    public delegate void MinigameDelegate(bool result, bool expired);
     public MinigameDelegate mgDelegate;
 
     public GameObject minigameParent;
@@ -59,9 +59,9 @@ public class MinigameManager : MonoBehaviour
             indicator.transform.localPosition = new Vector3(indicator.transform.localPosition.x - (Time.deltaTime * speed), 0, 0);
 
             if(indicator.transform.localPosition.x <= (-bgWidth/2f)) {
-                 indicator.transform.localPosition = new Vector3(-bgWidth/2f, 0, 0);
+                indicator.transform.localPosition = new Vector3(-bgWidth/2f, 0, 0);
 
-                mgDelegate(true);
+                mgDelegate(false, true);
                 mgOn = false;
                 minigameParent.SetActive(false);
             }
@@ -74,9 +74,9 @@ public class MinigameManager : MonoBehaviour
 
         float pos = indicator.transform.localPosition.x;
         if(pos > hitAreaSuccessMin && pos < hitAreaSuccessMax) {
-            mgDelegate(true);
+            mgDelegate(true, false);
         } else {
-            mgDelegate(false);
+            mgDelegate(false, false);
         }
 
         minigameParent.SetActive(false);

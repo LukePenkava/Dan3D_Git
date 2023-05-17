@@ -22507,7 +22507,7 @@ MonoBehaviour:
   thisStateToEnable: 0
   customDisplayText: ENTER
   interactionText: 
-  areaToEnter: 1
+  areaToEnter: 5
 --- !u!114 &558473767
 MonoBehaviour:
   m_ObjectHideFlags: 0

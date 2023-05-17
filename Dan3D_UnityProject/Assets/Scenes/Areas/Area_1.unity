@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5541.932, g: 5519.567, b: 5403.68, a: 1}
+  m_IndirectSpecularColor: {r: 5543.2056, g: 5520.8833, b: 5405.1333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15468,6 +15468,9 @@ MonoBehaviour:
   - {fileID: 1658443804}
   - {fileID: 862681152}
   digsitesAmount: 0
+  camera_AngleX: 2
+  camera_DistanceZ: 6.2
+  camera_VerticalOffset: 0.6
 --- !u!1001 &494230806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52156,7 +52159,7 @@ MonoBehaviour:
   thisStateToEnable: 0
   customDisplayText: ENTER
   interactionText: 
-  areaToEnter: 4
+  areaToEnter: 5
 --- !u!114 &1665257663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52171,6 +52174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorSelection: {fileID: 1665257661}
   remoteInteraction: 0
+  customDistanceForInteraction: 0
 --- !u!1 &1667036277
 GameObject:
   m_ObjectHideFlags: 0
@@ -56098,6 +56102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorSelection: {fileID: 1785289801}
   remoteInteraction: 0
+  customDistanceForInteraction: 0
 --- !u!1001 &1787827113
 PrefabInstance:
   m_ObjectHideFlags: 0

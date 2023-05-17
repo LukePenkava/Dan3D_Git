@@ -1,9 +1,8 @@
 /*
 
 //Current
--Interior Area
 -Add music
--Bedroom
+-Enemies in Area3
 -Sleeping logic, wake up
 -Go wake up Zim ( sleeping in bedroom )
 -Go gather resources for crafting ( 3x stone, 3x wood, resource for food )

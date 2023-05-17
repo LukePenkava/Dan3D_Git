@@ -165,7 +165,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 70
   m_StepOffset: 0.1
   m_SkinWidth: 0.001
   m_MinMoveDistance: 0
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorSelection: {fileID: 242235030}
   remoteInteraction: 1
+  customDistanceForInteraction: 0
 --- !u!1 &242235029
 GameObject:
   m_ObjectHideFlags: 0
@@ -34088,7 +34089,7 @@ GameObject:
   - component: {fileID: 8747452647292484387}
   - component: {fileID: 1995205650707436670}
   - component: {fileID: 8747452647292484386}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Zima
   m_TagString: Zima
   m_Icon: {fileID: 0}

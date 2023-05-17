@@ -8,5 +8,6 @@ public enum Areas {
     Area_1,
     Area_2,
     Area_3,
-    Home_1
+    Home_1,
+    Home_2
 }

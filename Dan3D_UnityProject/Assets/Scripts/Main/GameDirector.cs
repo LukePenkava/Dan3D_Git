@@ -66,8 +66,8 @@ public class GameDirector : MonoBehaviour
             }
         }
 
-        player.transform.position = new Vector3(pos.x, 0.5f, pos.z);
-        zima.transform.position = new Vector3(pos.x, 0.5f, pos.z - 1f);
+        player.transform.position = new Vector3(pos.x, pos.y, pos.z);
+        zima.transform.position = new Vector3(pos.x, pos.y, pos.z - 1f);
     }
 
     //Event notifying TimeManager and CharacterStatus for curse to pause. For example when its tutorial, dialogue or trading
