@@ -57,15 +57,13 @@ public class InteractionManager : MonoBehaviour
         //LockedMovement      //Can do anything except for moving
     }
 
-    // void OnEnable() {
-    //     AreaManager.AreaCreatedEvent += AreaCreated;
-    //     TimeManager.DayPhaseChanged += DayPhaseChanged;
-    // }
+    void OnEnable() {
+        Area.AreaLoaded += AreaLoaded;
+    }
 
-    // void OnDisable() {
-    //     AreaManager.AreaCreatedEvent -= AreaCreated;
-    //     TimeManager.DayPhaseChanged -= DayPhaseChanged;
-    // }
+    void OnDisable() {
+        Area.AreaLoaded -= AreaLoaded;
+    }
 
     public void Init() {
         
@@ -76,9 +74,11 @@ public class InteractionManager : MonoBehaviour
         ShowSelectionMenu(false);
     }      
 
-    // void AreaCreated(AreaNode areaNode) {
-    //     FindInteractions();
-    // }
+    void AreaLoaded(Area areaScript) {
+        FindInteractions();
+        // selectionMenu.gameObject.SetActive(true);
+        // ShowSelectionMenu(false);
+    }
 
     void DayPhaseChanged(GameDirector.DayPhase dayPhase) {
        //FindInteractions();

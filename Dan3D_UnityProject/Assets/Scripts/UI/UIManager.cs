@@ -72,10 +72,19 @@ public class UIManager : MonoBehaviour
     public GameObject itemInfoPrefab;
     List<GameObject> infoItems = new List<GameObject>();
     float itemInfoWidth = 300f;
-    float itemInfoGap = 50f;
-   
+    float itemInfoGap = 50f;   
 
     GameDirector.GameState gameStateBeforeInvenotryOpened = GameDirector.GameState.World;
+
+    //Resources
+    bool resourceInfoActive = false;
+    public GameObject resourceInfoParent;
+    public Text resourceAmountText;
+    public Image resourceIcon;
+    int resourceAmount = 0;
+    public int ResourceAmount { set { resourceAmount = value; }}
+    Items.ItemName resourceName; 
+    public Items.ItemName ResourceName { set { resourceName = value; }}
 
 
     public void Init()
@@ -95,6 +104,8 @@ public class UIManager : MonoBehaviour
         prevUISection = activeUISection;
         InitButtons();
 
+        resourceInfoParent.SetActive(false);
+
         //gameMenuParent.SetActive(false);
         //mapParent.SetActive(false);
         //demoEndParent.SetActive(false);
@@ -104,7 +115,28 @@ public class UIManager : MonoBehaviour
         //fadeOverlay.gameObject.SetActive(false);      
 
          
-    }      
+    }    
+
+    void Update() {
+
+        if(resourceAmount > 0) {
+            if(resourceInfoActive == false) {
+                resourceInfoActive = true;
+
+                resourceInfoParent.SetActive(true);
+                resourceAmountText.text = resourceAmount.ToString();
+                resourceIcon.sprite = Resources.Load<Sprite>("Icons/Items/" + resourceName.ToString());
+            } else {
+                resourceAmountText.text = resourceAmount.ToString();
+            }
+        } else {
+            if(resourceInfoActive == true) {
+                resourceInfoActive = false;
+                resourceInfoParent.SetActive(false);
+            }
+        }
+
+    }  
 
 
     public void OpenGameMenu() {

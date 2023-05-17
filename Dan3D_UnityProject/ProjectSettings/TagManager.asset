@@ -17,6 +17,10 @@ TagManager:
   - Obstacle
   - Ground
   - Astar
+  - Zima
+  - Item
+  - Door
+  - Resource
   layers:
   - Default
   - TransparentFX

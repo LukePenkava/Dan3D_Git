@@ -11,7 +11,9 @@ public class PlayerManager : MonoBehaviour
     State playerState;
     Animator anim;          
 
-    public GameObject visual;    
+    public GameObject visual;   
+
+    bool wasInited = false; 
 
     //Movement
     Vector2 moveVector;
@@ -68,7 +70,15 @@ public class PlayerManager : MonoBehaviour
     public GameObject weapon;
     public GameObject weaponCollider;
 
-    void Start()
+    void OnEnable() {
+        Area.AreaLoaded += AreaLoadedInit;
+    }
+
+    void OnDisable() {
+        Area.AreaLoaded -= AreaLoadedInit;
+    }
+
+    void AreaLoadedInit(Area areaScript)
     {                  
         controller = GetComponent<CharacterController>();
         anim = visual.GetComponent<Animator>();
@@ -88,11 +98,15 @@ public class PlayerManager : MonoBehaviour
         anim.SetBool(animID_MoveEnabled, true);
 
         weapon.SetActive(false);
+
+        wasInited = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(wasInited == false) { return; }
+
         animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
         AnimationsInfo();
 

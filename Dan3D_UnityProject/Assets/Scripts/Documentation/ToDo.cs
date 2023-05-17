@@ -1,7 +1,18 @@
 /*
 
--Create scene with house, put there bunch of critters, fox, etc. all hanging around in the house
--A lot of food resources outside in the forest ( carrots, beats, gingerbread etc )
+//Current
+-Show Resource Popup
+-Interior Area
+-Controller Buttons
+
+-Build two more areas and interior
+-Create area system to load different areas and player position based on previous area
+-UI pop ups next to tree and stone to show it has resources
+-Enemy temp critter model
+-UI box to quest ( collect resources, go back to house to prepare dinner )
+
+-Pay for Appstore to show games
+-Pitch ( core game idea, loops, how much money I need, tell about myself, financials, why to fund this game ( genre, numbers etc ) I am working on this game, because I want to play a cozy game, but with a bit of drama and purpose, recognise failure of DWT pixel art, game features, marketing, doing it solo )
 
 -Wake up in the house
 -Get popup to prepare food for your family
@@ -10,6 +21,9 @@
 -Once collected, go back to house, kitchen, simple, just press button
 -Have lunch with them ( dialoge or popup with temp dialogues )
 -Go to Tavern shopping window where you can trade, recipes, items, blueprints for new rooms, decorations etc.
+
+-Create scene with house, put there bunch of critters, fox, etc. all hanging around in the house
+-A lot of food resources outside in the forest ( carrots, beats, gingerbread etc )
 
 
 What things need to be implemented
@@ -44,7 +58,6 @@ What things need to be implemented
 -Add basic Astar navigation
 
 //AI for characters to move between areas and in the area.
-
 
 // LATER
 -Unity Pathfinding

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ResourceWood : Resource
 {
-    int amount = 2;
-
     public Animation anim;
     
     public override void Collect()

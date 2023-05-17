@@ -32,7 +32,8 @@ public class ResourceStone : Resource
 
     public void MinigameResult(bool result) {
 
-        print("result " + result);
+        if(amount <= 0) { return; }
+        amount--;
 
         List<Items.ItemName> itemList = new List<Items.ItemName>();
         itemList.Add(Items.ItemName.Stone); 

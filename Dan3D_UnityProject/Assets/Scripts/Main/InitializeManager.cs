@@ -48,6 +48,9 @@ public class InitializeManager : MonoBehaviour
         uiManager.Init();
         interactionManager.Init();
 
+        // GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().Init();
+        // GameObject.FindGameObjectWithTag("Zima").GetComponent<Zima>().Init();
+
         // resourceManager.Init(); 
         // questManager.Init();       
         // tradeManager.Init();

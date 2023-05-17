@@ -11,11 +11,12 @@ public class Zima : NpcBase
     GameObject player;
     Area areaScript;
 
+    bool wasInited = false;
+
     //Animations
     AnimatorStateInfo animStateInfo;
     int animID_MoveSpeed;
-    int animID_Walk;
-    int animID_Sprint; 
+    int animID_Walk; 
     int animID_ReadyToDig;
     int animID_Dig;
 
@@ -34,12 +35,22 @@ public class Zima : NpcBase
     bool isDigsite = false;
     bool isReadyToDig = false;
     bool isDigging = false;
+    
 
-    void Start()
+    void OnEnable() {
+        Area.AreaLoaded += AreaLoadedInit;
+    }
+
+    void OnDisable() {
+        Area.AreaLoaded -= AreaLoadedInit;
+    }
+
+    void AreaLoadedInit(Area _areaScript)
     {
         base.Init();
         player = GameObject.FindGameObjectWithTag("Player");
-        areaScript = GameObject.FindGameObjectWithTag("Area").GetComponent<Area>();
+        areaScript = _areaScript;
+        //areaScript = GameObject.FindGameObjectWithTag("Area").GetComponent<Area>();
         interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();
 
         anim = GetComponent<Animator>();
@@ -47,14 +58,29 @@ public class Zima : NpcBase
 
         //Animation IDs
         animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
-        // animID_MoveEnabled = Animator.StringToHash("MoveEnabled");
         animID_ReadyToDig = Animator.StringToHash("ReadyToDig");
         animID_Dig = Animator.StringToHash("Dig");
-        // animID_Attack = Animator.StringToHash("Attack");
+
+        wasInited = true;
+
+        //Reset
+        isDigsite = false;
+        isReadyToDig = false;
+        isDigging = false;    
+        sprint = false;    
+        anim.SetBool(animID_ReadyToDig, false);
+        anim.SetBool(animID_Dig, false);
+        anim.SetFloat(animID_MoveSpeed, 0f);
+        moveVector = Vector3.zero;
+        chasingPlayer = false;
+        intervalTimer = 0f;
+        navPosition = GetNavPosition();       
     }
 
     void Update()
     {
+        if(wasInited == false) { return; }
+
         base.BaseUpdate();
 
         float targetSpeed = 0f;        

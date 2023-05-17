@@ -4,38 +4,81 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    //AreaManager areaManager;
     GameDirector gameDirector;
-    //InteractionManager interactionManager;
+    UIManager uiManager;
 
     public GameObject player;
+    GameObject[] areaResources = new GameObject[0];
     //Each time area spawns, get all Resource objects from Resource Parent.
     //List<InteractionResource> resources = new List<InteractionResource>();
     //InteractionResource activeResource;
-    //public ResourceLifeProgressBar lifeProgressBar; 
+    //public ResourceLifeProgressBar lifeProgressBar;    
 
-    public bool debugOn = false;
-
-
-
-    public void Init() {
-        // areaManager = GetComponent<AreaManager>();
-        // GameObject managers = GameObject.FindGameObjectWithTag("Managers");
-        // gameDirector = managers.GetComponent<GameDirector>();
-        // interactionManager = managers.GetComponent<InteractionManager>();
-
-        // AreaManager.AreaCreatedEvent += AreaCreated;
-        // AreaManager.AreaWillGetDeleted += AreaWillGetDeleted;
-        // AreaManager.ForestReshuffled += ForestReshuffled;
-        // TimeManager.DayPhaseChanged += DayPhaseChanged;
+    void Start() {
+        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
     } 
 
-    void OnDisable() {
-        // AreaManager.AreaCreatedEvent -= AreaCreated;
-        // AreaManager.AreaWillGetDeleted -= AreaWillGetDeleted;
-        // AreaManager.ForestReshuffled += ForestReshuffled;
-        // TimeManager.DayPhaseChanged -= DayPhaseChanged;
+
+    void OnEnable() {
+        Area.AreaLoaded += AreaLoaded;
     }
+
+    void OnDisable() {
+        Area.AreaLoaded -= AreaLoaded;
+    }
+
+    void AreaLoaded(Area areaScript) {
+        areaResources = GameObject.FindGameObjectsWithTag("Resource");
+    }
+
+    void Update() {
+        
+        GameObject activeResource = null;
+        float closestDistance = 100.0f;
+
+        foreach(GameObject tempResource in areaResources) {
+            float distanceToResource = Vector3.Distance(new Vector3(tempResource.transform.position.x, 0f, tempResource.transform.position.z), new Vector3(player.transform.position.x, 0, player.transform.position.z));           
+            if(distanceToResource < 2.5f && distanceToResource < closestDistance) {
+                closestDistance = distanceToResource;
+                activeResource = tempResource;
+            }
+        }
+
+        if(activeResource != null) {
+            
+            Resource res = activeResource.GetComponent<Resource>();
+
+            if(res.amount > 0) {
+                uiManager.ResourceAmount = res.amount;
+                uiManager.ResourceName = res.resourceName;
+            } else {
+                uiManager.ResourceAmount = 0;
+            }
+        } else {
+            uiManager.ResourceAmount = 0;
+        }
+    }
+
+
+
+    // public void Init() {
+    //     // areaManager = GetComponent<AreaManager>();
+    //     // GameObject managers = GameObject.FindGameObjectWithTag("Managers");
+    //     // gameDirector = managers.GetComponent<GameDirector>();
+    //     // interactionManager = managers.GetComponent<InteractionManager>();
+
+    //     // AreaManager.AreaCreatedEvent += AreaCreated;
+    //     // AreaManager.AreaWillGetDeleted += AreaWillGetDeleted;
+    //     // AreaManager.ForestReshuffled += ForestReshuffled;
+    //     // TimeManager.DayPhaseChanged += DayPhaseChanged;
+    // } 
+
+    // void OnDisable() {
+    //     // AreaManager.AreaCreatedEvent -= AreaCreated;
+    //     // AreaManager.AreaWillGetDeleted -= AreaWillGetDeleted;
+    //     // AreaManager.ForestReshuffled += ForestReshuffled;
+    //     // TimeManager.DayPhaseChanged -= DayPhaseChanged;
+    // }
 
     // void AreaWillGetDeleted(AreaNode areaNode) {
     //     SaveResources();

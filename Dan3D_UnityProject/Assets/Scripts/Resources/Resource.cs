@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
+    public int amount;
+    public Items.ItemName resourceName;
 
     public virtual void Collect() {
 
