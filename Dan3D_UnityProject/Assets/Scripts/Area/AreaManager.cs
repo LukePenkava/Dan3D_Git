@@ -8,14 +8,24 @@ public class AreaManager : MonoBehaviour
     public delegate void AreaDelegate(Area areaScript);
     public static event AreaDelegate AreaLoaded;
 
+
+    UIManager uiManager;
+
     Areas currentArea = Areas.none;
     public Areas CurrentArea { get { return currentArea; }}  
     Areas prevArea = Areas.none; 
     public Areas PrevArea { get { return prevArea; }}  
 
+    
+
     public void LoadArea(Areas areaToLoad) {
 
         Director.isLoading = true;   
+        
+        if(uiManager == null) {
+            uiManager = GetComponent<UIManager>();
+        }
+        uiManager.loadOverlay.SetActive(true);
 
         if(currentArea != Areas.none) {
             SceneManager.UnloadSceneAsync(currentArea.ToString());

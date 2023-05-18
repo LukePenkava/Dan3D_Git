@@ -9,6 +9,7 @@ public class GameDirector : MonoBehaviour
     public static TimeDelegate TimePausedEvent;  
 
     AreaManager areaManager; 
+    UIManager uiManager;
     
     public enum GameState {
         World,
@@ -44,7 +45,10 @@ public class GameDirector : MonoBehaviour
     {
         GameDirector.gameState = GameDirector.GameState.World;
 
+        uiManager = GetComponent<UIManager>();
         areaManager = GetComponent<AreaManager>();
+
+        uiManager.loadOverlay.SetActive(true);
         areaManager.LoadArea(firstAreaToLoad);
 
         //PerformDynamicRes scaler = PerformDynamicRes.
@@ -104,15 +108,20 @@ public class GameDirector : MonoBehaviour
 
         
         //player.transform.position =  new Vector3(pos.x, pos.y, pos.z);     
+        //
+
+        player.GetComponent<PlayerManager>().SetPosition(pos);
+        Director.isLoading = false;
+
         StartCoroutine(PositionPlayer(pos));
     }
 
     IEnumerator PositionPlayer(Vector3 pos) {
-        yield return new WaitForSeconds(1.0f);
-        print("Set Pos " + pos);
+        yield return new WaitForSeconds(0.25f);        
         //player.transform.position =  pos;
-        player.GetComponent<PlayerManager>().SetPosition(pos);
-        Director.isLoading = false;
+        //player.GetComponent<PlayerManager>().SetPosition(pos);
+        
+        uiManager.loadOverlay.SetActive(false);
     }
 
     //Event notifying TimeManager and CharacterStatus for curse to pause. For example when its tutorial, dialogue or trading

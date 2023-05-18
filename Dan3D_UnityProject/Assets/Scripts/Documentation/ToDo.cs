@@ -1,14 +1,14 @@
 /*
 
 //Current
--Main Menu ( image, press any button, quality settings ( global illumination player prefs ))
--Esc Menu ( Main Menu, Quit )
 -Wheat ( bag in Area 3, collect interaction, add item )
 -Quest ( collect items, 2 wood, 1 stone, 2 carrots, 1 wheat )
 -Once has all resources, display quest to go to kitchen to prepare food. 
+-Hit enemy animation
 -Game finished, end screen, show all features to come.
 -Sleeping logic, wake up
 -display controls on some corner ( sprint, frying pan, interact, inventory )
+-Main Menu ( quality settings ( global illumination player prefs ))
 
 -Build two more areas and interior
 -Create area system to load different areas and player position based on previous area

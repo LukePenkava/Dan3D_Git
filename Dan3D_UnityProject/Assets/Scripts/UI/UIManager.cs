@@ -89,6 +89,7 @@ public class UIManager : MonoBehaviour
 
     //Game Menu
     public GameObject gameMenu;
+    public GameObject loadOverlay;
 
 
     public void Init()
