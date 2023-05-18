@@ -27,22 +27,25 @@ public class GameDirector : MonoBehaviour
     public static DayPhase dayPhase;
 
     //Variables
+    public Areas firstAreaToLoad = Areas.Area_1;
     public GameObject player;
     public GameObject zima;
 
     void OnEnable() {
-        Area.AreaLoaded += AreaLoaded;
+        AreaManager.AreaLoaded += AreaLoaded;
     }
 
     void OnDisable() {
-        Area.AreaLoaded -= AreaLoaded;
+        AreaManager.AreaLoaded -= AreaLoaded;
     }
 
     // Start is called before the first frame update
     public void Init()
     {
+        GameDirector.gameState = GameDirector.GameState.World;
+
         areaManager = GetComponent<AreaManager>();
-        areaManager.LoadArea(Areas.Area_1);
+        areaManager.LoadArea(firstAreaToLoad);
 
         //PerformDynamicRes scaler = PerformDynamicRes.
         //DynamicResolutionHandler.SetDynamicResScaler()
@@ -59,15 +62,57 @@ public class GameDirector : MonoBehaviour
         //Position Player and Zima
 
         //Find Spawn Pos that corresponds to previous area
-        Vector3 pos = areaScript.spawnPositins[0].gameObject.transform.position; //Use first spawnPos as default one, if no match was found
-        foreach(AreaSpawnPos spawnPos in areaScript.spawnPositins) {            
-            if(spawnPos.prevArea == areaManager.PrevArea) {
-                pos = spawnPos.gameObject.transform.position;
+        // Vector3 pos = areaScript.spawnPositins[0].gameObject.transform.position; //Use first spawnPos as default one, if no match was found
+        // foreach(AreaSpawnPos spawnPos in areaScript.spawnPositins) {            
+        //     if(spawnPos.prevArea == areaManager.PrevArea) {
+        //         pos = spawnPos.gameObject.transform.position;
+        //     }
+        // }
+
+        Vector3 pos = Vector3.zero;
+        bool setFirst = false;
+        foreach(Transform spawnPos in areaScript.spawnPositions) {
+
+            if(setFirst == false) {
+                setFirst = true;
+                pos = spawnPos.position;
+            }
+
+            AreaSpawnPos spawnPosScript = spawnPos.gameObject.GetComponent<AreaSpawnPos>();
+
+            if(spawnPosScript.prevArea == areaManager.PrevArea) {
+                pos = spawnPos.position;
+            }
+        }        
+
+        if(areaScript.location == Locations.Forest) {
+            zima.SetActive(true);
+            zima.transform.position = new Vector3(pos.x, pos.y, pos.z - 1f);
+            zima.GetComponent<Zima>().SetHome(false);
+        }
+        else {
+            if(areaScript.area == Areas.Home_1 || areaScript.area == Areas.Home_3) {
+                zima.SetActive(false);
+            } 
+            else if(areaScript.area == Areas.Home_2) {
+                zima.SetActive(true);
+                zima.transform.position = new Vector3(-0.45f, 0.21f, -2.67f);
+                zima.transform.localEulerAngles = new Vector3(0,0,0);
+                zima.GetComponent<Zima>().SetHome(true);
             }
         }
 
-        player.transform.position = new Vector3(pos.x, pos.y, pos.z);
-        zima.transform.position = new Vector3(pos.x, pos.y, pos.z - 1f);
+        
+        //player.transform.position =  new Vector3(pos.x, pos.y, pos.z);     
+        StartCoroutine(PositionPlayer(pos));
+    }
+
+    IEnumerator PositionPlayer(Vector3 pos) {
+        yield return new WaitForSeconds(1.0f);
+        print("Set Pos " + pos);
+        //player.transform.position =  pos;
+        player.GetComponent<PlayerManager>().SetPosition(pos);
+        Director.isLoading = false;
     }
 
     //Event notifying TimeManager and CharacterStatus for curse to pause. For example when its tutorial, dialogue or trading

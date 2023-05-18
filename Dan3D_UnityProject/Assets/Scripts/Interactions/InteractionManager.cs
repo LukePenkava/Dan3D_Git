@@ -58,11 +58,11 @@ public class InteractionManager : MonoBehaviour
     }
 
     void OnEnable() {
-        Area.AreaLoaded += AreaLoaded;
+        AreaManager.AreaLoaded += AreaLoaded;
     }
 
     void OnDisable() {
-        Area.AreaLoaded -= AreaLoaded;
+        AreaManager.AreaLoaded -= AreaLoaded;
     }
 
     public void Init() {

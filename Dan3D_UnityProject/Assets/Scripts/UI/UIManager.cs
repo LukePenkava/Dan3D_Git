@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;   
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -86,6 +87,9 @@ public class UIManager : MonoBehaviour
     Items.ItemName resourceName; 
     public Items.ItemName ResourceName { set { resourceName = value; }}
 
+    //Game Menu
+    public GameObject gameMenu;
+
 
     public void Init()
     {
@@ -105,6 +109,7 @@ public class UIManager : MonoBehaviour
         InitButtons();
 
         resourceInfoParent.SetActive(false);
+        gameMenu.SetActive(false);
 
         //gameMenuParent.SetActive(false);
         //mapParent.SetActive(false);
@@ -134,9 +139,24 @@ public class UIManager : MonoBehaviour
                 resourceInfoActive = false;
                 resourceInfoParent.SetActive(false);
             }
-        }
+        }        
 
     }  
+
+    public void SetGameMenu() {
+        if(gameMenu.activeSelf) {
+            gameMenu.SetActive(false);
+            GameDirector.gameState = GameDirector.GameState.World;
+        }
+        else {
+            gameMenu.SetActive(true);
+
+            GameDirector.gameState = GameDirector.GameState.UI;
+            if(Director.inputType == Director.UI_InputType.Buttons) {
+                NavigateUI();
+            }
+        }
+    }
 
 
     public void OpenGameMenu() {
@@ -582,6 +602,14 @@ public class UIManager : MonoBehaviour
         buttons.Add(ButtonColors.Purple, buttonPurple);
         buttons.Add(ButtonColors.Red, buttonRed);
         buttons.Add(ButtonColors.Grey, buttonGrey);
+    }
+
+    public void GoToMainMenu() {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 
 }

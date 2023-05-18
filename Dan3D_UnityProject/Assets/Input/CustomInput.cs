@@ -80,6 +80,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""4eee8ff8-a76a-435a-9223-ca815dacc7e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -500,6 +509,28 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""UINavigation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95d5573f-efb6-4507-a918-83cd44b94a54"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e916be3-b508-478b-b608-c9a84ff8d834"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -514,6 +545,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_UINavigation = m_Player.FindAction("UINavigation", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -581,6 +613,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_UINavigation;
+    private readonly InputAction m_Player_Menu;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -591,6 +624,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @UINavigation => m_Wrapper.m_Player_UINavigation;
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -618,6 +652,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @UINavigation.started += instance.OnUINavigation;
             @UINavigation.performed += instance.OnUINavigation;
             @UINavigation.canceled += instance.OnUINavigation;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -640,6 +677,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @UINavigation.started -= instance.OnUINavigation;
             @UINavigation.performed -= instance.OnUINavigation;
             @UINavigation.canceled -= instance.OnUINavigation;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -665,5 +705,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnUINavigation(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Area : MonoBehaviour
 {
-    public delegate void AreaDelegate(Area areaScript);
-    public static event AreaDelegate AreaLoaded;
+    AreaManager areaManager;  
 
-    AreaManager areaScript;    
-    public List<AreaSpawnPos> spawnPositins = new List<AreaSpawnPos>();
+    public Areas area;
+    public Locations location;
+    //public List<AreaSpawnPos> spawnPositins = new List<AreaSpawnPos>();
+    public Transform spawnPositions;
 
     public List<Digsite> digsitesList = new List<Digsite>();
     public int digsitesAmount = 2;
@@ -22,9 +23,10 @@ public class Area : MonoBehaviour
 
     void Start() {
 
-        if(AreaLoaded != null) {           
-            AreaLoaded(this);
-        }
+        this.transform.position = Vector3.zero;        
+
+        areaManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<AreaManager>();
+        areaManager.NewAreaLoadedEvent(this);
 
         for(int i = 0; i < digsitesAmount; i++) {
             Digsite newDigsite = new Digsite();

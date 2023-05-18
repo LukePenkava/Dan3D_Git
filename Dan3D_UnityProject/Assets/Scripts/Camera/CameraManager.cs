@@ -29,11 +29,11 @@ public class CameraManager : MonoBehaviour
     }
 
     void OnEnable() {
-        Area.AreaLoaded += AreaLoaded;
+        AreaManager.AreaLoaded += AreaLoaded;
     }
 
     void OnDisable() {
-        Area.AreaLoaded -= AreaLoaded;
+        AreaManager.AreaLoaded -= AreaLoaded;
     }
 
     void AreaLoaded(Area areaScript) {        

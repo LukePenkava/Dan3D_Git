@@ -32,6 +32,7 @@ public class Player_Input : MonoBehaviour
         input.Player.Attack.performed += OnAttackPerformed;
         input.Player.Inventory.performed += OnInventoryPerformed;
         input.Player.UINavigation.performed += OnUINavigationPerformed;
+        input.Player.Menu.performed += OnUIMenuPerformed;
     }    
 
     void OnDisable() {
@@ -43,6 +44,7 @@ public class Player_Input : MonoBehaviour
         input.Player.Attack.performed -= OnAttackPerformed;
         input.Player.Inventory.performed -= OnInventoryPerformed;
         input.Player.UINavigation.performed -= OnUINavigationPerformed;
+        input.Player.Menu.performed -= OnUIMenuPerformed;
     }
 
     #region InputEvents
@@ -111,6 +113,14 @@ public class Player_Input : MonoBehaviour
             uiManager.PlayerInventoryInput();
         } 
     }    
+
+    void OnUIMenuPerformed(InputAction.CallbackContext context) {
+        SetInputDevice(context.control.device.displayName);
+
+        if(context.ReadValue<float>() == 1f) {                
+            uiManager.SetGameMenu();
+        } 
+    }
 
     void SetInputDevice(string device) {
         Director.inputDevice = device == "Keyboard" ? Director.InputDevices.Keyboard : Director.InputDevices.Controller; 

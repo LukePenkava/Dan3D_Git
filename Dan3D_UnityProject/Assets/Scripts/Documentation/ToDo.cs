@@ -1,12 +1,13 @@
 /*
 
 //Current
--Add music
--Enemies in Area3
+-Main Menu ( image, press any button, quality settings ( global illumination player prefs ))
+-Esc Menu ( Main Menu, Quit )
+-Wheat ( bag in Area 3, collect interaction, add item )
+-Quest ( collect items, 2 wood, 1 stone, 2 carrots, 1 wheat )
+-Once has all resources, display quest to go to kitchen to prepare food. 
+-Game finished, end screen, show all features to come.
 -Sleeping logic, wake up
--Go wake up Zim ( sleeping in bedroom )
--Go gather resources for crafting ( 3x stone, 3x wood, resource for food )
--Get back to make food in cauldron
 -display controls on some corner ( sprint, frying pan, interact, inventory )
 
 -Build two more areas and interior

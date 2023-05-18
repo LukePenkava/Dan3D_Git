@@ -9,6 +9,8 @@ public static class Director
     public static float distanceToInteractRemote = 10.0f;
     public static float displayItemTime = 2.5f;
 
+    public static bool isLoading = false;
+
     //Used for Inventory to know if UI is navigated with keys or mouse
     public enum UI_InputType {
         Mouse,

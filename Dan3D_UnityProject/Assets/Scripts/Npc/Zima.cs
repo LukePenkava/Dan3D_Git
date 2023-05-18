@@ -16,9 +16,9 @@ public class Zima : NpcBase
     //Animations
     AnimatorStateInfo animStateInfo;
     int animID_MoveSpeed;
-    int animID_Walk; 
     int animID_ReadyToDig;
     int animID_Dig;
+    int animID_Sitting;
 
     Animator anim;
 
@@ -36,13 +36,15 @@ public class Zima : NpcBase
     bool isReadyToDig = false;
     bool isDigging = false;
     
+    //Temp
+    bool atHome = true;
 
     void OnEnable() {
-        Area.AreaLoaded += AreaLoadedInit;
+        AreaManager.AreaLoaded += AreaLoadedInit;
     }
 
     void OnDisable() {
-        Area.AreaLoaded -= AreaLoadedInit;
+        AreaManager.AreaLoaded -= AreaLoadedInit;
     }
 
     void AreaLoadedInit(Area _areaScript)
@@ -60,6 +62,7 @@ public class Zima : NpcBase
         animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
         animID_ReadyToDig = Animator.StringToHash("ReadyToDig");
         animID_Dig = Animator.StringToHash("Dig");
+        animID_Sitting = Animator.StringToHash("Sitting");
 
         wasInited = true;
 
@@ -79,7 +82,7 @@ public class Zima : NpcBase
 
     void Update()
     {
-        if(wasInited == false) { return; }
+        if(wasInited == false || atHome) { return; }
 
         base.BaseUpdate();
 
@@ -246,5 +249,15 @@ public class Zima : NpcBase
             //Perpendicular vector
             moveVector = new Vector3(-moveVector.z, 0, moveVector.x);
         }
+    }
+
+    public void SetHome(bool _atHome) {
+        atHome = _atHome;
+        anim.SetBool(animID_Sitting, atHome);
+        
+        if(atHome) {
+            moveVector = Vector3.zero;   
+        }     
+      
     }
 }

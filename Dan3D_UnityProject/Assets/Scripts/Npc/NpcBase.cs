@@ -33,7 +33,10 @@ public class NpcBase : MonoBehaviour
     protected void BaseUpdate()
     {
         //animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        //AnimationsInfo();            
+        //AnimationsInfo();   
+
+        if(Director.isLoading) { return; }
+
         Move();
     }
 

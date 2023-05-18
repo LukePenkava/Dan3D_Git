@@ -18163,8 +18163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239bf8907ea6df345b74db7d7a2984e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositins:
-  - {fileID: 1467464100}
+  area: 4
+  location: 1
+  spawnPositions: {fileID: 396238228}
   digsitesAmount: 0
   camera_AngleX: 20
   camera_DistanceZ: -1

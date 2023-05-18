@@ -71,41 +71,47 @@ public class PlayerManager : MonoBehaviour
     public GameObject weaponCollider;
 
     void OnEnable() {
-        Area.AreaLoaded += AreaLoadedInit;
+        AreaManager.AreaLoaded += AreaLoadedInit;
     }
 
     void OnDisable() {
-        Area.AreaLoaded -= AreaLoadedInit;
+        AreaManager.AreaLoaded -= AreaLoadedInit;
     }
 
     void AreaLoadedInit(Area areaScript)
-    {                  
-        controller = GetComponent<CharacterController>();
-        anim = visual.GetComponent<Animator>();
-        baseData = GetComponent<Character_BaseData>();
-        playerState = GetComponent<State>();
+    {           
+        if(wasInited == false) {        
+            controller = GetComponent<CharacterController>();
+            anim = visual.GetComponent<Animator>();
+            baseData = GetComponent<Character_BaseData>();
+            playerState = GetComponent<State>();
 
-        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();    
-        interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();             
+            uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();    
+            interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();             
 
-        //Animation IDs
-        animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
-        animID_MoveEnabled = Animator.StringToHash("MoveEnabled");
-        animID_Sprint = Animator.StringToHash("Sprint");
-        animID_Interaction = Animator.StringToHash("Interaction");
-        animID_Attack = Animator.StringToHash("Attack");
+            //Animation IDs
+            animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
+            animID_MoveEnabled = Animator.StringToHash("MoveEnabled");
+            animID_Sprint = Animator.StringToHash("Sprint");
+            animID_Interaction = Animator.StringToHash("Interaction");
+            animID_Attack = Animator.StringToHash("Attack");
 
-        anim.SetBool(animID_MoveEnabled, true);
+            anim.SetBool(animID_MoveEnabled, true);
+            weapon.SetActive(false);
+            wasInited = true;
+        }
 
-        weapon.SetActive(false);
-
-        wasInited = true;
+        //controller.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(wasInited == false) { return; }
+        if(Director.isLoading) { 
+            //controller.enabled = false;
+            return; 
+        }
 
         animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
         AnimationsInfo();
@@ -125,6 +131,7 @@ public class PlayerManager : MonoBehaviour
 
     //Move and Rotate character
     void Move() {
+
 
         Vector3 targetDirection = Vector3.zero;
         float targetSpeed = 0f;
@@ -163,6 +170,12 @@ public class PlayerManager : MonoBehaviour
         } 
 
         controller.Move(targetDirection.normalized * (targetSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);            
+    }
+
+    public void SetPosition(Vector3 pos) {
+        controller.enabled = false;
+        this.transform.position = pos;
+        controller.enabled = true;
     }
 
     //Interaction triggered by user input
