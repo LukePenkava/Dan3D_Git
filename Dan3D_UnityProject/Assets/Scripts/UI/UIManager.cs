@@ -93,6 +93,8 @@ public class UIManager : MonoBehaviour
     public GameObject endGameScreen;
 
     public Text qualityText;
+    public GameObject controlsKeyboard;
+    public GameObject controlsController;
 
     public void Init()
     {
@@ -639,6 +641,17 @@ public class UIManager : MonoBehaviour
         qualityText.text = "QUALITY HIGH";
         Director.quality = "high";
         GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
+    }
+
+    public void SetControlsHelp() {
+        if(Director.inputDevice == Director.InputDevices.Keyboard) {
+            controlsKeyboard.SetActive(true);
+            controlsController.SetActive(false);
+        }
+        else {
+            controlsKeyboard.SetActive(false);
+            controlsController.SetActive(true);
+        }
     }
 
 }

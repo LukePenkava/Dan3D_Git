@@ -1,6 +1,7 @@
 /*
 
 //Current
+-Zima is not in main room, probably same issue as player
 -display controls on some corner ( sprint, frying pan, interact, inventory ), Dynamicly change based on Keyboard//Controller ( add please play with controller if possible )
 -Hit enemy animation
 

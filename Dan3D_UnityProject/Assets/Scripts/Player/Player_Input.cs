@@ -13,6 +13,8 @@ public class Player_Input : MonoBehaviour
    
     Vector2 moveVector = Vector2.zero;
 
+    Director.InputDevices lastInputDevice = Director.InputDevices.Keyboard;
+
     void Awake() {
         input = new CustomInput();   
     }
@@ -123,7 +125,14 @@ public class Player_Input : MonoBehaviour
     }
 
     void SetInputDevice(string device) {
-        Director.inputDevice = device == "Keyboard" ? Director.InputDevices.Keyboard : Director.InputDevices.Controller; 
+        
+        Director.InputDevices newDevice = device == "Keyboard" ? Director.InputDevices.Keyboard : Director.InputDevices.Controller; 
+        
+        if(newDevice != lastInputDevice) {
+            lastInputDevice = newDevice;
+            Director.inputDevice = newDevice;
+            uiManager.SetControlsHelp();
+        }        
     }
 
     #endregion

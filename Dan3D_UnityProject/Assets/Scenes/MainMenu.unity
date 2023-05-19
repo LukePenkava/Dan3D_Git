@@ -800,7 +800,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: KEYBAROD/CONTROLLER SUPPORTED ( Recommend to play with controller )
+  m_Text: KEYBOARD/CONTROLLER SUPPORTED ( Recommended to play with an Xbox controller
+    )
 --- !u!222 &1828982645
 CanvasRenderer:
   m_ObjectHideFlags: 0
