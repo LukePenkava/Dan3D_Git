@@ -39,7 +39,8 @@ public class Items
         CrunchyCrystal,
 
         //Food
-        Noodles
+        Noodles,
+        MysticMunchies
 
         // LavenderSprouts,    
         // GiggleLink,

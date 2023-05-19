@@ -18170,6 +18170,7 @@ MonoBehaviour:
   camera_AngleX: 20
   camera_DistanceZ: -1
   camera_VerticalOffset: 1.6
+  volume: {fileID: 432432460}
 --- !u!1001 &488920777
 PrefabInstance:
   m_ObjectHideFlags: 0

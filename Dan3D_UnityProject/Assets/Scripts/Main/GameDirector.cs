@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class GameDirector : MonoBehaviour
 {    
@@ -32,6 +33,21 @@ public class GameDirector : MonoBehaviour
     public GameObject player;
     public GameObject zima;
 
+    //Temp Quest
+    bool questCompleted = false;
+    int wood = 0;
+    int woodAmount = 4;
+    int stone = 0;
+    int stoneAmount = 3;
+    int crunchyCrystal = 0;
+    int crunchyCrystalAmount = 2;
+    int everflour = 0;
+    int everflourAmount = 1;
+    public Text questText1;
+    public Text questText2;
+    public Text resourcesText;    
+
+
     void OnEnable() {
         AreaManager.AreaLoaded += AreaLoaded;
     }
@@ -56,10 +72,16 @@ public class GameDirector : MonoBehaviour
         //print(ItemsDirectory.ItemsData[Items.ItemName.Wood].description);
 
         //Setup Dans starting items
-        List<Items.ItemName> itemList = new List<Items.ItemName>();
-        itemList.Add(Items.ItemName.Wood);               
+        // List<Items.ItemName> itemList = new List<Items.ItemName>();
+        // itemList.Add(Items.ItemName.Wood);               
         //itemList.Add(Items.ItemName.Stardew);               
-        player.GetComponent<Character_BaseData>().AddItems(itemList);        
+        //player.GetComponent<Character_BaseData>().AddItems(itemList);    
+
+        //Temp
+        questText2.gameObject.SetActive(false);    
+        questText1.gameObject.SetActive(true); 
+        resourcesText.gameObject.SetActive(true);    
+        resourcesText.text = $"Stone {stone}/{stoneAmount}, Wood {wood}/{woodAmount}, Crunchy Crystal {crunchyCrystal}/{crunchyCrystalAmount}, Everflour {everflour}/{everflourAmount}";
     }
 
     void AreaLoaded(Area areaScript) {
@@ -114,6 +136,16 @@ public class GameDirector : MonoBehaviour
         Director.isLoading = false;
 
         StartCoroutine(PositionPlayer(pos));
+
+        //Temp Quest
+        if(areaScript.area == Areas.Home_3) {
+            GameObject[] interactions = GameObject.FindGameObjectsWithTag("Interaction");
+            foreach(GameObject temp in interactions) {
+                if(temp.name == "InteractionCook") {
+                    temp.gameObject.SetActive(questCompleted);
+                }
+            }
+        }
     }
 
     IEnumerator PositionPlayer(Vector3 pos) {
@@ -129,5 +161,46 @@ public class GameDirector : MonoBehaviour
         if(TimePausedEvent != null) {           
             TimePausedEvent(isPaused, mainPause);
         }
+    }
+
+   
+
+    //Temp Quest
+    public void PlayerReceivedItem(Items.ItemName itemName) {
+        switch(itemName) {
+            case Items.ItemName.Stone:
+                stone++;    
+                if(stone > stoneAmount) { stone = stoneAmount; }            
+                break;
+            case Items.ItemName.Wood:
+                wood++;
+                if(wood > woodAmount) { wood = woodAmount; }  
+                break;
+            case Items.ItemName.Everflour:
+                everflour++;
+                if(everflour > everflourAmount) { everflour = everflourAmount; }  
+                break;
+            case Items.ItemName.CrunchyCrystal:
+                crunchyCrystal++;
+                if(crunchyCrystal > crunchyCrystalAmount) { crunchyCrystal = crunchyCrystalAmount; }  
+                break;
+            default:
+                break;
+
+        }
+
+        resourcesText.text = $"Stone {stone}/{stoneAmount}, Wood {wood}/{woodAmount}, Crunchy Crystal {crunchyCrystal}/{crunchyCrystalAmount}, Everflour {everflour}/{everflourAmount}";
+
+        if(stone >= stoneAmount && wood >= woodAmount && crunchyCrystal >= crunchyCrystalAmount && everflour >= everflourAmount) {
+            resourcesText.gameObject.SetActive(false);
+            questText1.gameObject.SetActive(false);
+            questText2.gameObject.SetActive(true);
+            questCompleted = true;
+        }
+    }
+
+    public void Cook() {
+        Director.isLoading = true;
+        uiManager.SetEndGameScreen();
     }
 }

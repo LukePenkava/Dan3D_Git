@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5542.9653, g: 5520.688, b: 5404.813, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17429,6 +17429,7 @@ MonoBehaviour:
   camera_AngleX: 2
   camera_DistanceZ: 6.2
   camera_VerticalOffset: 0.6
+  volume: {fileID: 432432460}
 --- !u!1001 &494230806
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -90,7 +90,9 @@ public class UIManager : MonoBehaviour
     //Game Menu
     public GameObject gameMenu;
     public GameObject loadOverlay;
+    public GameObject endGameScreen;
 
+    public Text qualityText;
 
     public void Init()
     {
@@ -111,6 +113,7 @@ public class UIManager : MonoBehaviour
 
         resourceInfoParent.SetActive(false);
         gameMenu.SetActive(false);
+        endGameScreen.SetActive(false);
 
         //gameMenuParent.SetActive(false);
         //mapParent.SetActive(false);
@@ -156,6 +159,15 @@ public class UIManager : MonoBehaviour
             if(Director.inputType == Director.UI_InputType.Buttons) {
                 NavigateUI();
             }
+        }
+    }
+
+    public void SetEndGameScreen() {
+        endGameScreen.SetActive(true);
+
+        GameDirector.gameState = GameDirector.GameState.UI;
+        if(Director.inputType == Director.UI_InputType.Buttons) {
+            NavigateUI();
         }
     }
 
@@ -488,9 +500,13 @@ public class UIManager : MonoBehaviour
                     if(elements[i].GetComponent<IFocusUI>().CanBeFocused() == false) { continue; }
 
                     Vector2 nextElementPos = elements[i].GetComponent<IFocusUI>().GetPosition();
-                    Vector2 direction = (nextElementPos - curPos).normalized;
-                    float distance = Vector2.Distance(nextElementPos, curPos);
+                    Vector2 direction = (nextElementPos - curPos).normalized;                    
                     float angle = Vector2.Angle(inputVector, direction);
+                    float distance = Vector2.Distance(nextElementPos, curPos);
+
+                    //Angle needs to affect distance, if angle is 0, ie same direction as input, distance is as is, but if the angle is higher, ie not direct angle, distance should get multiplied by angle
+                    float index = Mathf.Abs(angle) / navigationAngle; //0 when same direction, 1 when at the max allowed off angle
+                    distance += (distance * index);
                     
                     //print("Direction " + direction + " distance " + distance + " Angle " + angle);
 
@@ -611,6 +627,18 @@ public class UIManager : MonoBehaviour
 
     public void Quit() {
         Application.Quit();
+    }
+
+    public void SetQualityMedium() {
+        qualityText.text = "QUALITY MEDIUM";
+        Director.quality = "medium";
+        GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
+    }
+
+    public void SetQualityHigh() {
+        qualityText.text = "QUALITY HIGH";
+        Director.quality = "high";
+        GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
     }
 
 }

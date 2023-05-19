@@ -8,6 +8,7 @@ public static class Director
     public static float distanceToInteract = 2.0f;
     public static float distanceToInteractRemote = 10.0f;
     public static float displayItemTime = 2.5f;
+    public static string quality = "high";
 
     public static bool isLoading = false;
 

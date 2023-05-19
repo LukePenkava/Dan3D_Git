@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Area : MonoBehaviour
 {
@@ -21,6 +23,9 @@ public class Area : MonoBehaviour
     public float camera_DistanceZ = 6.2f;
     public float camera_VerticalOffset = 0.6f;
 
+    public Volume volume;
+   
+
     void Start() {
 
         this.transform.position = Vector3.zero;        
@@ -32,6 +37,8 @@ public class Area : MonoBehaviour
             Digsite newDigsite = new Digsite();
             digsitesList.Add(newDigsite);
         }
+
+        SetQuality();
     }
 
     public int AvailableDigSites() {
@@ -53,6 +60,21 @@ public class Area : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void SetQuality() {
+        if(Director.quality == "medium") {          
+            GlobalIllumination gi;
+            volume.profile.TryGet<GlobalIllumination>(out gi);
+            gi.active = false;
+        }
+
+        if(Director.quality == "high") {          
+            GlobalIllumination gi;
+            volume.profile.TryGet<GlobalIllumination>(out gi);
+            gi.active = true;
+        }
+        
     }
 }
 

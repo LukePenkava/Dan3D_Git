@@ -106,7 +106,7 @@ public class Zima : NpcBase
                 if(areaScript.AvailableDigSites() > 0) {
                     //Roll if this navPos is digsite
                     float roll = Random.Range(0f, 100f);  
-                    if(roll > 40f) {
+                    if(roll > 50f) {
                         isDigsite = true;
                     } else {
                         isDigsite = false;
@@ -221,7 +221,7 @@ public class Zima : NpcBase
         intervalTimer = 0f;
 
         List<Items.ItemName> itemList = new List<Items.ItemName>();
-        itemList.Add(Items.ItemName.Wood);                   
+        itemList.Add(Items.ItemName.CrunchyCrystal);                   
         player.GetComponent<Character_BaseData>().AddItems(itemList, true);
 
         areaScript.DigsiteCompleted();

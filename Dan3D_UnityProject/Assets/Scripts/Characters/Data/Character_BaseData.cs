@@ -110,6 +110,8 @@ public class Character_BaseData : MonoBehaviour
         if(displayForPlayer) {
             GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>().DisplayItems(itemNames);
         }
+
+        GameObject.FindGameObjectWithTag("Managers").GetComponent<GameDirector>().PlayerReceivedItem(itemNames[0]);
     }
 
     //Passed index is slot index, but slot index does not correspond to index of items in the list, find item with same slot index and delete it

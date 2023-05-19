@@ -1,13 +1,8 @@
 /*
 
 //Current
--Quest ( collect items, 2 wood, 1 stone, 2 carrots, 1 wheat )
--Once has all resources, display quest to go to kitchen to prepare food. 
+-display controls on some corner ( sprint, frying pan, interact, inventory ), Dynamicly change based on Keyboard//Controller ( add please play with controller if possible )
 -Hit enemy animation
--Game finished, end screen, show all features to come.
--Sleeping logic, wake up
--display controls on some corner ( sprint, frying pan, interact, inventory )
--Main Menu ( quality settings ( global illumination player prefs ))
 
 -Build two more areas and interior
 -Create area system to load different areas and player position based on previous area
