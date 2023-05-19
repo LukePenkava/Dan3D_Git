@@ -20,18 +20,40 @@
         <description>Used as a crafting resource.</description>
         <amount>1</amount>
     </item>   
+    <item>        
+        <name>Everflour</name>        
+        <title>Everflour</title>
+        <ItemTags>
+            <Tag>Resource</Tag>
+        </ItemTags>        
+        <UseFunctions></UseFunctions>
+        <description>A mythical flour milled by mysterious spirits.</description>
+        <amount>1</amount>
+    </item>
+    <item>        
+        <name>CrunchyCrystal</name>        
+        <title>Crunchy Crystal</title>
+        <ItemTags>
+            <Tag>Resource</Tag>
+        </ItemTags>        
+        <UseFunctions></UseFunctions>
+        <description>Delightful burst of earthy sweetness, a true treat from Mother Nature herself.</description>
+        <amount>1</amount>
+    </item>
+
+     
   
 
 
 <!-- FOOD -->      
     <item>
-        <name>Noodles</name>
-        <title>Noodles</title>
+        <name>MysticMunchies</name>
+        <title>Mystic Munchies</title>
         <ItemTags>
             <Tag>Food</Tag>
         </ItemTags>     
         <UseFunctions></UseFunctions>
-        <description>Not many nutrients, but tasty comfort food.</description>
+        <description>A symphony of flavors that tastes like playful whisper of wildflower meadows.</description>
         <amount>1</amount>
     </item>    
 

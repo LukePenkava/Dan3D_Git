@@ -106,7 +106,7 @@ public class Zima : NpcBase
                 if(areaScript.AvailableDigSites() > 0) {
                     //Roll if this navPos is digsite
                     float roll = Random.Range(0f, 100f);  
-                    if(roll > 60f) {
+                    if(roll > 40f) {
                         isDigsite = true;
                     } else {
                         isDigsite = false;

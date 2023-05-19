@@ -1,7 +1,6 @@
 /*
 
 //Current
--Wheat ( bag in Area 3, collect interaction, add item )
 -Quest ( collect items, 2 wood, 1 stone, 2 carrots, 1 wheat )
 -Once has all resources, display quest to go to kitchen to prepare food. 
 -Hit enemy animation
@@ -17,7 +16,6 @@
 -UI box to quest ( collect resources, go back to house to prepare dinner )
 
 -Pay for Appstore to show games
--Pitch ( core game idea, loops, how much money I need, tell about myself, financials, why to fund this game ( genre, numbers etc ) I am working on this game, because I want to play a cozy game, but with a bit of drama and purpose, recognise failure of DWT pixel art, game features, marketing, doing it solo )
 
 -Wake up in the house
 -Get popup to prepare food for your family

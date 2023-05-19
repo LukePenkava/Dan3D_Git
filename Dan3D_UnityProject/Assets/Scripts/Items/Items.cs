@@ -35,6 +35,8 @@ public class Items
         //Resources
         Wood,
         Stone,
+        Everflour,
+        CrunchyCrystal,
 
         //Food
         Noodles

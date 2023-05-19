@@ -303,6 +303,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3a8121a3-be59-4580-9a23-3f2eb20b8516"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""de2a2a24-9474-47a8-9bad-978b8ad6049f"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",

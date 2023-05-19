@@ -291,7 +291,7 @@ public class InteractionManager : MonoBehaviour
         dataCollect.interactionType = InteractionTypes.Collect;
         dataCollect.interactionPlayerState = InteractionPlayerStates.LockedForTime;
         dataCollect.interactionLife = InteractionLife.Consumable;
-        dataCollect.time = 1.5f;
+        dataCollect.time = 0.2f;
         dataCollect.name = "Collect";
         dataCollect.selectionMenuStaysOn = false;
         interactionsData.Add(InteractionTypes.Collect, dataCollect);
