@@ -1,17 +1,6 @@
 /*
 
 //Current
--Zima is not in main room, probably same issue as player
--display controls on some corner ( sprint, frying pan, interact, inventory ), Dynamicly change based on Keyboard//Controller ( add please play with controller if possible )
--Hit enemy animation
-
--Build two more areas and interior
--Create area system to load different areas and player position based on previous area
--UI pop ups next to tree and stone to show it has resources
--Enemy temp critter model
--UI box to quest ( collect resources, go back to house to prepare dinner )
-
--Pay for Appstore to show games
 
 -Wake up in the house
 -Get popup to prepare food for your family

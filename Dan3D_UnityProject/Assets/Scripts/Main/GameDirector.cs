@@ -122,8 +122,10 @@ public class GameDirector : MonoBehaviour
             } 
             else if(areaScript.area == Areas.Home_2) {
                 zima.SetActive(true);
+                zima.GetComponent<CharacterController>().enabled = false;
                 zima.transform.position = new Vector3(-0.45f, 0.21f, -2.67f);
                 zima.transform.localEulerAngles = new Vector3(0,0,0);
+                zima.GetComponent<CharacterController>().enabled = true;
                 zima.GetComponent<Zima>().SetHome(true);
             }
         }
