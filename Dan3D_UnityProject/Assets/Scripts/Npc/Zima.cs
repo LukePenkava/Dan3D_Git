@@ -103,15 +103,15 @@ public class Zima : NpcBase
             //If not chasing player and setting new navPos, roll if its digsites, if there are any available
             if(chasingPlayer == false) {
                 //print("Digsites " + areaScript.AvailableDigSites());
-                if(areaScript.AvailableDigSites() > 0) {
-                    //Roll if this navPos is digsite
-                    float roll = Random.Range(0f, 100f);  
-                    if(roll > 50f) {
-                        isDigsite = true;
-                    } else {
-                        isDigsite = false;
-                    }
-                }
+                // if(areaScript.AvailableDigSites() > 0) {
+                //     //Roll if this navPos is digsite
+                //     float roll = Random.Range(0f, 100f);  
+                //     if(roll > 50f) {
+                //         isDigsite = true;
+                //     } else {
+                //         isDigsite = false;
+                //     }
+                // }
 
                 //If current navPos is digsite or currently digging, dont look for new navPos unless it is chasing player
                 if(isReadyToDig == false && isDigging == false) {
@@ -224,7 +224,7 @@ public class Zima : NpcBase
         itemList.Add(Items.ItemName.CrunchyCrystal);                   
         player.GetComponent<Character_BaseData>().AddItems(itemList, true);
 
-        areaScript.DigsiteCompleted();
+        //areaScript.DigsiteCompleted();
     }
 
     Vector3 GetNavPosition() {

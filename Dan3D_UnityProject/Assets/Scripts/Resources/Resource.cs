@@ -9,5 +9,7 @@ public class Resource : MonoBehaviour
 
     public virtual void Collect() {
 
+        print("In Resource");
+
     }    
 }

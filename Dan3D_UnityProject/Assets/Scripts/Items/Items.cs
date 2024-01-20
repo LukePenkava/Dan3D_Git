@@ -40,7 +40,8 @@ public class Items
 
         //Food
         Noodles,
-        MysticMunchies
+        MysticMunchies,
+        Offerings,
 
         // LavenderSprouts,    
         // GiggleLink,

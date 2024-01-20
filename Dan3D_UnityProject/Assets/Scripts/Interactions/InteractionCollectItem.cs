@@ -13,7 +13,9 @@ public class InteractionCollectItem : Interaction
     }
 
     public override void ActivateOverride() {
-        base.ActivateOverride();        
+        base.ActivateOverride();     
+
+        print("In Interaction Collect");   
 
         List<Items.ItemName> itemList = new List<Items.ItemName>();
         itemList.Add(item);                   

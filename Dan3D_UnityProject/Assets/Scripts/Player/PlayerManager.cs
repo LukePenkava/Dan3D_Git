@@ -9,26 +9,32 @@ public class PlayerManager : MonoBehaviour
     InteractionManager interactionManager;
     Character_BaseData baseData;
     State playerState;
-    Animator anim;          
+    Animator anim;
 
-    public GameObject visual;   
+    public GameObject visual;
+    public GameObject cam;
 
-    bool wasInited = false; 
+    bool wasInited = false;
 
     //Movement
     Vector2 moveVector;
-    public Vector2 MoveVector {
+    public Vector2 MoveVector
+    {
         get { return moveVector; }
         set { moveVector = value; }
     }
     bool sprint = false;
-    public bool Sprint {
+    public bool Sprint
+    {
         get { return sprint; }
         set { sprint = value; }
     }
-    float targetRotation = 0.0f;       
+    float targetRotation = 0.0f;
     public float moveSpeed = 1.0f;
     public float sprintSpeed = 2.0f;
+
+    Vector3 camForward;
+    Vector3 camRight;
 
     //Animations
     AnimatorStateInfo animStateInfo;
@@ -42,24 +48,28 @@ public class PlayerManager : MonoBehaviour
     float gravity = -15.0f;
     float verticalVelocity;
     float maxVelocity = 53.0f;
+    public float jumpVelocity = 1f;
 
     //Interactions
     //Used in PlayerInput to block input, this blocks some input, mostly walking etc, but player can still play minigame etc.
     bool inputEnabled = true;
-    public bool InputEnabled {
+    public bool InputEnabled
+    {
         get { return inputEnabled; }
         set { inputEnabled = value; }
     }
 
     //Completely disable all players input. For example Dan navigates on his own, custscene etc
     bool allInputEnabled = true;
-    public bool AllInputEnabled {
+    public bool AllInputEnabled
+    {
         get { return allInputEnabled; }
         set { allInputEnabled = value; }
     }
 
     bool isInteracting = false;
-    public bool IsInteracting {
+    public bool IsInteracting
+    {
         get { return isInteracting; }
         set { isInteracting = value; }
     }
@@ -70,24 +80,26 @@ public class PlayerManager : MonoBehaviour
     public GameObject weapon;
     public GameObject weaponCollider;
 
-    void OnEnable() {
-        AreaManager.AreaLoaded += AreaLoadedInit;
-    }
+    // void OnEnable() {
+    //     AreaManager.AreaLoaded += AreaLoadedInit;
+    // }
 
-    void OnDisable() {
-        AreaManager.AreaLoaded -= AreaLoadedInit;
-    }
+    // void OnDisable() {
+    //     AreaManager.AreaLoaded -= AreaLoadedInit;
+    // }
 
-    void AreaLoadedInit(Area areaScript)
-    {           
-        if(wasInited == false) {        
+    //void AreaLoadedInit(Area areaScript)
+    void Start()
+    {
+        if (wasInited == false)
+        {
             controller = GetComponent<CharacterController>();
             anim = visual.GetComponent<Animator>();
             baseData = GetComponent<Character_BaseData>();
             playerState = GetComponent<State>();
 
-            uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();    
-            interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();             
+            uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
+            interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();
 
             //Animation IDs
             animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
@@ -107,10 +119,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(wasInited == false) { return; }
-        if(Director.isLoading) { 
+        if (wasInited == false) { return; }
+        if (Director.isLoading)
+        {
             //controller.enabled = false;
-            return; 
+            return;
         }
 
         animStateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -120,68 +133,100 @@ public class PlayerManager : MonoBehaviour
     }
 
     //Any logic related to what current animation is playing, if animation finished etc
-    void AnimationsInfo() {
+    void AnimationsInfo()
+    {
 
-        if(animStateInfo.IsName("Attack")) {
-            if(animStateInfo.normalizedTime >= 1) {
+        if (animStateInfo.IsName("Attack"))
+        {
+            if (animStateInfo.normalizedTime >= 1)
+            {
                 AttackFinished();
             }
         }
-    } 
+    }
 
     //Move and Rotate character
-    void Move() {
+    void Move()
+    {
 
 
         Vector3 targetDirection = Vector3.zero;
         float targetSpeed = 0f;
 
         //When player is interacting or attacking, disable movement
-        if(playerState.ActiveState == State.States.Idle || playerState.ActiveState == State.States.Walking) {            
+        if (playerState.ActiveState == State.States.Idle || playerState.ActiveState == State.States.Walking)
+        {
+            camForward = cam.transform.forward;
+            camForward.y = 0;
+            camForward.Normalize();
+
+            camRight = cam.transform.right;
+            camRight.y = 0;
+            camRight.Normalize();
+
+            targetDirection = (camForward * moveVector.y) + (camRight * moveVector.x);
 
             // set target speed based on move speed, sprint speed and if sprint is pressed
             targetSpeed = sprint ? sprintSpeed : moveSpeed;
-        
-            if (moveVector == Vector2.zero) {
+
+            if (moveVector == Vector2.zero)
+            {
                 targetSpeed = 0.0f;
+
+
             }
 
-            if (moveVector != Vector2.zero) {
+            if (moveVector != Vector2.zero)
+            {
                 playerState.ActiveState = State.States.Walking;
 
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                transform.rotation = targetRotation;
+
                 //Calculate angle from inputs (atan2 is arctangent, gets angle between adjance and opposite, covert to angel by * rad)
-                targetRotation = Mathf.Atan2(moveVector.x, moveVector.y) * Mathf.Rad2Deg;
+                //targetRotation = Mathf.Atan2(moveVector.x, moveVector.y) * Mathf.Rad2Deg;
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, targetRotation, 0.0f);           
-            } 
-            else {
+                //transform.rotation = Quaternion.Euler(0.0f, targetRotation, 0.0f);           
+            }
+            else
+            {
                 playerState.ActiveState = State.States.Idle;
             }
 
-            targetDirection = Quaternion.Euler(0.0f, targetRotation, 0.0f) * Vector3.forward;
+            //targetDirection = Quaternion.Euler(0.0f, targetRotation, 0.0f) * Vector3.forward;
+
+
+
 
             //Gravity
-            if (verticalVelocity < maxVelocity) {
+            if (verticalVelocity < maxVelocity)
+            {
                 verticalVelocity += gravity * Time.deltaTime;
             }
 
             anim.SetFloat(animID_MoveSpeed, targetSpeed);
             anim.SetBool(animID_Sprint, sprint);
-        } 
+        }
 
-        controller.Move(targetDirection.normalized * (targetSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);            
+        controller.Move(targetDirection.normalized * (targetSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
-    public void SetPosition(Vector3 pos) {
+    public void Jump() {
+        verticalVelocity = jumpVelocity;
+    }
+
+    public void SetPosition(Vector3 pos)
+    {
         controller.enabled = false;
         this.transform.position = pos;
         controller.enabled = true;
     }
 
     //Interaction triggered by user input
-    public void TriggerInteraction() {
+    public void TriggerInteraction()
+    {
 
-        if(playerState.ActiveState == State.States.Interacting) { return; }
+        if (playerState.ActiveState == State.States.Interacting) { return; }
 
         playerState.ActiveState = State.States.Interacting;
         anim.SetBool(animID_MoveEnabled, false);
@@ -190,7 +235,8 @@ public class PlayerManager : MonoBehaviour
         StartCoroutine(ResumeFromInteraction());
     }
 
-    IEnumerator ResumeFromInteraction() {
+    IEnumerator ResumeFromInteraction()
+    {
         yield return new WaitForSeconds(1.4f);
 
         playerState.ActiveState = State.States.Idle;
@@ -198,18 +244,21 @@ public class PlayerManager : MonoBehaviour
     }
 
     //Called from PlayerInput, get Active Interaction from InteractionManager, if there is any 
-    public void Interact(int inputSelection) { 
-        
-        if(isInteracting) { 
+    public void Interact(int inputSelection)
+    {
+
+        if (isInteracting)
+        {
             return;
-        }        
+        }
 
         //Copy of Interaction Object, dont modify, use only to read, refer back to InteractionManager to modify the Interaction in any way
-        activeInteraction = interactionManager.GetActiveInteraction(inputSelection);       
+        activeInteraction = interactionManager.GetActiveInteraction(inputSelection);
 
-        if(activeInteraction && activeInteraction.InteractionState == InteractionStates.Active) {
-      
-            isInteracting = true;               
+        if (activeInteraction && activeInteraction.InteractionState == InteractionStates.Active)
+        {
+
+            isInteracting = true;
 
             //If Interaction is of type Dialogue, Interaction does not have set State and Life, because it depends on type of used Dialogue, set it here based on type of the Dialogue
             // if(activeInteraction.interactionType == InteractionManager.InteractionTypes.Dialogue) {
@@ -221,7 +270,7 @@ public class PlayerManager : MonoBehaviour
             // if(activeInteraction.interactionType == InteractionManager.InteractionTypes.MG) {                      
             //     GameDirector.gameState = GameDirector.GameState.MG; 
             // }
-            
+
             //Lock Input
             //inputEnabled = (activeInteraction.Data.interactionPlayerState == InteractionManager.InteractionPlayerStates.Free) ? true : false;           
 
@@ -234,12 +283,15 @@ public class PlayerManager : MonoBehaviour
             //Handle specific Types of Interactinos
 
             //Wait for given time, then activate the interaction
-            if(activeInteraction.Data.interactionPlayerState == InteractionManager.InteractionPlayerStates.LockedForTime) {
+            if (activeInteraction.Data.interactionPlayerState == InteractionManager.InteractionPlayerStates.LockedForTime)
+            {
                 StartCoroutine(TimedInteraction(activeInteraction.Data.time));
             }
 
-            if(activeInteraction.Data.interactionPlayerState == InteractionManager.InteractionPlayerStates.Free) {
-                if(activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Single) {
+            if (activeInteraction.Data.interactionPlayerState == InteractionManager.InteractionPlayerStates.Free)
+            {
+                if (activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Single)
+                {
                     interactionManager.ActivateInteraction(activeInteraction.Data.selectionMenuStaysOn);
                     isInteracting = false;
                 }
@@ -264,24 +316,27 @@ public class PlayerManager : MonoBehaviour
             // }
 
         }
-        else {
+        else
+        {
             isInteracting = false;
         }
     }
 
-     //For Example Collecting Resource, Player is locked for some time, then interaction is activated
-    IEnumerator TimedInteraction(float timer) {
+    //For Example Collecting Resource, Player is locked for some time, then interaction is activated
+    IEnumerator TimedInteraction(float timer)
+    {
 
         yield return new WaitForSeconds(timer);
-        inputEnabled = true;        
+        inputEnabled = true;
         isInteracting = false;
         interactionManager.ActivateInteraction(activeInteraction.Data.selectionMenuStaysOn);
-        playerState.ActiveState = State.States.Idle;     
+        playerState.ActiveState = State.States.Idle;
     }
 
     //Attack triggered by user input
-    public void Attack() {
-        if(playerState.ActiveState == State.States.Interacting) { return; }
+    public void Attack()
+    {
+        if (playerState.ActiveState == State.States.Interacting) { return; }
 
         playerState.ActiveState = State.States.Attacking;
         anim.SetBool(animID_MoveEnabled, false);
@@ -290,7 +345,8 @@ public class PlayerManager : MonoBehaviour
         weapon.SetActive(true);
     }
 
-    IEnumerator ActivateCollider() {
+    IEnumerator ActivateCollider()
+    {
         weaponCollider.SetActive(false);
         yield return new WaitForSeconds(0.36f);
         weaponCollider.SetActive(true);
@@ -299,7 +355,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     //Called when attack animation finishes
-    void AttackFinished() {
+    void AttackFinished()
+    {
         playerState.ActiveState = State.States.Idle;
         anim.SetBool(animID_MoveEnabled, true);
         weapon.SetActive(false);

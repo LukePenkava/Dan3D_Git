@@ -5,6 +5,7 @@ using UnityEngine;
 public enum Areas {
 
     none,
+    World,
     Area_1,
     Area_2,
     Area_3,

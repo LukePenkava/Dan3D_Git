@@ -41,7 +41,7 @@ public class Character_BaseData : MonoBehaviour
     public void Init() {
 
         if(isPlayer) {
-            LoadItems();
+            //LoadItems();
         } 
         else {
 

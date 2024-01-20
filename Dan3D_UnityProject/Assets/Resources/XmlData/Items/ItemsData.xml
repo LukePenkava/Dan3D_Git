@@ -30,6 +30,16 @@
         <description>A mythical flour milled by mysterious spirits.</description>
         <amount>1</amount>
     </item>
+     <item>        
+        <name>Offerings</name>        
+        <title>Offerings</title>
+        <ItemTags>
+            <Tag>Consumable</Tag>
+        </ItemTags>        
+        <UseFunctions></UseFunctions>
+        <description>.</description>
+        <amount>1</amount>
+    </item>
     <item>        
         <name>CrunchyCrystal</name>        
         <title>Crunchy Crystal</title>

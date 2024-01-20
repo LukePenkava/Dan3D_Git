@@ -5,24 +5,27 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     public GameObject player;
-    PlayerManager playerManager;    
+    PlayerManager playerManager;
 
     //Interaction activeInteraction;
     InteractionSelection activeInteraction;
-    int selectedInteraction = 0;    
+    int selectedInteraction = 0;
     List<InteractionSelection> sceneInteractions = new List<InteractionSelection>();
-    public List<InteractionSelection> SceneInteractions {
+    public List<InteractionSelection> SceneInteractions
+    {
         get { return sceneInteractions; }
     }
     List<GameObject> sceneCharacters = new List<GameObject>();
 
     public Dictionary<InteractionTypes, InteractionData> interactionsData = new Dictionary<InteractionTypes, InteractionData>();
 
-    public InteractionSelectionMenu selectionMenu;  
- 
+    public InteractionSelectionMenu selectionMenu;
+
     //Used to connect Data information from interactionsData to specific Interaction. Used as a selector
-    public enum InteractionTypes {
+    public enum InteractionTypes
+    {
         Collect,
+        Consume,
         Dialogue,
         Trade,
         Activate,
@@ -40,7 +43,8 @@ public class InteractionManager : MonoBehaviour
         GiveItem
     }
 
-    public enum InteractionLife {
+    public enum InteractionLife
+    {
         NotSet,
         Consumable,         //Is Activated and then Destroyed, like gathering plant
         Single,             //Is one time activatio, which can be activated again, like one line dialogues
@@ -49,7 +53,8 @@ public class InteractionManager : MonoBehaviour
     };
 
     //Defines player ability to move
-    public enum InteractionPlayerStates {
+    public enum InteractionPlayerStates
+    {
         NotSet,
         Free,               //Can move freely during interaction, like one line dialogues
         LockedForTime,      //Cant move for a period of time, like gathering
@@ -57,38 +62,43 @@ public class InteractionManager : MonoBehaviour
         //LockedMovement      //Can do anything except for moving
     }
 
-    void OnEnable() {
+    void OnEnable()
+    {
         AreaManager.AreaLoaded += AreaLoaded;
     }
 
-    void OnDisable() {
+    void OnDisable()
+    {
         AreaManager.AreaLoaded -= AreaLoaded;
     }
 
-    public void Init() {
-        
+    public void Init()
+    {
+
         playerManager = player.GetComponent<PlayerManager>();
         SetupInteractionsData();
-        FindInteractions();
+        //FindInteractions();
         selectionMenu.gameObject.SetActive(true);
         ShowSelectionMenu(false);
-    }      
+    }
 
-    void AreaLoaded(Area areaScript) {
+    void AreaLoaded(Area areaScript)
+    {
         FindInteractions();
         // selectionMenu.gameObject.SetActive(true);
         // ShowSelectionMenu(false);
     }
 
-    void DayPhaseChanged(GameDirector.DayPhase dayPhase) {
-       //FindInteractions();
+    void DayPhaseChanged(GameDirector.DayPhase dayPhase)
+    {
+        //FindInteractions();
     }
-    
-   //Go through all found interactions in sceneInteractions, get closest one and if player is close enough, show SelectionMenu
+
+    //Go through all found interactions in sceneInteractions, get closest one and if player is close enough, show SelectionMenu
     void Update()
     {
         //If there is active interaction, dont look for new one
-        if(playerManager.IsInteracting) { return; }            
+        if (playerManager.IsInteracting) { return; }
 
         //print("Interactions " + sceneInteractions.Count); 
 
@@ -98,12 +108,14 @@ public class InteractionManager : MonoBehaviour
         Vector3 playerPos = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
         int closestInteractionIndex = 0;
 
-        for(int i = 0; i < sceneInteractions.Count; i++) {
-            if(sceneInteractions[i] == null) { continue; }            
+        for (int i = 0; i < sceneInteractions.Count; i++)
+        {
+            if (sceneInteractions[i] == null) { continue; }
             Vector3 interactionPos = new Vector3(sceneInteractions[i].anchorSelection.position.x, 0f, sceneInteractions[i].anchorSelection.position.z);
             float distance = Vector3.Distance(playerPos, interactionPos);
 
-            if(distance < shortestDistance){
+            if (distance < shortestDistance)
+            {
                 shortestDistance = distance;
                 closestInteractionIndex = i;
             }
@@ -111,25 +123,33 @@ public class InteractionManager : MonoBehaviour
 
         //print("Closest Interaction " + closestInteractionIndex);
 
-        if(sceneInteractions.Count > 0) {
+        if (sceneInteractions.Count > 0)
+        {
             distanceCheck = sceneInteractions[closestInteractionIndex].remoteInteraction ? Director.distanceToInteractRemote : Director.distanceToInteract;
 
-            if(sceneInteractions[closestInteractionIndex].customDistanceForInteraction != 0f) {
+            if (sceneInteractions[closestInteractionIndex].customDistanceForInteraction != 0f)
+            {
                 distanceCheck = sceneInteractions[closestInteractionIndex].customDistanceForInteraction;
             }
         }
 
-        if(shortestDistance < distanceCheck) {     
+        if (shortestDistance < distanceCheck)
+        {
 
-            if(activeInteraction != sceneInteractions[closestInteractionIndex]) {
+            if (activeInteraction != sceneInteractions[closestInteractionIndex])
+            {
                 //print("activeInteraction "+ activeInteraction + " " + sceneInteractions[closestInteractionIndex].IsEnabled);
-                if(sceneInteractions[closestInteractionIndex].IsEnabled) {                                     
-                    ShowSelectionMenu(true, sceneInteractions[closestInteractionIndex]); 
-                    activeInteraction = sceneInteractions[closestInteractionIndex];   
+                if (sceneInteractions[closestInteractionIndex].IsEnabled)
+                {
+                    ShowSelectionMenu(true, sceneInteractions[closestInteractionIndex]);
+                    activeInteraction = sceneInteractions[closestInteractionIndex];
                 }
-            }   
-        } else {
-            if(activeInteraction) {
+            }
+        }
+        else
+        {
+            if (activeInteraction)
+            {
                 activeInteraction = null;
                 ShowSelectionMenu(false);
             }
@@ -137,56 +157,71 @@ public class InteractionManager : MonoBehaviour
     }
 
     //PlayerManagers asks for current active interaction to resolve current interaction when player pressed interaction button
-    public Interaction GetActiveInteraction(int inputSelection) {   
+    public Interaction GetActiveInteraction(int inputSelection)
+    {
 
         Update();
 
-        if(activeInteraction == null) { return null; }
-        if( activeInteraction.Interactions.Count == 0) { return null; }
+        if (activeInteraction == null) { return null; }
+        if (activeInteraction.Interactions.Count == 0) { return null; }
         //print("GetActiveInteraction 1 " + activeInteraction.gameObject.name + " Length " + activeInteraction.Interactions.Count + " InputSelection " + inputSelection);
 
         //Input cant be bigger than active Interactions ( ie pressing R for interaction 1, which is second item at list, but list has only one item )
-        if(inputSelection < activeInteraction.Interactions.Count) {
+        if (inputSelection < activeInteraction.Interactions.Count)
+        {
 
-            if(activeInteraction.Interactions[inputSelection]) {
+            if (activeInteraction.Interactions[inputSelection])
+            {
                 // foreach(Interaction inter in activeInteraction.Interactions) { mprint("Get Active Interaction 2 " + inter); }            
                 selectedInteraction = inputSelection;
                 return activeInteraction.Interactions[inputSelection];
-            } else {
+            }
+            else
+            {
                 //print("interactions count " + activeInteraction.Interactions.Count);
                 //print("No Active Interaction");
                 return null;
-            }        
-        } else {
+            }
+        }
+        else
+        {
             print("Out of interactions " + " inputSelection " + inputSelection + " activeInteraction.Interactions.Count " + activeInteraction.Interactions.Count);
             return null;
         }
     }
 
     //Returns currently active interaction, ie what InteractionManager has assigned 
-    public Interaction GetCurrentInteraction() { 
+    public Interaction GetCurrentInteraction()
+    {
         return activeInteraction.Interactions[selectedInteraction];
     }
 
     //Called from PlayerManager when handling types of interaction, can be called immediately or after time elapsed for collecting resource for example
-    public void ActivateInteraction(bool selectionMenuStaysOn) {      
+    public void ActivateInteraction(bool selectionMenuStaysOn)
+    {
 
-         if(activeInteraction) {        
-             activeInteraction.Interactions[selectedInteraction].Activate();                       
-             ShowSelectionMenu(selectionMenuStaysOn, activeInteraction);
+        if (activeInteraction)
+        {
+            activeInteraction.Interactions[selectedInteraction].Activate();
+            ShowSelectionMenu(selectionMenuStaysOn, activeInteraction);
 
-            if(activeInteraction.Interactions[selectedInteraction].Data.interactionLife == InteractionLife.Consumable) {                
+            if (activeInteraction.Interactions[selectedInteraction].Data.interactionLife == InteractionLife.Consumable)
+            {
                 sceneInteractions.Remove(activeInteraction);
-            }            
+            }
             //Can call Find here again, if needed
-        } else {
+        }
+        else
+        {
             print("No Active Interaction");
-        }   
+        }
     }
 
-    public void RemoveActiveInteraction() {  
-              
-        if(activeInteraction != null) {            
+    public void RemoveActiveInteraction()
+    {
+
+        if (activeInteraction != null)
+        {
             sceneInteractions.Remove(activeInteraction);
             activeInteraction = null;
             ShowSelectionMenu(false);
@@ -194,83 +229,109 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    public void ResetActiveInteraction() {        
+    public void ResetActiveInteraction()
+    {
         activeInteraction = null;
     }
 
     //If interaction is checking for selection menu, it has to be passed to see if it is the active interaction, otherwise it should not be able to show selection menu
-    public void CheckSelectionMenuVisibility(InteractionSelection checkingSelection = null) {  
+    public void CheckSelectionMenuVisibility(InteractionSelection checkingSelection = null)
+    {
         //print("check selection menu");      
-        if(activeInteraction) {
+        if (activeInteraction)
+        {
             //If some interaction is checking whether it should show selection menu, it needs to be the one, which is active. Otherwise other interactoin can show selection menu for current active interaction
             //If the param is null, its being checked by non interaction. PlayerManager or UIManager to see if SelectionMenu should be on
-            if(checkingSelection == null) {
-                 ShowSelectionMenu(true, activeInteraction);
-            } else {
+            if (checkingSelection == null)
+            {
+                ShowSelectionMenu(true, activeInteraction);
+            }
+            else
+            {
                 //if checking seleciton is not null, interaction is checking, then it should match active interaction
-                if(activeInteraction == checkingSelection) {
+                if (activeInteraction == checkingSelection)
+                {
                     ShowSelectionMenu(true, activeInteraction);
                 }
             }
         }
     }
 
-    public void FindInteractions() {   
+    public void FindInteractions()
+    {
 
         //Find all objects in scene that are tagged Interaction or Character
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Interaction"); 
-        GameObject[] characters = GameObject.FindGameObjectsWithTag("Character");    
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Interaction");
+        GameObject[] characters = GameObject.FindGameObjectsWithTag("Character");
 
         sceneInteractions.Clear();
-        foreach(GameObject obj in objs) {   
-            //print("Find Interactions " + obj.name + " Selection Enabled " + obj.GetComponent<InteractionSelection>().IsEnabled);        
-            if(obj.GetComponent<InteractionSelection>().IsEnabled) {
-                sceneInteractions.Add(obj.GetComponent<InteractionSelection>());                        
-            }
-           
-           //What Interactions are in the scene
-           foreach(Interaction inter in obj.GetComponent<InteractionSelection>().Interactions) {
-                //print(inter.gameObject.name + " " + inter.interactionType);                
-           }
-        }   
+        foreach (GameObject obj in objs)
+        {
+            //print("Find Interactions " + obj.name); //+ " Selection Enabled " + obj.GetComponent<InteractionSelection>().IsEnabled);        
 
-        foreach(GameObject character in characters) {            
-            if(character.GetComponent<InteractionSelection>().IsEnabled) {
-                sceneInteractions.Add(character.GetComponent<InteractionSelection>());              
+            if (obj.GetComponent<InteractionSelection>().IsEnabled)
+            {
+                sceneInteractions.Add(obj.GetComponent<InteractionSelection>());
             }
-        }      
+
+            //What Interactions are in the scene
+            foreach (Interaction inter in obj.GetComponent<InteractionSelection>().Interactions)
+            {
+                //print(inter.gameObject.name + " " + inter.interactionType);                
+            }
+        }
+
+        foreach (GameObject character in characters)
+        {
+            if (character.GetComponent<InteractionSelection>().IsEnabled)
+            {
+                sceneInteractions.Add(character.GetComponent<InteractionSelection>());
+            }
+        }        
     }
 
-    public Interaction GetSceneInteraction(InteractionManager.InteractionTypes interactionType, Characters.Names? characterName = null) {
-        Interaction sceneInteraction = null;    
-        FindInteractions();   
+    public Interaction GetSceneInteraction(InteractionManager.InteractionTypes interactionType, Characters.Names? characterName = null)
+    {
+        Interaction sceneInteraction = null;
+        FindInteractions();
 
-        foreach(InteractionSelection selection in sceneInteractions) {   
-            foreach(Interaction selectionInteraction in selection.Interactions) {                
-                if(selectionInteraction.interactionType == interactionType) {
+        foreach (InteractionSelection selection in sceneInteractions)
+        {
+            foreach (Interaction selectionInteraction in selection.Interactions)
+            {
+                if (selectionInteraction.interactionType == interactionType)
+                {
 
                     //Get Interaction from specific character
-                    if(characterName != null) {
+                    if (characterName != null)
+                    {
                         Characters.Names charName = (Characters.Names)characterName;
-                        if(charName == selection.gameObject.GetComponent<Character_BaseData>().Name) {
+                        if (charName == selection.gameObject.GetComponent<Character_BaseData>().Name)
+                        {
                             sceneInteraction = selectionInteraction;
                         }
-                    } else {
+                    }
+                    else
+                    {
                         sceneInteraction = selectionInteraction;
                     }
                 }
             }
         }
-  
+
         //print("Returning null Interaction");
         return sceneInteraction;
-    }      
+    }
 
-    public GameObject GetSceneCharacter(Characters.Names characterName) {
+    public GameObject GetSceneCharacter(Characters.Names characterName)
+    {
         GameObject[] interactionObjects = GameObject.FindGameObjectsWithTag("Interaction");
-        foreach(GameObject interactionObj in interactionObjects) {
-            if(interactionObj.GetComponent<Character_BaseData>()) {
-                if(interactionObj.GetComponent<Character_BaseData>().Name == characterName) {                                     
+        foreach (GameObject interactionObj in interactionObjects)
+        {
+            if (interactionObj.GetComponent<Character_BaseData>())
+            {
+                if (interactionObj.GetComponent<Character_BaseData>().Name == characterName)
+                {
                     return interactionObj;
                 }
             }
@@ -279,12 +340,14 @@ public class InteractionManager : MonoBehaviour
         return null;
     }
 
-    public void ShowSelectionMenu(bool show, InteractionSelection interaction = null) {       
+    public void ShowSelectionMenu(bool show, InteractionSelection interaction = null)
+    {
         //print("Show Selection Menu " + show);
-        selectionMenu.Setup(show, interaction);        
+        selectionMenu.Setup(show, interaction);
     }
 
-    void SetupInteractionsData() {
+    void SetupInteractionsData()
+    {
 
         InteractionData dataCollect = new InteractionData();
         dataCollect.animationState = State.States.Interacting;
@@ -295,6 +358,16 @@ public class InteractionManager : MonoBehaviour
         dataCollect.name = "Collect";
         dataCollect.selectionMenuStaysOn = false;
         interactionsData.Add(InteractionTypes.Collect, dataCollect);
+
+        InteractionData dataConsume = new InteractionData();
+        dataConsume.animationState = State.States.Interacting;
+        dataConsume.interactionType = InteractionTypes.Consume;
+        dataConsume.interactionPlayerState = InteractionPlayerStates.LockedForTime;
+        dataConsume.interactionLife = InteractionLife.Consumable;
+        dataConsume.time = 0.2f;
+        dataConsume.name = "Use";
+        dataConsume.selectionMenuStaysOn = false;
+        interactionsData.Add(InteractionTypes.Consume, dataConsume);
 
         // InteractionData dataCollectQuick = new InteractionData();
         // dataCollectQuick.animationState = State.States.Idle;
@@ -448,7 +521,8 @@ public class InteractionManager : MonoBehaviour
     }
 }
 
-public class InteractionData {
+public class InteractionData
+{
 
     public InteractionManager.InteractionTypes interactionType;
     public InteractionManager.InteractionPlayerStates interactionPlayerState;

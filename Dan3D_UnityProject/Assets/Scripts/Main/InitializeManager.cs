@@ -5,7 +5,7 @@ using UnityEngine;
 public class InitializeManager : MonoBehaviour
 {
     GameDirector gameDirector;
-    CameraManager cameraManager;
+    //CameraManager cameraManager;
     UIManager uiManager;
     InteractionManager interactionManager;
 
@@ -24,13 +24,13 @@ public class InitializeManager : MonoBehaviour
     {
         //Get References
         gameDirector = GetComponent<GameDirector>();
-        cameraManager = GetComponent<CameraManager>();
+        //cameraManager = GetComponent<CameraManager>();
         uiManager = GetComponent<UIManager>();
         interactionManager = GetComponent<InteractionManager>(); 
 
-        // interactionManager = GetComponent<InteractionManager>();
+        interactionManager = GetComponent<InteractionManager>();
         // tradeManager = GetComponent<TradeManager>();
-        // uiManager = GetComponent<UIManager>();
+        uiManager = GetComponent<UIManager>();
         // dialogueManager = GetComponent<DialogueManager>();
         // areaManager = GetComponent<AreaManager>();
         // resourceManager = GetComponent<ResourceManager>();
@@ -44,7 +44,7 @@ public class InitializeManager : MonoBehaviour
         ItemsDirectory.Init();
         
         gameDirector.Init();        
-        cameraManager.Init();
+        // cameraManager.Init();
         uiManager.Init();
         interactionManager.Init();
 
@@ -69,7 +69,7 @@ public class InitializeManager : MonoBehaviour
         //gameDirector.Setup();
 
         //TimeManager gets inited in GameDirector SetGameStart
-        cameraManager.Init();
+        //cameraManager.Init();
           
     }
 }

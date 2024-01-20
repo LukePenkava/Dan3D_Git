@@ -634,13 +634,13 @@ public class UIManager : MonoBehaviour
     public void SetQualityMedium() {
         qualityText.text = "QUALITY MEDIUM";
         Director.quality = "medium";
-        GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
+        //GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
     }
 
     public void SetQualityHigh() {
         qualityText.text = "QUALITY HIGH";
         Director.quality = "high";
-        GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
+        //GameObject.FindGameObjectWithTag("Area").GetComponent<Area>().SetQuality();        
     }
 
     public void SetControlsHelp() {

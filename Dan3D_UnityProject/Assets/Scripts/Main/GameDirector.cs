@@ -49,11 +49,11 @@ public class GameDirector : MonoBehaviour
 
 
     void OnEnable() {
-        AreaManager.AreaLoaded += AreaLoaded;
+        //AreaManager.AreaLoaded += AreaLoaded;
     }
 
     void OnDisable() {
-        AreaManager.AreaLoaded -= AreaLoaded;
+        //AreaManager.AreaLoaded -= AreaLoaded;
     }
 
     // Start is called before the first frame update
@@ -64,8 +64,8 @@ public class GameDirector : MonoBehaviour
         uiManager = GetComponent<UIManager>();
         areaManager = GetComponent<AreaManager>();
 
-        uiManager.loadOverlay.SetActive(true);
-        areaManager.LoadArea(firstAreaToLoad);
+        // uiManager.loadOverlay.SetActive(true);
+        // areaManager.LoadArea(firstAreaToLoad);
 
         //PerformDynamicRes scaler = PerformDynamicRes.
         //DynamicResolutionHandler.SetDynamicResScaler()
@@ -78,10 +78,10 @@ public class GameDirector : MonoBehaviour
         //player.GetComponent<Character_BaseData>().AddItems(itemList);    
 
         //Temp
-        questText2.gameObject.SetActive(false);    
-        questText1.gameObject.SetActive(true); 
-        resourcesText.gameObject.SetActive(true);    
-        resourcesText.text = $"Stone {stone}/{stoneAmount}, Wood {wood}/{woodAmount}, Crunchy Crystal {crunchyCrystal}/{crunchyCrystalAmount}, Everflour {everflour}/{everflourAmount}";
+        // questText2.gameObject.SetActive(false);    
+        // questText1.gameObject.SetActive(true); 
+        // resourcesText.gameObject.SetActive(true);    
+        // resourcesText.text = $"Stone {stone}/{stoneAmount}, Wood {wood}/{woodAmount}, Crunchy Crystal {crunchyCrystal}/{crunchyCrystalAmount}, Everflour {everflour}/{everflourAmount}";
     }
 
     void AreaLoaded(Area areaScript) {

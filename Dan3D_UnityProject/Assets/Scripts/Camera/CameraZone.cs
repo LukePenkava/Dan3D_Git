@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraZone : MonoBehaviour
 {
-    void Awake()
-    {
-        GameObject.FindGameObjectWithTag("Managers").GetComponent<CameraManager>().SetZone(this.transform);   
-    }    
+    // void Awake()
+    // {
+    //     GameObject.FindGameObjectWithTag("Managers").GetComponent<CameraManager>().SetZone(this.transform);   
+    // }    
 }
