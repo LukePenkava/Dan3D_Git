@@ -1,0 +1,50 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>1</DialogueProgress>  
+        <RequiredProgress>                           
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Running from that Flimflammer has made me thirsty!</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character> 
+                <Line>Do you have any water for a dehydrated starch?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character> 
+                <Line>Sure, we even have some of Basil’s tea if you want.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>This</Character> 
+                <Line>Oh, please no, just no more tea. Please.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>This</Character> 
+                <Line>That tea will turn me into mashed potatoes one day.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+</Dialogues>
+
+
+

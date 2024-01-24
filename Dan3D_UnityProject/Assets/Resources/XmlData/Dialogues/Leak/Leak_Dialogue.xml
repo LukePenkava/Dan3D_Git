@@ -1,0 +1,41 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>1</DialogueProgress>  
+        <RequiredProgress>                            
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>(shaking a bit) Have you, have you seen that Hubbub around?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character> 
+                <Line>I don’t want him to get me!</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character> 
+                <Line>The only hubbub I see here is a hungry Zim!</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+             <DialogueLine>
+                <Index>4</Index>
+                <Character>Yuki</Character> 
+                <Line>Yeah speaking of dinner, when is dinner?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+</Dialogues>
+

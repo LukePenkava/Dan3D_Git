@@ -138,7 +138,7 @@ public class InteractionManager : MonoBehaviour
 
             if (activeInteraction != sceneInteractions[closestInteractionIndex])
             {
-                //print("activeInteraction "+ activeInteraction + " " + sceneInteractions[closestInteractionIndex].IsEnabled);
+                //print("activeInteraction " + activeInteraction + " " + sceneInteractions[closestInteractionIndex].IsEnabled);
                 if (sceneInteractions[closestInteractionIndex].IsEnabled)
                 {
                     ShowSelectionMenu(true, sceneInteractions[closestInteractionIndex]);
@@ -219,7 +219,6 @@ public class InteractionManager : MonoBehaviour
 
     public void RemoveActiveInteraction()
     {
-
         if (activeInteraction != null)
         {
             sceneInteractions.Remove(activeInteraction);
@@ -379,15 +378,15 @@ public class InteractionManager : MonoBehaviour
         // dataCollectQuick.selectionMenuStaysOn = false;
         // interactionsData.Add(InteractionTypes.CollectQuick, dataCollectQuick);
 
-        // InteractionData dataDialogue = new InteractionData();
-        // dataDialogue.animationState = State.States.Null;
-        // dataDialogue.interactionType = InteractionTypes.Dialogue;
-        // dataDialogue.interactionPlayerState = InteractionPlayerStates.NotSet;
-        // dataDialogue.interactionLife = InteractionLife.Active;
-        // dataDialogue.time = 2.0f;
-        // dataDialogue.name = "TALK";
-        // dataDialogue.selectionMenuStaysOn = false;
-        // interactionsData.Add(InteractionTypes.Dialogue, dataDialogue);    
+        InteractionData dataDialogue = new InteractionData();
+        dataDialogue.animationState = State.States.Interacting;
+        dataDialogue.interactionType = InteractionTypes.Dialogue;
+        dataDialogue.interactionPlayerState = InteractionPlayerStates.NotSet;
+        dataDialogue.interactionLife = InteractionLife.Active;
+        dataDialogue.time = 2.0f;
+        dataDialogue.name = "TALK";
+        dataDialogue.selectionMenuStaysOn = false;
+        interactionsData.Add(InteractionTypes.Dialogue, dataDialogue);    
 
         // InteractionData dataTrade = new InteractionData();
         // dataTrade.animationState = State.States.Idle;

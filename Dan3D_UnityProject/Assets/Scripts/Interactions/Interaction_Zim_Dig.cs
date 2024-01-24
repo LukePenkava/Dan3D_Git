@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Interaction_Zim_Dig : Interaction
 {
-    public Zima zimSript;    
+    public ZimaOld zimSript;    
 
     void Awake() {
         Init();        

@@ -11,7 +11,7 @@ public class InitializeManager : MonoBehaviour
 
     //InteractionManager interactionManager;    
     //UIManager uiManager;
-    //DialogueManager dialogueManager;
+    DialogueManager dialogueManager;
     //TradeManager tradeManager; 
     //AreaManager areaManager;
     //ResourceManager resourceManager;
@@ -22,6 +22,8 @@ public class InitializeManager : MonoBehaviour
 
     void Awake()
     {
+        SaveManager.ResetAll();
+
         //Get References
         gameDirector = GetComponent<GameDirector>();
         //cameraManager = GetComponent<CameraManager>();
@@ -31,7 +33,7 @@ public class InitializeManager : MonoBehaviour
         interactionManager = GetComponent<InteractionManager>();
         // tradeManager = GetComponent<TradeManager>();
         uiManager = GetComponent<UIManager>();
-        // dialogueManager = GetComponent<DialogueManager>();
+        dialogueManager = GetComponent<DialogueManager>();
         // areaManager = GetComponent<AreaManager>();
         // resourceManager = GetComponent<ResourceManager>();
         // homeManager = GetComponent<HomeManager>();
@@ -55,7 +57,7 @@ public class InitializeManager : MonoBehaviour
         // questManager.Init();       
         // tradeManager.Init();
         // uiManager.Init();
-        // dialogueManager.Init();
+        dialogueManager.Init();
         // areaManager.Init();
         // interactionManager.Init(); 
         // homeManager.Init();  

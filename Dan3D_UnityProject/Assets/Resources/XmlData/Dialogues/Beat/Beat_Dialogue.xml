@@ -1,0 +1,65 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>1</DialogueProgress>  
+        <RequiredProgress>                              
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Ya ya ya.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>Yuki</Character> 
+                <Line>?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character> 
+                <Line>Hey, uh, are you, are you okay there?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>This</Character> 
+                <Line>Ya ya ya.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>Yuki</Character> 
+                <Line>Is he.. is he saying yes, or is that just the only word he can say?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>This</Character> 
+                <Line>Ya ya ya!</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>Dangoru</Character> 
+                <Line>I think that was a “yes to both!”</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+</Dialogues>
+
+
+
+

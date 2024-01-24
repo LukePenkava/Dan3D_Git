@@ -1,0 +1,55 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>1</DialogueProgress>  
+        <RequiredProgress>                         
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Oh, that smell! That’s the Manure Allure!</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character> 
+                <Line>Will you take me back to the tea lady?</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character> 
+                <Line>Lady certainly, but I dont know about that tea part. It tasted more like frog than tea.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>Dangoru</Character> 
+                <Line>Yeah, we can take you there. Hop on! Just, umm..</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>Dangoru</Character> 
+                <Line>Please dont mention what i just said about her tea.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>This</Character> 
+                <Line>Oh sure, don't get me wrong, I love Basil, but her teas are truly the stuff of nightmares.</Line>
+                <VO>Loud</VO> 
+                <Type>Null</Type>  
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+</Dialogues>
+

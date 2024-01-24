@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Action1",
                     "type": "Button",
                     "id": "9c4cefde-8156-4e53-bb56-3ffccff29274",
                     "expectedControlType": "Button",
@@ -72,6 +72,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "30324e6f-818f-4941-8d91-cfc7d90ecb43",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionButton1",
+                    "type": "Button",
+                    "id": "55509f77-ec3c-468c-8b67-f889fd5c9ea3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -306,7 +315,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -317,7 +326,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -538,6 +547,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28222525-8d02-4cca-807c-c4891e7a4f77",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionButton1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

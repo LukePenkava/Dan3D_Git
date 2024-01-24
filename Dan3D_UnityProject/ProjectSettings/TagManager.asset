@@ -21,6 +21,8 @@ TagManager:
   - Item
   - Door
   - Resource
+  - NavManager
+  - Tree
   layers:
   - Default
   - TransparentFX

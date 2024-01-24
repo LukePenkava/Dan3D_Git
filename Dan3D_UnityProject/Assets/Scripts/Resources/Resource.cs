@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    public int amount;
-    public Items.ItemName resourceName;
+    public Items.ItemName resourceItem;
 
-    public virtual void Collect() {
+    public virtual void Highlight() { }
+    
+    public virtual void Collect() { }
 
-        print("In Resource");
-
-    }    
 }

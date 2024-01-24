@@ -1,0 +1,205 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>                    
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>
+            
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Excuse me sir, I am very busy right now.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Oh, sorry for disturbing you. How come are you so busy?</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>I am busy waiting here.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>May I ask what are you waiting for?</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>No.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Splendid, chat later then!</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+
+
+
+            <!-- 
+
+                Excuse me sir, I am very busy right now
+                Oh, sorry for disturbing you. How come are you so busy?
+                I am busy waiting here.
+                Hm.. may I ask what are you waiting for?
+                No.
+                Ok then, chat later.
+
+
+                You know, you could join us tonight for a dinner.
+                Oh that would be splendid sir. I have been eating dirt for last 3 days.
+
+                So, you are Jasmine from Griffin Kingdom?
+                Yes, Mr. Dragon. Princess Jasmine.
+
+                Delicious Blueberry pie you say... hmm.
+                Oh, i haven't eaten in two weeks.
+                My feathers are always in perfect condition.
+                Adventure you say? No.
+                Right behind golden rock and two square pine cones.
+                Wait, or was it square rock and golden pine cones?
+
+            -->
+
+            <!-- <DialogueLine>
+                <Index>1</Index>
+                <Character>Narrator</Character> 
+                <Line>[Character is visibly all tangled up in vines and is hurt]</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character> 
+                <Line>Ah well, yes, um hello.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character> 
+                <Line>Are you alright?</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>This</Character> 
+                <Line>Oh, what, you mean these vines? </Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>This</Character> 
+                <Line>Oh, oh yes, I’m perfectly fine.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>This</Character> 
+                <Line>You and your cat need not worry.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>            
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>Yuki</Character> 
+                <Line>[grumbling] Lady, I’m not a cat.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>This</Character> 
+                <Line>Oh, my apologies.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>Narrator</Character> 
+                <Line>Jasmine looks kind of woozy, Yuki sniffs the vines.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>Yuki</Character> 
+                <Line>I think those vines are poisonous..</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>           
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>This</Character> 
+                <Line>Oh, poisonous??</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>Dangoru</Character> 
+                <Line>Hm, unfortunate..</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>13</Index>
+                <Character>Dangoru</Character> 
+                <Line>You know, I think we can prepare a healing potion for you.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>14</Index>
+                <Character>This</Character> 
+                <Line>Healing potion you say..</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>15</Index>
+                <Character>Narrator</Character> 
+                <Line>Little bubbles coming out of her head and she’s looking extra woozy.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>16</Index>
+                <Character>Dangoru</Character> 
+                <Line>Let's take that as a yes. We’ll be right back!</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>17</Index>
+                <Character>Narrator</Character> 
+                <Line>This quest can't be completed in the demo.</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine> -->
+        </Dialogue>
+    </DialogueObject> 
+</Dialogues>
+
+
+

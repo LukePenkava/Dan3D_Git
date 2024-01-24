@@ -53,6 +53,10 @@ public static class ItemsDirectory
                 newItem.description = item.Description;
                 newItem.amount = int.Parse(item.Amount, CultureInfo.InvariantCulture);
 
+                newItem.canBeActivated = true;
+                newItem.cooldown = 10f;
+                newItem.cooldownTimer = 0f;
+
                 ItemsData.Add(newItem.itemName, newItem);
             }            
         }

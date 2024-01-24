@@ -2,262 +2,156 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zima : NpcBase
-{   
-    InteractionManager interactionManager;
+public class Zima : MonoBehaviour
+{
+    PlayerManager player;
+    NavAgent navAgent;
 
-    float intervalTimer = 0f;
-    Vector3 navPosition = Vector3.zero;
-    GameObject player;
-    Area areaScript;
+    public float speed = 5f; // Speed of the character
+    public float pathUpdateInterval = 0.2f; // Interval to update the path
+    public float waypointTolerance = 1f; // Distance to waypoint to consider as reached
+    public float arriveDistance = 1.0f;
+    bool hasArrived = false;
 
-    bool wasInited = false;
+    public float maxSpringConstant = 50f; // Maximum spring constant
+    public float minSpringConstant = 5f;  // Minimum spring constant for smooth stopping
+    public float stopThreshold = 3f;      // Distance threshold for starting to stop
 
-    //Animations
-    AnimatorStateInfo animStateInfo;
-    int animID_MoveSpeed;
-    int animID_ReadyToDig;
-    int animID_Dig;
-    int animID_Sitting;
+    public float dampingRatio = 1f; // Damping ratio (1 for critical damping)
+    public float mass = 1f;
+    private Vector3 velocity; // Current velocity of the agent
 
-    Animator anim;
+    bool isFollowingDan = false;
+    float followingTimer = 0f;
+    float followingWaitTime = 0f;
 
-    float walkSpeed_Animator = 1.0f;
-    float runSpeed_Animator = 2.0f;
-    float maxDistanceToPlayer = 5.0f;
-    bool chasingPlayer = false;
-    float navIntervalMin = 5f;
-    float navIntervalMax = 8f;
-    float navIntervalChasing = 0.25f;
+    private int currentWaypointIndex;
+    private float pathUpdateTimer;
 
-    //Digging
-    public GameObject digInteraction;
-    bool isDigsite = false;
-    bool isReadyToDig = false;
-    bool isDigging = false;
-    
-    //Temp
-    bool atHome = true;
-
-    void OnEnable() {
-        AreaManager.AreaLoaded += AreaLoadedInit;
-    }
-
-    void OnDisable() {
-        AreaManager.AreaLoaded -= AreaLoadedInit;
-    }
-
-    void AreaLoadedInit(Area _areaScript)
+    void Start()
     {
-        base.Init();
-        player = GameObject.FindGameObjectWithTag("Player");
-        areaScript = _areaScript;
-        //areaScript = GameObject.FindGameObjectWithTag("Area").GetComponent<Area>();
-        interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        navAgent = GetComponent<NavAgent>();
 
-        anim = GetComponent<Animator>();
-        digInteraction.SetActive(false);
-
-        //Animation IDs
-        animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
-        animID_ReadyToDig = Animator.StringToHash("ReadyToDig");
-        animID_Dig = Animator.StringToHash("Dig");
-        animID_Sitting = Animator.StringToHash("Sitting");
-
-        wasInited = true;
-
-        //Reset
-        isDigsite = false;
-        isReadyToDig = false;
-        isDigging = false;    
-        sprint = false;    
-        anim.SetBool(animID_ReadyToDig, false);
-        anim.SetBool(animID_Dig, false);
-        anim.SetFloat(animID_MoveSpeed, 0f);
-        moveVector = Vector3.zero;
-        chasingPlayer = false;
-        intervalTimer = 0f;
-        navPosition = GetNavPosition();       
+        currentWaypointIndex = 0;
+        pathUpdateTimer = pathUpdateInterval;
     }
+
 
     void Update()
     {
-        if(wasInited == false || atHome) { return; }
-
-        base.BaseUpdate();
-
-        float targetSpeed = 0f;        
-
-        //Zim priorities Digging, Be close to player, wander around
-
-        /* Digging
-        -mark digsite digged
-        */
-       
-        //Set timer and countdown time to set new nav position
-        intervalTimer -= Time.deltaTime;
-        if(intervalTimer <= 0f && isDigging == false) {
-            //Get new nav position
-            intervalTimer = chasingPlayer ? navIntervalChasing : Random.Range(navIntervalMin, navIntervalMax);  
-
-            //If not chasing player and setting new navPos, roll if its digsites, if there are any available
-            if(chasingPlayer == false) {
-                //print("Digsites " + areaScript.AvailableDigSites());
-                // if(areaScript.AvailableDigSites() > 0) {
-                //     //Roll if this navPos is digsite
-                //     float roll = Random.Range(0f, 100f);  
-                //     if(roll > 50f) {
-                //         isDigsite = true;
-                //     } else {
-                //         isDigsite = false;
-                //     }
-                // }
-
-                //If current navPos is digsite or currently digging, dont look for new navPos unless it is chasing player
-                if(isReadyToDig == false && isDigging == false) {
-                    navPosition = GetNavPosition();
-                }
-            } else {
-                navPosition = GetNavPosition();
-            }
-            
-            SetMoveVector(navPosition);            
-        }        
-
-        //If enemy is close to the nav pos, stop moving by setting move vector to zero
-        float distanceToNav = Vector3.Distance(new Vector3(this.transform.position.x, 0f, this.transform.position.z), navPosition);
-        float distanceToPlayer = Vector3.Distance(new Vector3(this.transform.position.x, 0f, this.transform.position.z), player.transform.position);
-        
-        //Player is too far from Zim, run towards him
-        if(distanceToPlayer > maxDistanceToPlayer && isDigging == false) {
-            if(chasingPlayer == false) {          
-                intervalTimer = 0f;
-                chasingPlayer = true;
-                navPosition = GetNavPosition();
-            }
-        }
-
-        if(distanceToNav < 0.3f) {            
-            moveVector = Vector3.zero;
-            //Arrived at navpos that is digsite
-            if(isDigsite) {
-                isReadyToDig = true;
-                anim.SetBool(animID_ReadyToDig, true);
-                digInteraction.SetActive(true);
-                interactionManager.FindInteractions();
-            }
-
-            //Stop chasing player when reach navpos next to him
-            if(chasingPlayer) {
-                //Wait for a bit, but not too long after arriving next to the player
-                anim.SetBool(animID_ReadyToDig, false);
-                intervalTimer = Random.Range(1.0f, 2.0f); 
-                chasingPlayer = false;
-                isDigsite = false;
-                isReadyToDig = false;
-                digInteraction.SetActive(false);
-                interactionManager.FindInteractions();
-            }
-        } else {             
-
-            if(chasingPlayer) {
-                //if chasing player always run
-                sprint = true;
-                targetSpeed = runSpeed_Animator;
-            }
-            else 
-            {
-                if(distanceToNav > 3.0f) {
-                    //Make sure that run distance is not half unit or something like that
-                    if(sprint == false) {
-                        if((distanceToNav - 3.0f) > 1.5f) {
-                            sprint = true;
-                            targetSpeed = runSpeed_Animator;
-                        } else {
-                            targetSpeed = walkSpeed_Animator;
-                        }
-                    }
-                    else {
-                        targetSpeed = runSpeed_Animator;
-                    }
-                    
-                } else {                
-                    sprint = false;
-                    targetSpeed = walkSpeed_Animator;
-                }
-            }
-        }
-
-        DebugManager.Instance.Debug_ValueWithPosition("#ZimDistance1", "DistanceToNavPos", distanceToNav, new Vector2(0f, 120f), this.transform.position);
-        DebugManager.Instance.Debug_ValueWithPosition("#ZimDistance2", "DistanceToPlayer", distanceToPlayer, new Vector2(0f, 150f), this.transform.position);
-
-        anim.SetFloat(animID_MoveSpeed, targetSpeed);
-    }
-
-    public void Dig() {       
-       
-        anim.SetBool(animID_ReadyToDig, false);
-        anim.SetBool(animID_Dig, true);
-
-        isDigging = true;
-        chasingPlayer = false;
-        isDigsite = false;
-        isReadyToDig = false;
-        digInteraction.SetActive(false);
-        interactionManager.FindInteractions();
-
-        StartCoroutine(DigCompleted());
-    }
-
-    IEnumerator DigCompleted() {
-        yield return new WaitForSeconds(1.5f);       
-
-        moveVector = Vector3.zero;
-        anim.SetBool(animID_Dig, false);
-        isDigging = false;
-        isDigsite = false;
-        isReadyToDig = false;
-        chasingPlayer = false;
-        intervalTimer = 0f;
-
-        List<Items.ItemName> itemList = new List<Items.ItemName>();
-        itemList.Add(Items.ItemName.CrunchyCrystal);                   
-        player.GetComponent<Character_BaseData>().AddItems(itemList, true);
-
-        //areaScript.DigsiteCompleted();
-    }
-
-    Vector3 GetNavPosition() {
-        if(chasingPlayer) {
-            //when chasing player, set navpos next to him ( closer to camera )
-            return (player.transform.position + new Vector3(0,0,-1f));
-        } else {
-            float navRadiusX = 5f;   
-            float navRadiusZ = 3f;   
-            return new Vector3(player.transform.position.x + Random.Range(-navRadiusX, navRadiusX), 0f, player.transform.position.z + Random.Range(-navRadiusZ, navRadiusZ));   
-        }
-    }
-
-    void SetMoveVector(Vector3 navPos) {
-        moveVector = (navPos - new Vector3(this.transform.position.x, 0f, this.transform.position.z)).normalized;
-
-        //Linecast
-        int linecastMask = 1<<8 | 1<<3;
-        if(Physics.Linecast(transform.position, navPos, linecastMask))
+        if (navAgent.Inited)
         {
-            //Debug.Log("blocked");
-            //Perpendicular vector
-            moveVector = new Vector3(-moveVector.z, 0, moveVector.x);
+            if (isFollowingDan)
+            {
+                pathUpdateTimer -= Time.deltaTime;
+                if (pathUpdateTimer <= 0f && hasArrived == false)
+                {
+                    UpdatePath();
+                    pathUpdateTimer = pathUpdateInterval;
+                }
+
+                FollowPath();
+
+                hasArrived = (Vector3.Distance(transform.position, GetPlayerPos()) <= arriveDistance) ? true : false;
+                
+                if(hasArrived) {
+                    isFollowingDan = false;
+                    followingTimer = 0f;
+                    followingWaitTime = Random.Range(2f, 8f);
+                }
+            }
+            else
+            {
+                followingTimer += Time.deltaTime;
+                if(followingTimer >= followingWaitTime) {
+                    isFollowingDan = true;
+                }
+            }
         }
     }
 
-    public void SetHome(bool _atHome) {
-        atHome = _atHome;
-        anim.SetBool(animID_Sitting, atHome);
-        
-        if(atHome) {
-            moveVector = Vector3.zero;   
-        }     
-      
+    void UpdatePath()
+    {
+        navAgent.GetPath(transform.position, GetPlayerPos());
+        currentWaypointIndex = 0; // Reset waypoint index whenever the path is updated
+    }
+
+    Vector3 GetPlayerPos()
+    {
+        Vector3 playerPos = player.gameObject.transform.position;
+        Vector3 targetPos = new Vector3(playerPos.x, playerPos.y + 1.5f, playerPos.z);
+        return targetPos;
+    }
+
+    void FollowPath()
+    {
+        //Linear Movement
+        // if (navAgent.CurrentPath == null || navAgent.CurrentPath.Count == 0 || currentWaypointIndex >= navAgent.CurrentPath.Count)
+        // {
+        //     return;
+        // }
+
+        // // Move towards the current waypoint
+        // Vector3 targetPosition = navAgent.CurrentPath[currentWaypointIndex].WorldPosition;
+        // Vector3 movementDirection = (targetPosition - transform.position).normalized;
+
+        // // Rotate towards the target position
+        // if (movementDirection != Vector3.zero)
+        // {
+        //     Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
+        // }
+
+        // transform.position += movementDirection * speed * Time.deltaTime;
+
+        // // Check if the waypoint is reached
+        // if (Vector3.Distance(transform.position, targetPosition) < waypointTolerance)
+        // {
+        //     currentWaypointIndex++;
+        // }
+
+        if (navAgent.CurrentPath == null || navAgent.CurrentPath.Count == 0 || currentWaypointIndex >= navAgent.CurrentPath.Count)
+        {
+            return;
+        }
+
+        // Target position
+        Vector3 targetPosition = navAgent.CurrentPath[currentWaypointIndex].WorldPosition;
+        Vector3 displacement = targetPosition - transform.position;
+        float distanceToTarget = displacement.magnitude;
+
+        // Adjust spring constant for smooth stopping
+        float springK = Mathf.Lerp(minSpringConstant, maxSpringConstant, distanceToTarget / stopThreshold);
+        springK = Mathf.Clamp(springK, minSpringConstant, maxSpringConstant);
+
+        // Spring-damper calculation
+        Vector3 springForce = springK * displacement;
+        Vector3 dampingForce = 2f * dampingRatio * Mathf.Sqrt(springK) * velocity;
+        Vector3 force = springForce - dampingForce;
+
+        // Update velocity
+        velocity += (force / mass) * Time.deltaTime;
+
+        // Update position
+        transform.position += velocity * Time.deltaTime;
+
+        // Rotate towards the target position
+        if (velocity != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(velocity.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
+        }
+
+        // Check if the waypoint is reached
+        if (distanceToTarget < waypointTolerance)
+        {
+            currentWaypointIndex++;
+            if (currentWaypointIndex >= navAgent.CurrentPath.Count)
+            {
+                // Optionally, reset the velocity when the final waypoint is reached
+                velocity = Vector3.zero;
+            }
+        }
     }
 }

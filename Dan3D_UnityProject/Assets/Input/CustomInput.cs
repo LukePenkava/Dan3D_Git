@@ -55,7 +55,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Action1"",
                     ""type"": ""Button"",
                     ""id"": ""9c4cefde-8156-4e53-bb56-3ffccff29274"",
                     ""expectedControlType"": ""Button"",
@@ -94,6 +94,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""30324e6f-818f-4941-8d91-cfc7d90ecb43"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionButton1"",
+                    ""type"": ""Button"",
+                    ""id"": ""55509f77-ec3c-468c-8b67-f889fd5c9ea3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -328,7 +337,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Action1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -339,7 +348,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Action1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -562,6 +571,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28222525-8d02-4cca-807c-c4891e7a4f77"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionButton1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -573,11 +593,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Action1 = m_Player.FindAction("Action1", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_UINavigation = m_Player.FindAction("UINavigation", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_ActionButton1 = m_Player.FindAction("ActionButton1", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -642,11 +663,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Action1;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_UINavigation;
     private readonly InputAction m_Player_Menu;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_ActionButton1;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
@@ -654,11 +676,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Action1 => m_Wrapper.m_Player_Action1;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @UINavigation => m_Wrapper.m_Player_UINavigation;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @ActionButton1 => m_Wrapper.m_Player_ActionButton1;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -677,9 +700,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
+            @Action1.started += instance.OnAction1;
+            @Action1.performed += instance.OnAction1;
+            @Action1.canceled += instance.OnAction1;
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
@@ -692,6 +715,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @ActionButton1.started += instance.OnActionButton1;
+            @ActionButton1.performed += instance.OnActionButton1;
+            @ActionButton1.canceled += instance.OnActionButton1;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -705,9 +731,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
+            @Action1.started -= instance.OnAction1;
+            @Action1.performed -= instance.OnAction1;
+            @Action1.canceled -= instance.OnAction1;
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
@@ -720,6 +746,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @ActionButton1.started -= instance.OnActionButton1;
+            @ActionButton1.performed -= instance.OnActionButton1;
+            @ActionButton1.canceled -= instance.OnActionButton1;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -742,10 +771,11 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnAction1(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnUINavigation(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnActionButton1(InputAction.CallbackContext context);
     }
 }

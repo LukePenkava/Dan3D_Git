@@ -1,0 +1,473 @@
+<Dialogues>    
+
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>1</DialogueProgress>  
+        <RequiredProgress>                           
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>            
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character> 
+                <Line>Hrmglargles..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>This</Character> 
+                <Line>[suprised] Oh, hello dearies.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>This</Character> 
+                <Line>Freshly brewed Frog’s Breath Tea? Yes? Yesyesyes.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>Dangoru</Character> 
+                <Line>Oh, uh sure, I guess?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>Narrator</Character> 
+                <Line>Dangoru and Zima drink Frog's Breath tea.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>Dangoru</Character> 
+                <Line>[turning somehow greener] Mmm.. what a.. striking flavour.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+             <DialogueLine>
+                <Index>8</Index>
+                <Character>Yuki</Character> 
+                <Line>"coughs insinuatingly"</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>This</Character> 
+                <Line>Ancient—HCPH!—family recipe.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>         
+
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>This</Character> 
+                <Line>Oh dear, oh dear. Vappledapple.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>This</Character> 
+                <Line>All this fuss gives me hiccups!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>This</Character> 
+                <Line>My friends were dupefrinked by that Flimflammer!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>13</Index>
+                <Character>This</Character> 
+                <Line>Poor Potato is going to get so dehydrated..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>14</Index>
+                <Character>This</Character> 
+                <Line>Oh, and Broccoli, and, Tomato will be even more taciturn than usual!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>15</Index>
+                <Character>This</Character> 
+                <Line>Hrmglargles. HCPH!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>16</Index>
+                <Character>Dangoru</Character> 
+                <Line>That’s—wait, what’s a Flimflammer?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>17</Index>
+                <Character>This</Character> 
+                <Line>Oh, just a baffleglarbing Hubbub.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+
+            <DialogueLine>
+                <Index>18</Index>
+                <Character>This</Character> 
+                <Line>They’re squirmy, black hrmglargles, they take and break your stuff!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>19</Index>
+                <Character>Yuki</Character> 
+                <Line>That sounds like our guy.. But</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>20</Index>
+                <Character>Dangoru</Character> 
+                <Line> —Wait so there’s more of them? </Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+
+            <DialogueLine>
+                <Index>21</Index>
+                <Character>This</Character> 
+                <Line>Oh, practically infinite, deary. HCPH! Forty at least.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>22</Index>
+                <Character>Yuki</Character> 
+                <Line>One of them stole our sundial!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>23</Index>
+                <Character>This</Character> 
+                <Line>Your sundial!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>24</Index>
+                <Character>Dangoru</Character> 
+                <Line>Our sundial!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>25</Index>
+                <Character>This</Character> 
+                <Line>HCPH! Worrisome.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+
+            <DialogueLine>
+                <Index>26</Index>
+                <Character>This</Character> 
+                <Line>Listen dearies, if you’ll be whacklefarming about—</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>27</Index>
+                <Character>This</Character> 
+                <Line>HCPH!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>28</Index>
+                <Character>This</Character> 
+                <Line>—could you find my friends?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>29</Index>
+                <Character>This</Character> 
+                <Line>Take this pouch of allure. Will draw them to you like..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>30</Index>
+                <Character>This</Character> 
+                <Line>Like a wet glambdringle to fostercarp!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+        </Dialogue>
+    </DialogueObject>  
+
+    
+    <DialogueObject>
+        <Index>2</Index>  
+        <DialogueProgress>2</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue>QuestTaskCompleted_BasilVeggies_[Find_Veggies_DialogueClosed]</UnlockValue>   <!-- Unlock value is a quest unlock type, BasilVeggies is name quest, Find_Veggies_DialogueClosed is task value that must be fully completed to unlock this -->                
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>            
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Purpleplanks.. Oh thank you dearies for finding my friends!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>1, 2, trigglewart, 4, fiptercup, 6... 7, 8, noofty, 10!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Oh, my hiccups are going away—hcph!—</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Almost.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>It was treacherous, but we made it through.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character> 
+                <Line>WE ALWAYS PRODUCE RESULTS!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character> 
+                <Line>I’m hungry.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Well dearies, you’ve solved a real braingurbler!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Come back any time, you’re always welcome here!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Well if this forest do—</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Zzzzz..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character> 
+                <Line>Did she just fall asleep?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>I think she was just tired from all the hiccuping. Lets go and let her rest.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>          
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>3</Index>  
+        <DialogueProgress>3</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue>QuestActive_ElderberryRitual</UnlockValue>   <!-- Unlock value is a quest unlock type, BasilVeggies is name quest, Find_Veggies_DialogueClosed is task value that must be fully completed to unlock this -->                
+        </RequiredProgress>  
+
+        <Type>Locked</Type> 
+        <Dialogue>            
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Hello deary, swisslefins to see you again.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>What hrmglargles bring you?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Would you like some tea?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Oh, no, thank you very much.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>   
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>We've just met Leesah and wa...</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>   
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>OH, you've met Leesha! I haven't seen her in months. I'm relieved to hear that she's alright.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character> 
+                <Line>She's been eating dirt for last two months, so alright might be a bit of a stretch.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Dirt? How worrisome!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Is there anything I can do to help her?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Actually, yes there is! Leesha talked about Elder ritual, umm, or something. Perhaps you know something about it?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Hmm, yes yes. Strange! Did she tell you why?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Some small spirits or something?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Echoes?! Probably, yes yes. Very strange. Have not seen them for many many years.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>HCPH!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Let me get you the recipe.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Here it is! Please help Leesha, if you can.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>            
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Thank you. We will.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+    
+</Dialogues>

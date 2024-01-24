@@ -1,0 +1,543 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>0</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Dangy!</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+    
+    <DialogueObject>
+        <Index>1</Index>  <!-- Select Dialogue, Index to know which dialogue was completed, etc -->
+        <DialogueProgress>1</DialogueProgress> <!-- Define what other dialogues must have been completed in order to trigger this one ( will play only if Dialogue with this index was played before ) -->
+        <RequiredProgress> <!-- Set of Values unlocking this Dialogue -->            
+        </RequiredProgress>  
+
+        <Type>Locked</Type> <!-- Free Movement ( One Liners ), Locked ( Characters stand next to each other in locked state until Dialogue finishes ) -->
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> <!-- ( This, Dangoru ) This means current character, like Fox, Hag etc.  -->
+                <Line>Sir, excuse me, but would you be willing to trade some food for two broken twigs?</Line>
+                <VO>Cheer</VO>  <!-- Describe Emotion, should be chosen from presets, like 5-10 for each character -->
+                <Type>Null</Type> <!-- Optional settings to know what this line can be used for. For example for plants, its lines for success or fail state after playing minigame, so they react accordingly -->
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character>
+                <Line>I know it's not the bestest of deals, but i haven't eaten in days and would be so grateful.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character>
+                <Line>Sure, umm.. I think I can get you some food.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>Dangoru</Character> 
+                <Line>Not sure, what I'm gonna do with those twigs, exactly, but I'll figure something out.</Line>
+                <VO>Neutral</VO>
+                <Type>Null</Type> 
+            </DialogueLine>
+             <DialogueLine>
+                <Index>5</Index>
+                <Character>Dangoru</Character> 
+                <Line>How come you can't find any food?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>This</Character>
+                <Line>You see, I'm on an important watch here. I have seen little spirits here around the shrine.</Line>
+                <VO>Neutral</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>This</Character>
+                <Line>I've never ever seen them before. But I think it’s a sign.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>     
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>This</Character>
+                <Line>So I can't leave, I wait for them to show up again. If I leave, forest will walk and I might never find the spot again.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>   
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>Dangoru</Character>
+                <Line>Oh, what sign?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>      
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>This</Character>
+                <Line>I'm not sure exactly.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>Dangoru</Character>
+                <Line>Ok.. I'm gonna prepare some food for you and will be back before you know it.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>This</Character>
+                <Line>Oh, a real food! I can't wait sir.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>       
+    
+    <DialogueObject>
+        <Index>2</Index>  
+        <DialogueProgress>2</DialogueProgress> 
+        <RequiredProgress> 
+            <UnlockValue>QuestCompleted_HungryFox</UnlockValue>          
+        </RequiredProgress>  
+
+        <Type>Locked</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Yummies! Bestest munch ever. Way more tastier than the roots and dirt I was eating last two months.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>Dangoru</Character>
+                <Line>Wait a minute, you've been stuck here for two months?!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Yuki</Character>
+                <Line>Damn, that's a lot of dirt. I sure hope those spirits are worth it.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>    
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>This</Character>
+                <Line>They sure are sir.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>Yuki</Character>
+                <Line>You can call me Zim.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>Dangoru</Character>
+                <Line>And I am Dangoru. What is your name, little fox?</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>This</Character>
+                <Line>Leesha</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>Dangoru</Character>
+                <Line>Nice to meet you Leesha.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>This</Character>
+                <Line>Nice to meetyu.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>This</Character>
+                <Line>Sir, I mean Dang.. Dangy?</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>This</Character>
+                <Line>I was thinking..</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>This</Character>
+                <Line>Maybees you could help? With the little spirits?</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>13</Index>
+                <Character>Dangoru</Character>
+                <Line>Maybees we could. What did you have in mind?</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>14</Index>
+                <Character>This</Character>
+                <Line>See, I remember Geeja spoke of an Elderberry ritual.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>15</Index>
+                <Character>This</Character>
+                <Line>But I can't get the stuffs for it.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>16</Index>
+                <Character>This</Character>
+                <Line>Perhaps you could?</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>17</Index>
+                <Character>Dangoru</Character>
+                <Line>What would you need?</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>18</Index>
+                <Character>This</Character>
+                <Line>I'm not sure, the nice tea lady, Basil, she might know, I think.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>19</Index>
+                <Character>This</Character>
+                <Line>But I do know you need elderBerries, Chicken leg should have some of those.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>20</Index>
+                <Character>This</Character>
+                <Line>Oh and Gloombrella, which can be found at night. Or day? Night.. i think.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>19</Index>
+                <Character>Dangoru</Character>
+                <Line>Ok then, we'll ask when we meet her.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>20</Index>
+                <Character>Yuki</Character>
+                <Line>And try not to eat all the dirt here. We'll bring you some food again soon.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>20</Index>
+                <Character>This</Character>
+                <Line>That would be the bestest. And thank you for the full belly.</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>3</Index>  
+        <DialogueProgress>3</DialogueProgress> 
+        <RequiredProgress> 
+            <UnlockValue>QuestCompleted_ElderberryRitual</UnlockValue>           <!-- QuestTaskCompleted_ElderberryRitual_[Craft_ElderCharm]   QuestCompleted_ElderberryRitual --> 
+        </RequiredProgress>  
+
+        <Type>Locked</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Dangy! You made it.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Let's put it at the shrine.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>            
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>4</Index>  
+        <DialogueProgress>4</DialogueProgress> 
+        <RequiredProgress> 
+            <UnlockValue>QuestCompleted_ElderberryRitual</UnlockValue>           <!-- QuestTaskCompleted_ElderberryRitual_[Craft_ElderCharm]   QuestCompleted_ElderberryRitual --> 
+        </RequiredProgress>  
+
+        <Type>Locked</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>Have you seen it? What was that?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>Umm..</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>It was the little spirit I saw!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Ooh it looks like it opened some kind of door for us.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>           
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>5</Index>  
+        <DialogueProgress>5</DialogueProgress> 
+        <RequiredProgress> 
+            <UnlockValue>QuestCompleted_ElderberryRitual</UnlockValue>           <!-- QuestTaskCompleted_ElderberryRitual_[Craft_ElderCharm]   QuestCompleted_ElderberryRitual -->
+            <UnlockValue>Area_20</UnlockValue> 
+        </RequiredProgress>  
+
+        <Type>Locked</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Oh, look at that!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>What in the whackles is that?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>Listen, I am starting to get a bit confused here.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>Where are we, exactly? And what is that?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>I'm not sure, but, I think it might be the "Shard".</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>The "Shard of the Elderlight"</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Basil told me about it once.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>Great! Can we leave now?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>I have a strange feeling, like it's talking to me.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>More of a mumbling actually. I think I should get closer.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>What? You definitely should not!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+             <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>Quite the contrary, we should get out of here.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>Yeah, I'm gonna go closer.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>   
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>No, you're not!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>I don't know, if that is good idea Dangy.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>If it's the shard Basil spoke about, it's very powerful.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>Well, only one way to find out.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>There are definitely more ways to find out!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>I don't trust it. I bet it's gonna turn you into blueberry pie or that disgusting frog tea or something.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>What?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>            
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Or pixie dust.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Yuki</Character>
+                <Line>Or pixie farts.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>Alright alright! Calm down you two.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>Looking around here, I don't think there is any way out of here anyway.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character>
+                <Line>So I'm going to go figure out, what exactly I'll get turned into.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+</Dialogues>

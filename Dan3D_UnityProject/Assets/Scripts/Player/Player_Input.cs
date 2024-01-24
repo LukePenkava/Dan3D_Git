@@ -8,6 +8,7 @@ public class Player_Input : MonoBehaviour
     UIManager uiManager;
     PlayerManager playerManager;
     MinigameManager mgManager;
+    DialogueManager dialogueManager;
 
     CustomInput input = null;
 
@@ -24,6 +25,7 @@ public class Player_Input : MonoBehaviour
     {
         uiManager = GetComponent<UIManager>();
         mgManager = GetComponent<MinigameManager>();
+        dialogueManager = GetComponent<DialogueManager>();
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 
@@ -35,10 +37,12 @@ public class Player_Input : MonoBehaviour
         input.Player.Sprint.performed += OnSprintPerformed;
         input.Player.Jump.performed += OnJumpPerformed;
         input.Player.Interact.performed += OnInteractPerformed;
-        input.Player.Attack.performed += OnAttackPerformed;
+        input.Player.Action1.performed += OnAction1Performed;
         input.Player.Inventory.performed += OnInventoryPerformed;
         input.Player.UINavigation.performed += OnUINavigationPerformed;
         input.Player.Menu.performed += OnUIMenuPerformed;
+
+        input.Player.ActionButton1.performed += OnActionButton1Performed;
     }
 
     void OnDisable()
@@ -49,10 +53,12 @@ public class Player_Input : MonoBehaviour
         input.Player.Sprint.performed -= OnSprintPerformed;
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Interact.performed -= OnInteractPerformed;
-        input.Player.Attack.performed -= OnAttackPerformed;
+        input.Player.Action1.performed -= OnAction1Performed;
         input.Player.Inventory.performed -= OnInventoryPerformed;
         input.Player.UINavigation.performed -= OnUINavigationPerformed;
         input.Player.Menu.performed -= OnUIMenuPerformed;
+
+        input.Player.ActionButton1.performed -= OnActionButton1Performed;
     }
 
     #region InputEvents
@@ -94,7 +100,7 @@ public class Player_Input : MonoBehaviour
         playerManager.Sprint = context.ReadValue<float>() == 1f ? true : false;
     }
 
-     void OnJumpPerformed(InputAction.CallbackContext context)
+    void OnJumpPerformed(InputAction.CallbackContext context)
     {
         SetInputDevice(context.control.device.displayName);
         playerManager.Jump();
@@ -114,10 +120,14 @@ public class Player_Input : MonoBehaviour
             {
                 uiManager.ActivateSelectedElement();
             }
+            else if (GameDirector.gameState == GameDirector.GameState.LockedDialogue)
+            {
+                dialogueManager.PlayerInput();
+            }
         }
     }
 
-    void OnAttackPerformed(InputAction.CallbackContext context)
+    void OnAction1Performed(InputAction.CallbackContext context)
     {
         SetInputDevice(context.control.device.displayName);
 
@@ -125,17 +135,17 @@ public class Player_Input : MonoBehaviour
         {
             if (context.ReadValue<float>() == 1f)
             {
-                playerManager.Attack();
+                playerManager.Action1();
             }
         }
 
-        if (GameDirector.gameState == GameDirector.GameState.MG)
-        {
-            if (context.ReadValue<float>() == 1f)
-            {
-                mgManager.StopIndicator();
-            }
-        }
+        // if (GameDirector.gameState == GameDirector.GameState.MG)
+        // {
+        //     if (context.ReadValue<float>() == 1f)
+        //     {
+        //         mgManager.StopIndicator();
+        //     }
+        // }
     }
 
     void OnInventoryPerformed(InputAction.CallbackContext context)
@@ -155,6 +165,16 @@ public class Player_Input : MonoBehaviour
         if (context.ReadValue<float>() == 1f)
         {
             uiManager.SetGameMenu();
+        }
+    }
+
+    void OnActionButton1Performed(InputAction.CallbackContext context)
+    {
+        SetInputDevice(context.control.device.displayName);
+
+        if (context.ReadValue<float>() == 1f)
+        {
+            playerManager.ActionButton(1);
         }
     }
 

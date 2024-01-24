@@ -4,59 +4,70 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    GameDirector gameDirector;
-    UIManager uiManager;
+    float highlightRadius = 20f; // Radius around the player to check for resources
+    public LayerMask resourceLayer;  
 
     public GameObject player;
-    GameObject[] areaResources = new GameObject[0];
+
+    //GameObject[] areaResources = new GameObject[0];
     //Each time area spawns, get all Resource objects from Resource Parent.
     //List<InteractionResource> resources = new List<InteractionResource>();
     //InteractionResource activeResource;
     //public ResourceLifeProgressBar lifeProgressBar;    
 
-    void Start() {
-        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
-    } 
+    // void Start() {
+    //     uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
+    // } 
 
 
-    void OnEnable() {
-        AreaManager.AreaLoaded += AreaLoaded;
-    }
+    // void OnEnable() {
+    //     AreaManager.AreaLoaded += AreaLoaded;
+    // }
 
-    void OnDisable() {
-        AreaManager.AreaLoaded -= AreaLoaded;
-    }
+    // void OnDisable() {
+    //     AreaManager.AreaLoaded -= AreaLoaded;
+    // }
 
-    void AreaLoaded(Area areaScript) {
-        areaResources = GameObject.FindGameObjectsWithTag("Resource");
-    }
+    // void AreaLoaded(Area areaScript) {
+    //     areaResources = GameObject.FindGameObjectsWithTag("Resource");
+    // }
 
-    void Update() {
-        
-        GameObject activeResource = null;
-        float closestDistance = 100.0f;
-
-        foreach(GameObject tempResource in areaResources) {
-            float distanceToResource = Vector3.Distance(new Vector3(tempResource.transform.position.x, 0f, tempResource.transform.position.z), new Vector3(player.transform.position.x, 0, player.transform.position.z));           
-            if(distanceToResource < 2.5f && distanceToResource < closestDistance) {
-                closestDistance = distanceToResource;
-                activeResource = tempResource;
-            }
+    public void HighlightResources()
+    {
+        Collider[] colliders = Physics.OverlapSphere(player.transform.position, highlightRadius, resourceLayer);
+        foreach (var collider in colliders)
+        {                 
+            collider.gameObject.GetComponent<Resource>().Highlight();            
         }
+    }
 
-        if(activeResource != null) {
-            
-            Resource res = activeResource.GetComponent<Resource>();
+    void Update()
+    {
 
-            if(res.amount > 0) {
-                uiManager.ResourceAmount = res.amount;
-                uiManager.ResourceName = res.resourceName;
-            } else {
-                uiManager.ResourceAmount = 0;
-            }
-        } else {
-            uiManager.ResourceAmount = 0;
-        }
+        // GameObject activeResource = null;
+        // float closestDistance = 100.0f;
+
+        // foreach(GameObject tempResource in areaResources) {
+        //     float distanceToResource = Vector3.Distance(new Vector3(tempResource.transform.position.x, 0f, tempResource.transform.position.z), new Vector3(player.transform.position.x, 0, player.transform.position.z));           
+        //     if(distanceToResource < 2.5f && distanceToResource < closestDistance) {
+        //         closestDistance = distanceToResource;
+        //         activeResource = tempResource;
+        //     }
+        // }
+
+        // if(activeResource != null) {
+
+        //     Resource res = activeResource.GetComponent<Resource>();
+
+        //     if(res.amount > 0) {
+        //         uiManager.ResourceAmount = res.amount;
+        //         uiManager.ResourceName = res.resourceName;
+        //     } else {
+        //         uiManager.ResourceAmount = 0;
+        //     }
+        // } else {
+        //     uiManager.ResourceAmount = 0;
+        // }
     }
 
 
@@ -87,7 +98,7 @@ public class ResourceManager : MonoBehaviour
     // void AreaCreated(AreaNode areaNode) {
     //     SetupResources(GameDirector.dayPhase);
     // }      
-    
+
 
     //Save States of Resources -  Each time area is left, save lifetime for resource. Have one function in SaveManager to save list ( LavenderSprout_7, 0.64, wasBlessed)
     //Add Resource object to each area
@@ -97,7 +108,7 @@ public class ResourceManager : MonoBehaviour
     //     //Update all Resources Life Cycle
     //     foreach(InteractionResource res in resources) {
     //         if(res.DayPhaseHidden) { continue; }
-            
+
     //         if(res.MgOn == false && res.dailyResource == false) {
     //             res.Life += Time.deltaTime;
     //             if(res.Life > res.lifeCycle) { res.Life = res.lifeCycle; }
@@ -158,7 +169,7 @@ public class ResourceManager : MonoBehaviour
     // }
 
     // public void SaveResources() {     
-        
+
     //     FindResources();
     //     if(debugOn) {
     //         Debug.Log("Saving Resources " + resources.Count);
@@ -268,7 +279,7 @@ public class ResourceManager : MonoBehaviour
     //         }           
     //     }        
     // }
-  
+
 
     // //When new day starts, reset daily resource to life == 1
     // void DayPhaseChanged(GameDirector.DayPhase dayPhase) {       
@@ -277,13 +288,13 @@ public class ResourceManager : MonoBehaviour
     //     if(dayPhase == GameDirector.DayPhase.Day) {
     //         Dictionary<string, ResourceSaveObject> resourceSaveDict = SaveManager.LoadResources();
     //         foreach(var saveObj in resourceSaveDict) {
-                
+
     //                 if(saveObj.Value.dailyResource) {                    
     //                     saveObj.Value.resourceLife = 1f;
     //                     saveObj.Value.isHidden = false;
     //                     saveObj.Value.RolledOnHidden = false;
     //                 }
-                
+
     //         }
     //         SaveManager.SaveResources(resourceSaveDict);   
     //     } 
@@ -299,7 +310,8 @@ public class ResourceManager : MonoBehaviour
 }
 
 [System.Serializable]
-public class ResourceSaveObject {
+public class ResourceSaveObject
+{
     public string resourceIndex;
     public float resourceLife;
     public bool wasCheered;

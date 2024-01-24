@@ -1,0 +1,409 @@
+<Dialogues>
+    <DialogueObject>
+        <Index>0</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>                      
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Dangy!</Line>
+                <VO>Loud</VO>  
+                <Type>Null</Type>
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <!-- To add cursive or bold &#60;i&#62;Yuki's stomach gurgles loudly&#60;/i&#62; -->
+    
+    <DialogueObject>
+        <Index>1</Index>  <!-- Select Dialogue, Index to know which dialogue was completed, etc -->
+        <DialogueProgress>1</DialogueProgress> <!-- Define what other dialogues must have been completed in order to trigger this one ( will play only if Dialogue with this index was played before ) -->
+        <RequiredProgress> <!-- Set of Values unlocking this Dialogue -->            
+            <UnlockValue>tutorialIndex_3</UnlockValue> <!-- These are values, which will be saved for player for example when he progresses in a quest. Say his quest is to collect Lavender. This parameter will check if player value Lavender is equal to true. Which will happen only after player collected Lavender -->
+        </RequiredProgress>  
+
+        <Type>Locked</Type> <!-- Free Movement ( One Liners ), Locked ( Characters stand next to each other in locked state until Dialogue finishes ) -->
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>Dangoru</Character> 
+                <Line>Morning Zim. Feeling better?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character>
+                <Line>Still a bit of a tingling in my toes, but better.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>This</Character>
+                <Line>It’s like I was under some kind of spell last night—I barely remember anything!</Line>
+                <VO>Emphasize</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>Dangoru</Character> 
+                <Line>Yeah, we were walking around the forest, and when nightfall came, you started talking gibberish and walking in random directions.</Line>
+                <VO>Neutral</VO>
+                <Type>Null</Type> 
+            </DialogueLine>
+             <DialogueLine>
+                <Index>5</Index>
+                <Character>Dangoru</Character> 
+                <Line>As for that tingling.. That’s because you drank 6 bottles of Pimpleberry juice when we got back.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>This</Character>
+                <Line>Remember what the Witch Frog Lady told us? “Stay out of the forest at night or you shall be lost forever”</Line>
+                <VO>Neutral</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>Dangoru</Character>
+                <Line>I think she was a bit over dramatic, but yeah, there’s something funny about this place.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>Dangoru</Character>
+                <Line>Even Chompy doesn’t like it here.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>Narrator</Character>
+                <Line>From all around you, a wooden groan reverberates.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>This</Character>
+                <Line>Chompy's right!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>This</Character>
+                <Line>We've been here for one day and already got lost and bewitched.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>This</Character>
+                <Line>What in the whackles is wrong with this forest?</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>13</Index>
+                <Character>Dangoru</Character>
+                <Line>I guess it won’t be so easy to find that thief..</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>14</Index>
+                <Character>Dangoru</Character>
+                <Line>But we need to get that sundial back, I can’t do any gem-crafting without it.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>    
+            <DialogueLine>
+                <Index>15</Index>
+                <Character>Dangoru</Character>
+                <Line>And it was in the family for 14 generations!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>    
+            <DialogueLine>
+                <Index>16</Index>
+                <Character>Dangoru</Character>
+                <Line>Passed on to us!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>17</Index>
+                <Character>This</Character>
+                <Line>And to our dad before us!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>        
+            <DialogueLine>
+                <Index>18</Index>
+                <Character>Dangoru</Character>
+                <Line>And to his dad before him!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>  
+            <DialogueLine>
+                <Index>19</Index>
+                <Character>This</Character>
+                <Line>And his before him!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>   
+            <DialogueLine>
+                <Index>20</Index>
+                <Character>Narrator</Character>
+                <Line>Another groan echoes</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>           
+            <DialogueLine>
+                <Index>21</Index>
+                <Character>Dangoru</Character>
+                <Line>Anyways, we’ve got to get it back. We can’t be the idiots who lost it.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>     
+            <DialogueLine>
+                <Index>22</Index>
+                <Character>This</Character>
+                <Line>Of all the idiotic things we’ve done, this is at least top seven.</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>     
+            <DialogueLine>
+                <Index>23</Index>
+                <Character>This</Character>
+                <Line>"Zima's stomach gurgles loudly"</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>     
+            <DialogueLine>
+                <Index>24</Index>
+                <Character>Dangoru</Character>
+                <Line>Sounds like it’s time for breakfast!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>     
+            <DialogueLine>
+                <Index>25</Index>
+                <Character>This</Character>
+                <Line>Breakfast!</Line>
+                <VO>Neutral</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>     
+        </Dialogue>
+    </DialogueObject>   
+
+    <DialogueObject>
+        <Index>2</Index>  <!-- Select Dialogue, Index to know which dialogue was completed, etc -->
+        <DialogueProgress>2</DialogueProgress> <!-- Define what other dialogues must have been completed in order to trigger this one ( will play only if Dialogue with this index was played before ) -->
+        <RequiredProgress> <!-- Set of Values unlocking this Dialogue -->            
+            <UnlockValue>tutorialIndex_5</UnlockValue> <!-- These are values, which will be saved for player for example when he progresses in a quest. Say his quest is to collect Lavender. This parameter will check if player value Lavender is equal to true. Which will happen only after player collected Lavender -->
+        </RequiredProgress>  
+
+        <Type>Locked</Type> <!-- Free Movement ( One Liners ), Locked ( Characters stand next to each other in locked state until Dialogue finishes ) -->
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Best Evernoodles ever!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>Dangoru</Character> 
+                <Line>(burps) Step one to finding a lost sundial completed!</Line>
+                <VO>Cheer</VO>  
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>This</Character> 
+                <Line>Step two: go back to sleep!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>Dangoru</Character> 
+                <Line>Ah, so it’s going to be a “carry Zim around on my shoulders” kind of day, is it?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>This</Character> 
+                <Line>Excuse me, I'm thinking very hard about all our options while resting.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>Dangoru</Character> 
+                <Line>All the options for what to eat next, maybe.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>This</Character> 
+                <Line>Oh.. Speaking of—we’re running low on supplies. </Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>Dangoru</Character> 
+                <Line>How do you know?</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>This</Character> 
+                <Line>Well, you know.. I checked. Regular, routine inventory check.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>Dangoru</Character> 
+                <Line>Inventory check? Suuure.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>Dangoru</Character> 
+                <Line>Anyways, we better look out for any food we can find around here.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>    
+
+    <DialogueObject>
+        <Index>3</Index>  <!-- Select Dialogue, Index to know which dialogue was completed, etc -->
+        <DialogueProgress>3</DialogueProgress> <!-- Define what other dialogues must have been completed in order to trigger this one ( will play only if Dialogue with this index was played before ) -->
+        <RequiredProgress> <!-- Set of Values unlocking this Dialogue -->            
+            <UnlockValue>tutorialIndex_7</UnlockValue> <!-- These are values, which will be saved for player for example when he progresses in a quest. Say his quest is to collect Lavender. This parameter will check if player value Lavender is equal to true. Which will happen only after player collected Lavender -->
+        </RequiredProgress>  
+
+        <Type>Locked</Type> <!-- Free Movement ( One Liners ), Locked ( Characters stand next to each other in locked state until Dialogue finishes ) -->
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>..Wait! This looks different!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>Dangoru</Character> 
+                <Line>Hmm, it looks like..</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>Dangoru</Character> 
+                <Line>..the forest somehow rearranged itself while we were asleep.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>This</Character> 
+                <Line>Oh, great. Rearranging forest. Stupendous.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>This</Character> 
+                <Line>So we’re lost. We’re like, double lost.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>Dangoru</Character> 
+                <Line>Well, add it to the list of Current Whacklecrap.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>This</Character> 
+                <Line>"Zima exhales dramatically"</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>Dangoru</Character> 
+                <Line>But, you know, we do get lost all the time!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>This</Character> 
+                <Line>Yeah, well, new plan: let’s get un-lost.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>This</Character> 
+                <Line>And get some food. And find that thief.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>This</Character> 
+                <Line>Actually, let’s start with the food.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>Dangoru</Character> 
+                <Line>Right, better keep your priorities straight!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>Dangoru</Character> 
+                <Line>Now, let’s have a look around this forest and see how lost we are!</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine>
+            <DialogueLine>
+                <Index>13</Index>
+                <Character>This</Character> 
+                <Line>Onwards then! Whichever way that is.</Line>
+                <VO>Cheer</VO> 
+                <Type>Null</Type> 
+            </DialogueLine> 
+            
+       </Dialogue>
+    </DialogueObject>     
+
+</Dialogues>

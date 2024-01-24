@@ -114,7 +114,7 @@ public class GameDirector : MonoBehaviour
         if(areaScript.location == Locations.Forest) {
             zima.SetActive(true);
             zima.transform.position = new Vector3(pos.x, pos.y, pos.z - 1f);
-            zima.GetComponent<Zima>().SetHome(false);
+            zima.GetComponent<ZimaOld>().SetHome(false);
         }
         else {
             if(areaScript.area == Areas.Home_1 || areaScript.area == Areas.Home_3) {
@@ -126,7 +126,7 @@ public class GameDirector : MonoBehaviour
                 zima.transform.position = new Vector3(-0.45f, 0.21f, -2.67f);
                 zima.transform.localEulerAngles = new Vector3(0,0,0);
                 zima.GetComponent<CharacterController>().enabled = true;
-                zima.GetComponent<Zima>().SetHome(true);
+                zima.GetComponent<ZimaOld>().SetHome(true);
             }
         }
 

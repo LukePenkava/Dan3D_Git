@@ -51,6 +51,17 @@
         <amount>1</amount>
     </item>
 
+    <item>        
+        <name>Amber</name>        
+        <title>Amber</title>
+        <ItemTags>
+            <Tag>ActionItem</Tag>
+        </ItemTags>        
+        <UseFunctions></UseFunctions>
+        <description>Shows Resources</description>
+        <amount>1</amount>
+    </item>
+
      
   
 

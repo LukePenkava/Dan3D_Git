@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     Character_BaseData baseData;
     State playerState;
     Animator anim;
+    ResourceManager resourceManager;
 
     public GameObject visual;
     public GameObject cam;
@@ -76,9 +78,14 @@ public class PlayerManager : MonoBehaviour
     Interaction activeInteraction;
 
 
-    //Attack
-    public GameObject weapon;
+    //Attack   
+    public GameObject axe;
+    public GameObject axeCollider;
+     public GameObject weapon;
     public GameObject weaponCollider;
+
+    //Action Buttons
+    public Image actionButton1_timerVisual;
 
     // void OnEnable() {
     //     AreaManager.AreaLoaded += AreaLoadedInit;
@@ -100,6 +107,7 @@ public class PlayerManager : MonoBehaviour
 
             uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
             interactionManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<InteractionManager>();
+            resourceManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<ResourceManager>();
 
             //Animation IDs
             animID_MoveSpeed = Animator.StringToHash("MoveSpeed");
@@ -110,10 +118,13 @@ public class PlayerManager : MonoBehaviour
 
             anim.SetBool(animID_MoveEnabled, true);
             weapon.SetActive(false);
+            axe.SetActive(false);
             wasInited = true;
         }
 
         //controller.enabled = true;
+
+        actionButton1_timerVisual.fillAmount = 0f;
     }
 
     // Update is called once per frame
@@ -130,6 +141,21 @@ public class PlayerManager : MonoBehaviour
         AnimationsInfo();
 
         Move();
+
+        //Action Items
+        Item amber = ItemsDirectory.ItemsData[Items.ItemName.Amber];
+
+        if (amber.canBeActivated == false)
+        {
+            amber.cooldownTimer += Time.deltaTime;
+            actionButton1_timerVisual.fillAmount = 1f - (amber.cooldownTimer / amber.cooldown);
+
+            if (amber.cooldownTimer >= amber.cooldown)
+            {
+                amber.canBeActivated = true;
+                actionButton1_timerVisual.fillAmount = 0f;
+            }
+        }
     }
 
     //Any logic related to what current animation is playing, if animation finished etc
@@ -211,7 +237,8 @@ public class PlayerManager : MonoBehaviour
         controller.Move(targetDirection.normalized * (targetSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
-    public void Jump() {
+    public void Jump()
+    {
         verticalVelocity = jumpVelocity;
     }
 
@@ -225,6 +252,7 @@ public class PlayerManager : MonoBehaviour
     //Interaction triggered by user input
     public void TriggerInteraction()
     {
+        print("Tigger Interaction");
 
         if (playerState.ActiveState == State.States.Interacting) { return; }
 
@@ -246,7 +274,6 @@ public class PlayerManager : MonoBehaviour
     //Called from PlayerInput, get Active Interaction from InteractionManager, if there is any 
     public void Interact(int inputSelection)
     {
-
         if (isInteracting)
         {
             return;
@@ -257,15 +284,15 @@ public class PlayerManager : MonoBehaviour
 
         if (activeInteraction && activeInteraction.InteractionState == InteractionStates.Active)
         {
-
             isInteracting = true;
 
             //If Interaction is of type Dialogue, Interaction does not have set State and Life, because it depends on type of used Dialogue, set it here based on type of the Dialogue
-            // if(activeInteraction.interactionType == InteractionManager.InteractionTypes.Dialogue) {
-            //     DialogueObject obj = activeInteraction.GetComponent<InteractionDialogue>().GetCurrentDialogue();
-            //     activeInteraction.Data.interactionPlayerState = (obj.type == Dialogue.Types.Free) ? InteractionManager.InteractionPlayerStates.Free : InteractionManager.InteractionPlayerStates.Locked;            
-            //     GameDirector.gameState = (obj.type == Dialogue.Types.Free) ? GameDirector.GameState.World : GameDirector.GameState.LockedDialogue;             
-            // }
+            if (activeInteraction.interactionType == InteractionManager.InteractionTypes.Dialogue)
+            {
+                DialogueObject obj = activeInteraction.GetComponent<InteractionDialogue>().GetCurrentDialogue();
+                activeInteraction.Data.interactionPlayerState = (obj.type == Dialogue.Types.Free) ? InteractionManager.InteractionPlayerStates.Free : InteractionManager.InteractionPlayerStates.Locked;
+                GameDirector.gameState = (obj.type == Dialogue.Types.Free) ? GameDirector.GameState.World : GameDirector.GameState.LockedDialogue;
+            }
 
             // if(activeInteraction.interactionType == InteractionManager.InteractionTypes.MG) {                      
             //     GameDirector.gameState = GameDirector.GameState.MG; 
@@ -303,10 +330,11 @@ public class PlayerManager : MonoBehaviour
             //     isInteracting = false;
             // }
 
-            // if(activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Active) {
-            //     interactionManager.ActivateInteraction(activeInteraction.Data.selectionMenuStaysOn);
-            //     isInteracting = true;
-            // }
+            if (activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.Active)
+            {
+                interactionManager.ActivateInteraction(activeInteraction.Data.selectionMenuStaysOn);
+                isInteracting = true;
+            }
 
             //! NOT BEING USED
             // if(activeInteraction.Data.interactionLife == InteractionManager.InteractionLife.ActiveForTime) {
@@ -333,8 +361,24 @@ public class PlayerManager : MonoBehaviour
         playerState.ActiveState = State.States.Idle;
     }
 
+    public void InteractionFinished(bool checkSelectionMenuVisibility = true, bool resetState = true)
+    {
+        inputEnabled = true;
+        isInteracting = false;
+
+        if (resetState)
+        {
+            playerState.ActiveState = State.States.Idle;
+        }
+
+        if (checkSelectionMenuVisibility)
+        {
+            interactionManager.CheckSelectionMenuVisibility();
+        }
+    }
+
     //Attack triggered by user input
-    public void Attack()
+    public void Action1()
     {
         if (playerState.ActiveState == State.States.Interacting) { return; }
 
@@ -342,16 +386,38 @@ public class PlayerManager : MonoBehaviour
         anim.SetBool(animID_MoveEnabled, false);
         anim.SetTrigger(animID_Attack);
         StartCoroutine(ActivateCollider());
-        weapon.SetActive(true);
+
+        axe.SetActive(true);
+        //weapon.SetActive(true);
+    }
+
+    public void ActionButton(int buttonIndex)
+    {
+        if (buttonIndex == 1)
+        {
+            Item amber = ItemsDirectory.ItemsData[Items.ItemName.Amber];
+
+            if (amber.canBeActivated)
+            {
+                print("Activated");
+                resourceManager.HighlightResources();
+                amber.cooldownTimer = 0f;
+                amber.canBeActivated = false;
+                actionButton1_timerVisual.fillAmount = 1f;
+            }
+        }
     }
 
     IEnumerator ActivateCollider()
     {
         weaponCollider.SetActive(false);
+        axeCollider.SetActive(false);
         yield return new WaitForSeconds(0.36f);
         weaponCollider.SetActive(true);
+        axeCollider.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         weaponCollider.SetActive(false);
+        axeCollider.SetActive(false);
     }
 
     //Called when attack animation finishes

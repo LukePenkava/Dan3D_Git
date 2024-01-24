@@ -14,6 +14,7 @@ public class Items
         Potion,        
         Recipe,
         Blueprint,
+        ActionItem,
 
         //Properties
         Consumable,
@@ -42,6 +43,9 @@ public class Items
         Noodles,
         MysticMunchies,
         Offerings,
+
+        //Action Items
+        Amber,
 
         // LavenderSprouts,    
         // GiggleLink,

@@ -1,0 +1,212 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>0</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Haha, hey that tickles!</Line>
+                <VO>Loud</VO> 
+                <Type>Success</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>1</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Picked to perfection.</Line>
+                <VO>Loud</VO> 
+                <Type>Success</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>2</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Thanks for taking your time.</Line>
+                <VO>Loud</VO> 
+                <Type>Success</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>3</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>You got it!</Line>
+                <VO>Loud</VO> 
+                <Type>Success</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>4</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Enjoy the fruits of my labor.</Line>
+                <VO>Loud</VO> 
+                <Type>Success</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>5</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>We’re rooting for you!</Line>
+                <VO>Loud</VO> 
+                <Type>Success</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>6</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Yikes!</Line>
+                <VO>Loud</VO> 
+                <Type>Fail</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>7</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Watch it!</Line>
+                <VO>Loud</VO> 
+                <Type>Fail</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>8</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Careful with those claws!</Line>
+                <VO>Loud</VO> 
+                <Type>Fail</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+
+    <DialogueObject>
+        <Index>9</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Leaf me alone!</Line>
+                <VO>Loud</VO> 
+                <Type>Fail</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+
+    <DialogueObject>
+        <Index>10</Index>  
+        <DialogueProgress>0</DialogueProgress>  
+        <RequiredProgress>  
+            <UnlockValue></UnlockValue>                    
+        </RequiredProgress>  
+
+        <Type>Free</Type> 
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character> 
+                <Line>Be more careful next time!</Line>
+                <VO>Loud</VO> 
+                <Type>Fail</Type> 
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+</Dialogues>
+

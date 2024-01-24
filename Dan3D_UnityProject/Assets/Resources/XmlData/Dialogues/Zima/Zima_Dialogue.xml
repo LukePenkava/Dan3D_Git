@@ -1,0 +1,155 @@
+﻿<Dialogues>
+    <DialogueObject>
+        <Index>1</Index>
+        <DialogueProgress>1</DialogueProgress>
+        <RequiredProgress>                            
+        </RequiredProgress>
+        <Type>Locked</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>The great Dangoru awakens! Thought I'd have to endure your snoring for an eternity!</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>2</Index>
+                <Character>This</Character>
+                <Line>It's been 3 weeks I could not wake you up!</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>3</Index>
+                <Character>Dangoru</Character>
+                <Line>Oh, good morning to you as well Zim.</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>4</Index>
+                <Character>Dangoru</Character>
+                <Line>Wait, did you say 3 weeks?</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>5</Index>
+                <Character>This</Character>
+                <Line>Well, to be honest, it has probably been much longer than that. That's how long I am awake</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>6</Index>
+                <Character>This</Character>
+                <Line>Look around us, the whole shrine is in ruins. And I have been stuck in my ethereal form the whole time. I can't materialize for some reason</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>7</Index>
+                <Character>Dangoru</Character>
+                <Line>Let's get you back into fur. But we will have to use shrine, I feel weak</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>8</Index>
+                <Character>Dangoru</Character>
+                <Line>I can't feel the forest. Something is very wrong Zim</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>9</Index>
+                <Character>This</Character>
+                <Line>Wait, you can't feel the forest? You are joking right?</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>10</Index>
+                <Character>This</Character>
+                <Line>You do know you are the forest's spirit right? Or you snored it out of your mind?</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>11</Index>
+                <Character>Dangoru</Character>
+                <Line>I know Zim, it makes me worried as well.</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>12</Index>
+                <Character>This</Character>
+                <Line>I can't leave the shrine for some reason, but I saw Basil coming here, bringing offerings for you</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>13</Index>
+                <Character>This</Character>
+                <Line>We can probably go ask her what's what.</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>14</Index>
+                <Character>Dangoru</Character>
+                <Line>Alright, let's do that. But first, let's get your fluff back.</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>15</Index>
+                <Character>This</Character>
+                <Line>That sounds good.</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+            <DialogueLine>
+                <Index>16</Index>
+                <Character>This</Character>
+                <Line>And Dangy... it's good to see you again.</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+    <DialogueObject>
+        <Index>2</Index>
+        <DialogueProgress>0</DialogueProgress>
+        <RequiredProgress>                            
+        </RequiredProgress>
+        <Type>Free</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>You are not planning to taking any naps anytime soon I hope?</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+     <DialogueObject>
+        <Index>3</Index>
+        <DialogueProgress>0</DialogueProgress>
+        <RequiredProgress>                            
+        </RequiredProgress>
+        <Type>Free</Type>
+        <Dialogue>
+            <DialogueLine>
+                <Index>1</Index>
+                <Character>This</Character>
+                <Line>Good to have you back Dangy!</Line>
+                <VO>Loud</VO>
+                <Type>Null</Type>
+            </DialogueLine>
+        </Dialogue>
+    </DialogueObject>
+</Dialogues>
