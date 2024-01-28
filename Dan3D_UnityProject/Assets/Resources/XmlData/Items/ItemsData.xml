@@ -20,6 +20,16 @@
         <description>Used as a crafting resource.</description>
         <amount>1</amount>
     </item>   
+     <item>
+        <name>Iron</name>
+        <title>Iron</title>
+        <ItemTags>
+            <Tag>Resource</Tag>
+        </ItemTags>
+        <UseFunctions></UseFunctions>
+        <description>Used as a crafting resource.</description>
+        <amount>1</amount>
+    </item> 
     <item>        
         <name>Everflour</name>        
         <title>Everflour</title>
@@ -75,6 +85,30 @@
         </ItemTags>     
         <UseFunctions></UseFunctions>
         <description>A symphony of flavors that tastes like playful whisper of wildflower meadows.</description>
+        <amount>1</amount>
+    </item>    
+
+
+<!-- WEAPONS -->      
+    <item>
+        <name>FryingPan</name>
+        <title>Frying Pan</title>
+        <ItemTags>
+            <Tag>Weapon</Tag>
+        </ItemTags>     
+        <UseFunctions></UseFunctions>
+        <description>Weapon</description>
+        <amount>1</amount>
+    </item>  
+
+    <item>
+        <name>Axe</name>
+        <title>Axe</title>
+        <ItemTags>
+            <Tag>Weapon</Tag>
+        </ItemTags>     
+        <UseFunctions></UseFunctions>
+        <description>Weapon</description>
         <amount>1</amount>
     </item>    
 

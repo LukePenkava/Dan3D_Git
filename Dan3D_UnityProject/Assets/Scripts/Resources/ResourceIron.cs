@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceTree : Resource
+public class ResourceIron : Resource
 {
     public override void Collect()
     {

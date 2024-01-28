@@ -81,11 +81,19 @@ public class PlayerManager : MonoBehaviour
     //Attack   
     public GameObject axe;
     public GameObject axeCollider;
-     public GameObject weapon;
+    public GameObject weapon;
     public GameObject weaponCollider;
+
+    bool canDoAction = false;
+    float actionTimer = 0f;
+    float actionInterval = 1.0f;
 
     //Action Buttons
     public Image actionButton1_timerVisual;
+
+    public Image actionButton2_Visual;
+    public Sprite spriteFryingPan;
+    public Sprite spriteAxe;
 
     // void OnEnable() {
     //     AreaManager.AreaLoaded += AreaLoadedInit;
@@ -154,6 +162,16 @@ public class PlayerManager : MonoBehaviour
             {
                 amber.canBeActivated = true;
                 actionButton1_timerVisual.fillAmount = 0f;
+            }
+        }
+
+        //Attacking
+        if (canDoAction == false)
+        {
+            actionTimer += Time.deltaTime;
+            if (actionTimer >= actionInterval)
+            {
+                canDoAction = true;
             }
         }
     }
@@ -381,14 +399,25 @@ public class PlayerManager : MonoBehaviour
     public void Action1()
     {
         if (playerState.ActiveState == State.States.Interacting) { return; }
+        if (canDoAction == false) { return; }
 
         playerState.ActiveState = State.States.Attacking;
         anim.SetBool(animID_MoveEnabled, false);
         anim.SetTrigger(animID_Attack);
         StartCoroutine(ActivateCollider());
 
-        axe.SetActive(true);
-        //weapon.SetActive(true);
+        if (baseData.selectedWeapon == Items.ItemName.FryingPan)
+        {
+            weapon.SetActive(true);
+        }
+
+        if (baseData.selectedWeapon == Items.ItemName.Axe)
+        {
+            axe.SetActive(true);
+        }
+
+        actionTimer = 0f;
+        canDoAction = false;
     }
 
     public void ActionButton(int buttonIndex)
@@ -405,6 +434,13 @@ public class PlayerManager : MonoBehaviour
                 amber.canBeActivated = false;
                 actionButton1_timerVisual.fillAmount = 1f;
             }
+        }
+
+        if (buttonIndex == 2)
+        {
+            baseData.selectedWeapon = baseData.selectedWeapon == Items.ItemName.FryingPan ? Items.ItemName.Axe : Items.ItemName.FryingPan;
+
+            actionButton2_Visual.sprite = baseData.selectedWeapon == Items.ItemName.FryingPan ? spriteFryingPan : spriteAxe;
         }
     }
 
@@ -425,6 +461,8 @@ public class PlayerManager : MonoBehaviour
     {
         playerState.ActiveState = State.States.Idle;
         anim.SetBool(animID_MoveEnabled, true);
+
         weapon.SetActive(false);
+        axe.SetActive(false);
     }
 }

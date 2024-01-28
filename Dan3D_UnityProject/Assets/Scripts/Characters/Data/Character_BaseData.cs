@@ -27,6 +27,8 @@ public class Character_BaseData : MonoBehaviour
         get { return tradeValues; }
     }
 
+    public Items.ItemName selectedWeapon { get; set; } = Items.ItemName.FryingPan;
+
     //Send to inventory base data and use only these items as source of truth. This now does not require access to inventory to manage characters items
     //Set amount of slots in inventory from here
     //send by refernce

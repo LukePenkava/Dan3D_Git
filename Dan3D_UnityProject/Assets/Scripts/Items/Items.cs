@@ -11,6 +11,7 @@ public class Items
         //General Tags
         Resource,
         Food,
+        Weapon,
         Potion,        
         Recipe,
         Blueprint,
@@ -36,6 +37,7 @@ public class Items
         //Resources
         Wood,
         Stone,
+        Iron,
         Everflour,
         CrunchyCrystal,
 
@@ -43,6 +45,10 @@ public class Items
         Noodles,
         MysticMunchies,
         Offerings,
+
+        //Weapon,
+        FryingPan,
+        Axe,
 
         //Action Items
         Amber,

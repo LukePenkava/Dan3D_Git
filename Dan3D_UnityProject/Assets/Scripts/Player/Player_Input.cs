@@ -37,12 +37,13 @@ public class Player_Input : MonoBehaviour
         input.Player.Sprint.performed += OnSprintPerformed;
         input.Player.Jump.performed += OnJumpPerformed;
         input.Player.Interact.performed += OnInteractPerformed;
-        input.Player.Action1.performed += OnAction1Performed;
+        input.Player.Action1.performed += OnAction1Performed;        
         input.Player.Inventory.performed += OnInventoryPerformed;
         input.Player.UINavigation.performed += OnUINavigationPerformed;
         input.Player.Menu.performed += OnUIMenuPerformed;
 
         input.Player.ActionButton1.performed += OnActionButton1Performed;
+        input.Player.ActionButton2.performed += OnActionButton2Performed;
     }
 
     void OnDisable()
@@ -59,6 +60,7 @@ public class Player_Input : MonoBehaviour
         input.Player.Menu.performed -= OnUIMenuPerformed;
 
         input.Player.ActionButton1.performed -= OnActionButton1Performed;
+        input.Player.ActionButton2.performed -= OnActionButton2Performed;
     }
 
     #region InputEvents
@@ -178,9 +180,18 @@ public class Player_Input : MonoBehaviour
         }
     }
 
+    void OnActionButton2Performed(InputAction.CallbackContext context)
+    {
+        SetInputDevice(context.control.device.displayName);
+
+        if (context.ReadValue<float>() == 1f)
+        {
+            playerManager.ActionButton(2);
+        }
+    }
+
     void SetInputDevice(string device)
     {
-
         Director.InputDevices newDevice = device == "Keyboard" ? Director.InputDevices.Keyboard : Director.InputDevices.Controller;
 
         if (newDevice != lastInputDevice)

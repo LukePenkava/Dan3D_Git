@@ -27,14 +27,12 @@ Navigation system to follow Dangoru
 +Save Dialogue,( save character data ), trigger next dialogue, random one ( unlock random dialogue after firest one was completed )
 +Icon for Amber
 +Timer for Amber, greyed out Icon
-
 +Test attack animation
 +Collision with tree
 +Add Item to the player's inventory
--Timer on attack/axe to not spam it
--limited amount of resource, then tree falls ( deleted for now )
--Minigame for right timing to get two 
--Swap weapon/axe with action button 2
++Timer on attack/axe to not spam it
++limited amount of resource, then tree falls ( deleted for now )
++Swap weapon/axe with action button 2
 
 -Start Dialogue when Dangoru enters box about him waking up, what happened and him needing to get his strenght back and giving back Zima his physical body. Probably Dan should suggest that, ask him how long he has been in fairy form.
 -Dialogue triggers, bounding box, when player enters and conditions are met ( ie dialogue 1 was not finished yet ), speak to Dangoru this dialogue
